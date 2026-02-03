@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Amis de 1789 - Association d'Histoire Révolutionnaire</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rouge-revolution: #8B2635;
+            --or-ancien: #D4AF37;
+            --bleu-nuit: #1B263B;
+            --papier-age: #F5F1E8;
+            --encre-noire: #2C241B;
+            --tricolor-red: #C41E3A;
+            --tricolor-white: #FFFFFF;
+            --tricolor-blue: #002654;
+            --vert-amic: #2E5A2E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Libre Baskerville', serif;
+            background-color: var(--papier-age);
+            color: var(--encre-noire);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse-gold {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Modal/Overlay */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(27, 38, 59, 0.95);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 5rem;
+        }
+
+        .modal-content {
+            background: var(--papier-age);
+            max-width: 800px;
+            width: 100%;
+            border-radius: 8px;
+            border: 3px solid var(--or-ancien);
+            position: relative;
+            animation: fadeInUp 0.5s;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--rouge-revolution);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--bleu-nuit), #0f1419);
+            color: var(--or-ancien);
+            padding: 2rem;
+            border-bottom: 3px solid var(--or-ancien);
+        }
+
+        .modal-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--bleu-nuit) 0%, #0f1419 100%);
+            color: var(--papier-age);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 3px solid var(--or-ancien);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--or-ancien);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover { transform: scale(1.05); }
+
+        .logo-icon {
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--papier-age);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--or-ancien);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after { width: 100%; }
+        nav a:hover { color: var(--or-ancien); }
+
+        .btn-member {
+            background: var(--rouge-revolution);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: 2px solid var(--rouge-revolution);
+            transition: all 0.3s;
+        }
+
+        .btn-member:hover {
+            background: transparent;
+            color: var(--rouge-revolution);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--or-ancien);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            margin-top: 80px;
+            height: 90vh;
+            background: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.8)), 
+                        url('https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--papier-age);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 span {
+            color: var(--or-ancien);
+            display: block;
+            font-size: 1.2em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--rouge-revolution);
+            color: white;
+            border-color: var(--rouge-revolution);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--rouge-revolution);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--or-ancien);
+            border-color: var(--or-ancien);
+        }
+
+        .btn-secondary:hover {
+            background: var(--or-ancien);
+            color: var(--bleu-nuit);
+            transform: translateY(-2px);
+        }
+
+        /* Sections générales */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--bleu-nuit);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--or-ancien), transparent);
+            margin: 1rem auto 0;
+        }
+
+        /* Espace René Levasseur - Section spéciale */
+        .levasseur-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: var(--papier-age);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .levasseur-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23D4AF37" stroke-width="0.5" opacity="0.1"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.3;
+        }
+
+        .levasseur-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .levasseur-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .levasseur-portrait {
+            background: linear-gradient(135deg, #2C3E50, #34495E);
+            border: 5px solid var(--or-ancien);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .portrait-circle {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border: 4px solid var(--or-ancien);
+        }
+
+        .levasseur-text h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--or-ancien);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .levasseur-subtitle {
+            color: var(--rouge-revolution);
+            font-style: italic;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .timeline {
+            border-left: 3px solid var(--or-ancien);
+            padding-left: 2rem;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--rouge-revolution);
+            border-radius: 50%;
+            border: 2px solid var(--or-ancien);
+        }
+
+        .timeline-date {
+            color: var(--or-ancien);
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Calendrier interactif */
+        .calendar-section {
+            background: white;
+        }
+
+        .calendar-container {
+            background: var(--papier-age);
+            border: 3px solid var(--bleu-nuit);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--or-ancien);
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .calendar-nav button {
+            background: var(--bleu-nuit);
+            color: var(--or-ancien);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            transition: all 0.3s;
+        }
+
+        .calendar-nav button:hover {
+            background: var(--rouge-revolution);
+            color: white;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+
+        .calendar-day-header {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            color: var(--bleu-nuit);
+            padding: 0.5rem;
+            border-bottom: 2px solid var(--or-ancien);
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            min-height: 80px;
+        }
+
+        .calendar-day:hover {
+            background: var(--papier-age);
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .calendar-day.other-month {
+            color: #ccc;
+            background: #f9f9f9;
+        }
+
+        .calendar-day.today {
+            border: 2px solid var(--rouge-revolution);
+            background: rgba(139, 38, 53, 0.1);
+        }
+
+        .day-number {
+            font-weight: bold;
+            color: var(--bleu-nuit);
+            margin-bottom: 0.3rem;
+        }
+
+        .event-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--rouge-revolution);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 2px;
+        }
+
+        .event-label {
+            font-size: 0.7rem;
+            color: var(--rouge-revolution);
+            line-height: 1.2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Espace Membre Preview */
+        .member-section {
+            background: linear-gradient(to bottom, #e8e4d9, var(--papier-age));
+        }
+
+        .member-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--rouge-revolution), var(--or-ancien));
+        }
+
+        .member-card:hover {
+            border-color: var(--or-ancien);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .member-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .member-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--bleu-nuit);
+            margin-bottom: 1rem;
+        }
+
+        .locked {
+            position: relative;
+        }
+
+        .locked::after {
+            content: '🔒';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+
+        /* Formulaires */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--bleu-nuit);
+            font-family: 'Cinzel', serif;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--or-ancien);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Espace Association des Amis */
+        .friends-section {
+            background: linear-gradient(135deg, var(--vert-amic) 0%, #1a3a1a 100%);
+            color: var(--papier-age);
+            position: relative;
+        }
+
+        .friends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .friend-card {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .friend-card:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--or-ancien);
+            transform: translateY(-5px);
+        }
+
+        .friend-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--or-ancien);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .friend-stat {
+            font-size: 2rem;
+            color: var(--or-ancien);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .levasseur-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+            .mobile-menu { display: block; }
+            .calendar-grid { font-size: 0.8rem; }
+            .calendar-day { min-height: 60px; }
+        }
+
+        /* Utilitaires */
+        .text-center { text-align: center; }
+        .mt-2 { margin-top: 2rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--or-ancien);
+            color: var(--bleu-nuit);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .alert-info {
+            background: rgba(0, 38, 84, 0.1);
+            border-left: 4px solid var(--tricolor-blue);
+            color: var(--bleu-nuit);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Modal Connexion -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('loginModal')">&times;</button>
+            <div class="modal-header">
+                <h2>⚜ Espace Membre</h2>
+                <p>Accédez à vos contenus exclusifs</p>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div style="flex: 1; padding-right: 2rem; border-right: 2px solid #ddd;">
+                        <h3 style="font-family: 'Cinzel', serif; margin-bottom: 1rem; color: var(--bleu-nuit);">Connexion</h3>
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" placeholder="votre@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Mot de passe</label>
+                                <input type="password" placeholder="••••••••" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Se connecter</button>
+                            <p style="margin-top: 1rem; font-size: 0.9rem; text-align: center;">
+                                <a href="#" style="color: var(--rouge-revolution);">Mot de passe oublié ?</a>
+                            </p>
+                        </form>
+                    </div>
+                    <div style="flex: 1; padding-left: 2rem;">
+                        <h3 style="font-family: 'Cinzel', serif; margin-bottom: 1rem; color: var(--bleu-nuit);">Devenir Membre</h3>
+                        <p style="margin-bottom: 1rem;">Rejoignez notre association et bénéficiez de :</p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                            <li>Accès à l'intégralité des conférences en replay</li>
+                            <li>Téléchargement des actes de conférences (PDF)</li>
+                            <li>Forum privé avec les historiens</li>
+                            <li>Réductions sur la librairie (20%)</li>
+                            <li>Newsletter mensuelle exclusive</li>
+                            <li>Invitation aux AG et événements privés</li>
+                        </ul>
+                        <button class="btn btn-secondary" style="width: 100%;" onclick="showSection('adhesion')">Adhérer maintenant</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Calendrier Event -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('eventModal')">&times;</button>
+            <div class="modal-header" style="background: var(--rouge-revolution);">
+                <h2 id="eventTitle">Détails de l'événement</h2>
+            </div>
+            <div class="modal-body" id="eventDetails">
+                <!-- Contenu dynamique -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">
+                <span class="logo-icon">⚜</span>
+                <span>Les Amis de 1789</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#levasseur">René Levasseur</a></li>
+                    <li><a href="#calendrier">Calendrier</a></li>
+                    <li><a href="#conferences">Conférences</a></li>
+                    <li><a href="#librairie">Librairie</a></li>
+                    <li><a href="#amis">Espace Amis</a></li>
+                    <li><a href="#" class="btn-member" onclick="openModal('loginModal')">Espace Membre</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                <span>1789</span>
+                L'Histoire Vive de la Révolution Française
+            </h1>
+            <p class="hero-subtitle">"Le peuple uni ne sera jamais vaincu"</p>
+            <div class="hero-cta">
+                <a href="#calendrier" class="btn btn-primary">Calendrier des Conférences</a>
+                <a href="#levasseur" class="btn btn-secondary">Espace René Levasseur</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Espace René Levasseur -->
+    <section id="levasseur" class="levasseur-section">
+        <div class="levasseur-content">
+            <h2 class="section-title" style="color: var(--papier-age);">Espace René Levasseur</h2>
+            <p class="text-center" style="margin-bottom: 3rem; opacity: 0.9;">
+                Conventionnel de la Sarthe (1747-1834) • Régicide • Abolitionniste de l'esclavage
+            </p>
+            
+            <div class="levasseur-grid">
+                <div class="levasseur-portrait">
+                    <div class="portrait-circle">👤</div>
+                    <h3 style="font-family: 'Cinzel', serif; color: var(--or-ancien); margin-bottom: 0.5rem;">René Levasseur</h3>
+                    <p style="font-style: italic; margin-bottom: 1rem;">"Levasseur de la Sarthe"</p>
+                    <div style="text-align: left; font-size: 0.9rem; line-height: 1.8;">
+                        <p><strong>Né :</strong> 27 mai 1747 au Mans</p>
+                        <p><strong>Décédé :</strong> 18 septembre 1834</p>
+                        <p><strong>Profession :</strong> Chirurgien-accoucheur</p>
+                        <p><strong>Mandat :</strong> Conventionnel (1792-1795)</p>
+                    </div>
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(212,175,55,0.3);">
+                        <span class="badge">Montagnard</span>
+                        <span class="badge">Régicide</span>
+                        <span class="badge">Abolitionniste</span>
+                    </div>
+                </div>
+
+                <div class="levasseur-text">
+                    <h3>Un Conventionnel de la Sarthe</h3>
+                    <p class="levasseur-subtitle">"Un éternel prédicateur de révoltes"</p>
+                    
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">
+                        René Levasseur fut l'un des figures marquantes de la Convention nationale. Chirurgien-accoucheur de formation, 
+                        il fut élu député de la Sarthe le 6 septembre 1792 et siégea à la Montagne aux côtés de Robespierre, 
+                        dont il fut l'ami et le fidèle partisan.
+                    </p>
+
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">
+                        Le 4 février 1794, il participa activement aux débats menant à l'abolition de l'esclavage dans les colonies françaises. 
+                        Cet acte majeur de la Révolution, trop souvent oublié, fait de lui l'un des pères de l'abolitionnisme français.
+                    </p>
+
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">1792</div>
+                            <p>Élu à la Convention nationale par le département de la Sarthe. Vote pour la mort de Louis XVI.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">1793</div>
+                            <p>Propose l'établissement du Tribunal révolutionnaire. Combat les Girondins lors des journées de mai-juin.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">4 février 1794</div>
+                            <p><strong>Décret d'abolition de l'esclavage :</strong> "Je demande que la Convention décrète dès ce moment que l'esclavage est aboli sur tout le territoire de la République."</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">1794-1795</div>
+                            <p>Opposé à la réaction thermidorienne. Arrêté après l'insurrection de germinal an III, bénéficie de l'amnistie.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">1829-1831</div>
+                            <p>Publication de ses Mémoires en 4 volumes, œuvre majeure pour l'histoire de la Convention.</p>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info" style="margin-top: 2rem; background: rgba(255,255,255,0.1); border-left-color: var(--or-ancien); color: var(--papier-age);">
+                        <strong>📚 Ressources exclusives :</strong> Accédez aux Mémoires de René Levasseur (édition originale numérisée), 
+                        sa correspondance, et les études historiques récentes sur son action abolitionniste dans l'<a href="#" onclick="openModal('loginModal')" style="color: var(--or-ancien);">espace membre</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendrier Interactif -->
+    <section id="calendrier" class="calendar-section">
+        <h2 class="section-title">Calendrier Interactif</h2>
+        <p class="text-center" style="margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Consultez nos conférences, colloques et événements commémoratifs. Cliquez sur une date pour voir les détails.
+        </p>
+        
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <h3 style="font-family: 'Cinzel', serif; color: var(--bleu-nuit);" id="currentMonth">Février 2026</h3>
+                <div class="calendar-nav">
+                    <button onclick="changeMonth(-1)">◀ Précédent</button>
+                    <button onclick="resetMonth()">Aujourd'hui</button>
+                    <button onclick="changeMonth(1)">Suivant ▶</button>
+                </div>
+            </div>
+            
+            <div class="calendar-grid" id="calendarGrid">
+                <!-- Généré par JavaScript -->
+            </div>
+            
+            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 2px solid var(--or-ancien); display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="width: 12px; height: 12px; background: var(--rouge-revolution); border-radius: 50%; display: inline-block;"></span>
+                    <span>Conférence publique</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="width: 12px; height: 12px; background: var(--bleu-nuit); border-radius: 50%; display: inline-block;"></span>
+                    <span>Événement membre</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="width: 12px; height: 12px; background: var(--or-ancien); border-radius: 50%; display: inline-block;"></span>
+                    <span>Commémoration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Espace Membre Preview -->
+    <section id="membre" class="member-section">
+        <h2 class="section-title">Espace Membre</h2>
+        <p class="text-center" style="max-width: 700px; margin: -2rem auto 3rem;">
+            Rejoignez notre association pour accéder à des contenus exclusifs et participer activement à la vie de notre communauté d'historiens.
+        </p>
+        
+        <div class="member-features">
+            <div class="member-card locked" onclick="openModal('loginModal')">
+                <div class="member-icon">📹</div>
+                <h3>Conférences Replay</h3>
+                <p>Accédez à l'intégralité de nos conférences filmées depuis 2018.</p>
+            </div>
+            
+            <div class="member-card locked" onclick="openModal('loginModal')">
+                <div class="member-icon">📚</div>
+                <h3>Bibliothèque Numérique</h3>
+                <p>Téléchargez les actes de conférences, thèses et documents rares.</p>
+            </div>
+            
+            <div class="member-card locked" onclick="openModal('loginModal')">
+                <div class="member-icon">💬</div>
+                <h3>Forum des Historiens</h3>
+                <p>Échangez avec nos conférenciers et membres sur les débats historiques.</p>
+            </div>
+            
+            <div class="member-card locked" onclick="openModal('loginModal')">
+                <div class="member-icon">🏛</div>
+                <h3>Visites Exclusives</h3>
+                <p>Participez à des visites guidées privées (Archives nationales, etc.).</p>
+            </div>
+        </div>
+
+        <div class="text-center mt-2">
+            <button class="btn btn-primary" onclick="openModal('loginModal')" style="font-size: 1.1rem; padding: 1rem 3rem;">
+                Rejoindre l'association
+            </button>
+            <p style="margin-top: 1rem; font-style: italic; color: #666;">
+                Déjà membre ? <a href="#" onclick="openModal('loginModal')" style="color: var(--rouge-revolution);">Connectez-vous</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Espace Association des Amis -->
+    <section id="amis" class="friends-section">
+        <h2 class="section-title" style="color: var(--papier-age);">Espace Association des Amis</h2>
+        <p class="text-center" style="margin-bottom: 3rem; opacity: 0.9; max-width: 800px; margin-left: auto; margin-right: auto;">
+            Notre réseau de sympathisants et de correspondants locaux à travers toute la France. 
+            Rejoignez-nous pour organiser des événements dans votre région.
+        </p>
+
+        <div class="friends-grid">
+            <div class="friend-card">
+                <h3>🗞 Lettres d'information</h3>
+                <p>Recevez notre lettre trimestrielle avec les dernières découvertes historiques, les comptes-rendus d'AG et les appels à contribution.</p>
+                <div class="friend-stat">2,400+</div>
+                <p>Amis inscrits à la newsletter</p>
+            </div>
+
+            <div class="friend-card">
+                <h3>🤝 Correspondants Locaux</h3>
+                <p>Devenez correspondant local pour votre département. Organisez des rencontres, signalez les événements locaux, participez à nos enquêtes historiques.</p>
+                <div class="friend-stat">45</div>
+                <p>Départements couverts</p>
+            </div>
+
+            <div class="friend-card">
+                <h3>📖 Prêt de Livres</h3>
+                <p>Accédez à notre bibliothèque circulante. Les amis peuvent emprunter nos ouvrages de référence entre conférences.</p>
+                <div class="friend-stat">800+</div>
+                <p>Ouvrages disponibles</p>
+            </div>
+
+            <div class="friend-card">
+                <h3>🎓 Cours d'été</h3>
+                <p>Participez à nos universités d'été annuelles. Sessions de formation intensive sur des thèmes spécifiques de la Révolution.</p>
+                <div style="margin-top: 1rem;">
+                    <span class="badge" style="background: var(--rouge-revolution); color: white;">Prochain : Juillet 2026</span>
+                </div>
+            </div>
+
+            <div class="friend-card" style="grid-column: 1 / -1;">
+                <h3>🗺 Carte des Amis</h3>
+                <p style="margin-bottom: 1rem;">Visualisez notre réseau national et trouvez des amis près de chez vous.</p>
+                <div style="background: rgba(0,0,0,0.3); height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 2px dashed var(--or-ancien);">
+                    <p style="font-style: italic;">[Carte interactive des correspondants locaux - Connectez-vous pour voir les coordonnées]</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-2">
+            <button class="btn btn-secondary" style="font-size: 1.1rem;">
+                Devenir Ami de 1789 (Gratuit)
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--bleu-nuit); color: var(--papier-age); padding: 3rem 2rem 1rem; border-top: 3px solid var(--or-ancien);">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 2rem;">
+            <div>
+                <h4 style="font-family: 'Cinzel', serif; color: var(--or-ancien); margin-bottom: 1rem;">Les Amis de 1789</h4>
+                <p style="line-height: 1.8; opacity: 0.9;">
+                    Association dédiée à l'étude et à la transmission de l'histoire de la Révolution française de 1789.
+                </p>
+            </div>
+            <div>
+                <h4 style="font-family: 'Cinzel', serif; color: var(--or-ancien); margin-bottom: 1rem;">Liens Rapides</h4>
+                <ul style="list-style: none; line-height: 2;">
+                    <li><a href="#levasseur" style="color: var(--papier-age); text-decoration: none;">Espace René Levasseur</a></li>
+                    <li><a href="#calendrier" style="color: var(--papier-age); text-decoration: none;">Calendrier</a></li>
+                    <li><a href="#membre" style="color: var(--papier-age); text-decoration: none;">Espace Membre</a></li>
+                    <li><a href="#amis" style="color: var(--papier-age); text-decoration: none;">Association des Amis</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="font-family: 'Cinzel', serif; color: var(--or-ancien); margin-bottom: 1rem;">Contact</h4>
+                <p>📧 contact@lesamisde1789.fr</p>
+                <p>📞 01 23 45 67 89</p>
+                <p>📍 12 Rue de la Révolution, 75001 Paris</p>
+            </div>
+        </div>
+        <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(212,175,55,0.3); opacity: 0.6;">
+            <p>&copy; 2026 Les Amis de 1789 - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion des Modals
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fermer modal en cliquant à l'extérieur
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Calendrier Interactif
+        let currentDate = new Date(2026, 1, 1); // Février 2026
+        
+        const events = {
+            '2026-02-15': { title: 'La Prise de la Bastille', type: 'public', location: 'Lyon', time: '14h30' },
+            '2026-02-22': { title: 'Robespierre revisité', type: 'public', location: 'Nantes', time: '19h00' },
+            '2026-03-08': { title: 'Les Femmes de la Révolution', type: 'public', location: 'Strasbourg', time: '15h00' },
+            '2026-02-04': { title: 'Commémoration Abolition Esclavage', type: 'commemoration', location: 'Paris', time: '10h00' },
+            '2026-02-20': { title: 'Réunion Membres - AG', type: 'member', location: 'Paris', time: '18h00' }
+        };
+
+        function generateCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const monthNames = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+            
+            document.getElementById('currentMonth').textContent = `${monthNames[month]} ${year}`;
+            
+            const grid = document.getElementById('calendarGrid');
+            grid.innerHTML = '';
+            
+            // Jours de la semaine
+            const days = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+            days.forEach(day => {
+                const div = document.createElement('div');
+                div.className = 'calendar-day-header';
+                div.textContent = day;
+                grid.appendChild(div);
+            });
+            
+            // Cases vides avant le 1er
+            for (let i = 0; i < (firstDay === 0 ? 6 : firstDay - 1); i++) {
+                const div = document.createElement('div');
+                div.className = 'calendar-day other-month';
+                grid.appendChild(div);
+            }
+            
+            // Jours du mois
+            const today = new Date();
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const event = events[dateStr];
+                
+                const div = document.createElement('div');
+                div.className = 'calendar-day';
+                
+                if (year === today.getFullYear() && month === today.getMonth() && day === today.getDate()) {
+                    div.classList.add('today');
+                }
+                
+                div.innerHTML = `<div class="day-number">${day}</div>`;
+                
+                if (event) {
+                    const dotColor = event.type === 'public' ? 'var(--rouge-revolution)' : 
+                                   event.type === 'member' ? 'var(--bleu-nuit)' : 'var(--or-ancien)';
+                    div.innerHTML += `
+                        <div style="margin-top: 0.3rem;">
+                            <span class="event-dot" style="background: ${dotColor};"></span>
+                            <div class="event-label">${event.title}</div>
+                        </div>
+                    `;
+                    div.onclick = () => showEventDetails(dateStr, event);
+                    div.style.cursor = 'pointer';
+                }
+                
+                grid.appendChild(div);
+            }
+        }
+
+        function changeMonth(delta) {
+            currentDate.setMonth(currentDate.getMonth() + delta);
+            generateCalendar();
+        }
+
+        function resetMonth() {
+            currentDate = new Date();
+            generateCalendar();
+        }
+
+        function showEventDetails(date, event) {
+            const dateObj = new Date(date);
+            const dateStr = dateObj.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+            
+            document.getElementById('eventTitle').textContent = event.title;
+            document.getElementById('eventDetails').innerHTML = `
+                <div style="margin-bottom: 1.5rem;">
+                    <p style="font-size: 1.2rem; color: var(--rouge-revolution); margin-bottom: 1rem;">📅 ${dateStr}</p>
+                    <p><strong>⏰ Heure :</strong> ${event.time}</p>
+                    <p><strong>📍 Lieu :</strong> ${event.location}</p>
+                    <p><strong>🎫 Type :</strong> ${event.type === 'public' ? 'Conférence publique' : event.type === 'member' ? 'Événement membres uniquement' : 'Commémoration officielle'}</p>
+                </div>
+                <div style="background: var(--papier-age); padding: 1rem; border-radius: 4px; margin-bottom: 1.5rem;">
+                    <p>Description de l'événement et informations pratiques...</p>
+                </div>
+                ${event.type === 'member' ? 
+                    '<div class="alert alert-info">Cet événement est réservé aux membres. <a href="#" onclick="openModal(\'loginModal\')" style="color: var(--rouge-revolution);">Connectez-vous</a> pour vous inscrire.</div>' :
+                    `<button class="btn btn-primary" onclick="alert('Inscription ouverte !')">S'inscrire à cette conférence</button>`
+                }
+            `;
+            openModal('eventModal');
+        }
+
+        // Formulaires
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Connexion simulée ! Dans la version finale, ceci connecterait à votre espace membre.');
+            closeModal('loginModal');
+        });
+
+        // Menu mobile
+        function toggleMobileMenu() {
+            const nav = document.querySelector('nav ul');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            nav.style.position = 'absolute';
+            nav.style.top = '100%';
+            nav.style.left = '0';
+            nav.style.right = '0';
+            nav.style.background = 'var(--bleu-nuit)';
+            nav.style.flexDirection = 'column';
+            nav.style.padding = '1rem';
+        }
+
+        // Initialisation
+        generateCalendar();
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
