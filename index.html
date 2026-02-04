@@ -31,7 +31,6 @@
             overflow-x: hidden;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -150,7 +149,6 @@
             align-items: center;
         }
 
-        /* Logo SARF */
         .logo {
             font-family: 'Cinzel', serif;
             font-size: 1.3rem;
@@ -454,7 +452,7 @@
             margin-bottom: 1rem;
         }
 
-        /* Carrousel Librairie */
+        /* Carrousel Librairie avec VRAIES IMAGES */
         .bookstore {
             background: white;
             overflow: hidden;
@@ -462,7 +460,7 @@
 
         .carousel-container {
             position: relative;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -490,7 +488,7 @@
         }
 
         .carousel-item {
-            flex: 0 0 250px;
+            flex: 0 0 280px;
             scroll-snap-align: start;
             background: var(--papier-age);
             border-radius: 8px;
@@ -509,7 +507,7 @@
 
         .carousel-cover {
             width: 100%;
-            height: 350px;
+            height: 400px;
             background-size: cover;
             background-position: center;
             border-radius: 4px;
@@ -585,7 +583,7 @@
             opacity: 0.5;
         }
 
-        /* Footer */
+        /* Footer ROUGE */
         footer {
             background: linear-gradient(135deg, var(--rouge-revolution) 0%, var(--rouge-fonce) 100%);
             color: var(--papier-age);
@@ -625,6 +623,7 @@
             nav ul { display: none; }
             .mobile-menu { display: block; }
             .section-title-manuscrit { font-size: 2.5rem; }
+            .carousel-item { flex: 0 0 240px; }
         }
     </style>
 </head>
@@ -787,84 +786,113 @@
         </div>
     </section>
 
-    <!-- Librairie - Carrousel avec vraies images -->
+    <!-- Librairie - Carrousel avec TOUTES les vraies images -->
     <section id="librairie" class="bookstore">
         <h2 class="section-title">Nos publications (2€)</h2>
         <p style="text-align: center; margin-bottom: 2rem;">Les livrets des conférences - 37 numéros disponibles</p>
         
         <div class="carousel-container">
             <div class="carousel" id="bookCarousel">
-                <!-- Les images des livrets seront insérées ici -->
-                <!-- Exemple avec placeholder - remplacez par vos liens Imgur -->
-                <div class="carousel-item" onclick="openLivretModal('N° 05 - Cinéma', 'La Révolution française à travers le cinéma français et anglo-saxon. Extrait de films : La Marseillaise, Napoléon (Gance), Les Deux Orphelines, Le règne de la Terreur, Marie-Antoinette...', 'https://i.imgur.com/w7oSesb.png')">
-                    <div class="carousel-cover" style="background: linear-gradient(135deg, #8B4513, #D2691E); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
-                        N° 05<br>La Révolution française à travers le cinéma
-                    </div>
+                <!-- Toutes les images des livrets -->
+                <div class="carousel-item" onclick="openLivretModal('N° 05 - La Révolution française à travers le cinéma', 'Extrait de films : La Marseillaise, Napoléon (Gance), Les Deux Orphelines, Le règne de la Terreur, Marie-Antoinette...', 'https://i.imgur.com/bEc5s5H.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/bEc5s5H.jpeg') center/cover;"></div>
                     <div class="carousel-title">N° 05 - Cinéma</div>
                     <div class="carousel-price">2,00 €</div>
                 </div>
 
-                <div class="carousel-item" onclick="openLivretModal('N° 06 - Doléances', 'Le Cahier de doléances de Saint-Michel de Chavaigne. Que sont devenues nos doléances ?', 'https://i.imgur.com/w7oSesb.png')">
-                    <div class="carousel-cover" style="background: linear-gradient(135deg, #4A0E0E, #F4A460); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
-                        N° 06<br>Le Cahier de doléances
-                    </div>
+                <div class="carousel-item" onclick="openLivretModal('N° 06 - Le Cahier de doléances', 'Le Cahier de doléances de Saint-Michel de Chavaigne. Que sont devenues nos doléances ?', 'https://i.imgur.com/IU7nNqL.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/IU7nNqL.jpeg') center/cover;"></div>
                     <div class="carousel-title">N° 06 - Doléances</div>
                     <div class="carousel-price">2,00 €</div>
                 </div>
 
-                <div class="carousel-item" onclick="openLivretModal('N° 07 - République', '220e anniversaire de la République. Rassemblement et plantation de l\'Arbre de la Liberté.', 'https://i.imgur.com/w7oSesb.png')">
-                    <div class="carousel-cover" style="background: linear-gradient(135deg, #2C3E50, #4A6741); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
-                        N° 07<br>220e anniversaire de la République
-                    </div>
+                <div class="carousel-item" onclick="openLivretModal('N° 07 - 220e anniversaire de la République', 'Rassemblement et plantation de l\'Arbre de la Liberté. Programme du 18 septembre 1892 : Repas champêtre, défilé au son des tambours...', 'https://i.imgur.com/lRdriwi.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/lRdriwi.jpeg') center/cover;"></div>
                     <div class="carousel-title">N° 07 - République</div>
                     <div class="carousel-price">2,00 €</div>
                 </div>
 
-                <div class="carousel-item" onclick="openLivretModal('N° 08 - Babeuf', 'Babeuf - De l\'utopie à la conspiration des Égaux. Expériences d\'une vie et engagement collectif.', 'https://i.imgur.com/w7oSesb.png')">
-                    <div class="carousel-cover" style="background: linear-gradient(135deg, #8E44AD, #C0392B); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
-                        N° 08<br>Babeuf
-                    </div>
+                <div class="carousel-item" onclick="openLivretModal('N° 08 - Babeuf', 'Babeuf - De l\'utopie à la conspiration des Égaux. Expériences d\'une vie et engagement collectif.', 'https://i.imgur.com/0TDyQjo.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/0TDyQjo.jpeg') center/cover;"></div>
                     <div class="carousel-title">N° 08 - Babeuf</div>
                     <div class="carousel-price">2,00 €</div>
                 </div>
 
-                <div class="carousel-item" onclick="openLivretModal('N° 09 - Femmes', 'Les femmes en Révolution. Les femmes-patriotes et les femmes-soldats en Sarthe.', 'https://i.imgur.com/w7oSesb.png')">
-                    <div class="carousel-cover" style="background: linear-gradient(135deg, #D35400, #F39C12); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
-                        N° 09<br>Les femmes en Révolution
-                    </div>
+                <div class="carousel-item" onclick="openLivretModal('N° 09 - Les femmes en Révolution', 'Les femmes-patriotes et les femmes-soldats en Sarthe. Autour du tableau : « À quoi rêvent les jeunes filles ? »', 'https://i.imgur.com/ZHFP5f8.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/ZHFP5f8.jpeg') center/cover;"></div>
                     <div class="carousel-title">N° 09 - Femmes</div>
                     <div class="carousel-price">2,00 €</div>
                 </div>
 
-                <div class="carousel-item" onclick="openLivretModal('N° 15 - Clergé', 'La Constitution civile du clergé et les prêtres réfractaires en Sarthe.', 'https://i.imgur.com/w7oSesb.png')">
-                    <div class="carousel-cover" style="background: linear-gradient(135deg, #1B263B, #8B2635); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
-                        N° 15<br>La Constitution civile du clergé
-                    </div>
+                <div class="carousel-item" onclick="openLivretModal('N° 15 - La Constitution civile du clergé', 'La Constitution civile du clergé et les prêtres réfractaires en Sarthe. Conférence à Saint-Georges-du-Bois (72).', 'https://i.imgur.com/HMaSQuQ.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/HMaSQuQ.jpeg') center/cover;"></div>
                     <div class="carousel-title">N° 15 - Clergé</div>
                     <div class="carousel-price">2,00 €</div>
                 </div>
 
-                <div class="carousel-item" onclick="openLivretModal('N° 18 - Sieyès', 'L\'abbé Sieyès en Révolution par la gravure du temps. Des États-Généraux à l\'Empire... en passant par la Sarthe où il n\'est jamais passé !', 'https://i.imgur.com/w7oSesb.png')">
-                    <div class="carousel-cover" style="background: linear-gradient(135deg, #2E5A2E, #D4AF37); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
-                        N° 18<br>L'abbé Sieyès en Révolution
-                    </div>
+                <div class="carousel-item" onclick="openLivretModal('N° 18 - L\'abbé Sieyès en Révolution', 'L\'abbé Sieyès en Révolution par la gravure du temps. Des États-Généraux à l\'Empire... en passant par la Sarthe où il n\'est jamais passé !', 'https://i.imgur.com/PlZ0Jzf.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/PlZ0Jzf.jpeg') center/cover;"></div>
                     <div class="carousel-title">N° 18 - Sieyès</div>
                     <div class="carousel-price">2,00 €</div>
                 </div>
 
-                <div class="carousel-item" onclick="openLivretModal('N° 26 - Déchristianisation', 'La déchristianisation de l\'an II. La déchirure en Sarthe.', 'https://i.imgur.com/w7oSesb.png')">
-                    <div class="carousel-cover" style="background: linear-gradient(135deg, #C41E3A, #002654); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
-                        N° 26<br>La déchristianisation de l'an II
-                    </div>
+                <div class="carousel-item" onclick="openLivretModal('N° 26 - La déchristianisation de l\'an II', 'La déchristianisation de l\'an II. La déchirure en Sarthe. Enjeux de pouvoir à l\'ère de la Constitution civile du clergé.', 'https://i.imgur.com/SrFz2NF.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/SrFz2NF.jpeg') center/cover;"></div>
                     <div class="carousel-title">N° 26 - Déchristianisation</div>
                     <div class="carousel-price">2,00 €</div>
                 </div>
 
-                <div class="carousel-item" onclick="openLivretModal('Château-du-Loir - Esclavage', 'L\'abolition de l\'esclavage sous la Révolution française. René Levasseur, auteur de la motion abolissant l\'esclavage le 16 pluviôse an II (4 février 1794).', 'https://i.imgur.com/w7oSesb.png')">
-                    <div class="carousel-cover" style="background: linear-gradient(135deg, #8B0000, #FFD700); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Cinzel', serif; padding: 1rem; text-align: center;">
-                        Château-du-Loir<br>L'abolition de l'esclavage
-                    </div>
+                <div class="carousel-item" onclick="openLivretModal('Château-du-Loir - L\'abolition de l\'esclavage', 'L\'abolition de l\'esclavage sous la Révolution française. René Levasseur, auteur de la motion abolissant l\'esclavage le 16 pluviôse an II (4 février 1794).', 'https://i.imgur.com/2rM7uY5.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/2rM7uY5.jpeg') center/cover;"></div>
                     <div class="carousel-title">Château-du-Loir - Esclavage</div>
+                    <div class="carousel-price">2,00 €</div>
+                </div>
+
+                <div class="carousel-item" onclick="openLivretModal('N° 11 - Les encyclopédistes', 'Les encyclopédistes et la Révolution : comment Voltaire-Rousseau-Diderot ont préparé et commenté la Révolution française.', 'https://i.imgur.com/QAcyVZ6.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/QAcyVZ6.jpeg') center/cover;"></div>
+                    <div class="carousel-title">N° 11 - Encyclopédistes</div>
+                    <div class="carousel-price">2,00 €</div>
+                </div>
+
+                <div class="carousel-item" onclick="openLivretModal('N° 12 - Le Tribun du Peuple', 'Le Tribun du Peuple et son histoire.', 'https://i.imgur.com/12MXTbm.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/12MXTbm.jpeg') center/cover;"></div>
+                    <div class="carousel-title">N° 12 - Tribun du Peuple</div>
+                    <div class="carousel-price">2,00 €</div>
+                </div>
+
+                <div class="carousel-item" onclick="openLivretModal('N° 13 - Les prisons du Mans', 'Les prisons du Mans et leurs prisonniers célèbres sous la Révolution.', 'https://i.imgur.com/1CpI9lw.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/1CpI9lw.jpeg') center/cover;"></div>
+                    <div class="carousel-title">N° 13 - Prisons du Mans</div>
+                    <div class="carousel-price">2,00 €</div>
+                </div>
+
+                <div class="carousel-item" onclick="openLivretModal('N° 16 - La misère et la vie chère', 'La misère et la vie chère sous la Révolution en Sarthe : émeutes et révoltes.', 'https://i.imgur.com/Ra0kpdi.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/Ra0kpdi.jpeg') center/cover;"></div>
+                    <div class="carousel-title">N° 16 - Misère et vie chère</div>
+                    <div class="carousel-price">2,00 €</div>
+                </div>
+
+                <div class="carousel-item" onclick="openLivretModal('N° 17 - L\'arbre de la Liberté', 'L\'arbre de la Liberté.', 'https://i.imgur.com/ovHnN28.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/ovHnN28.jpeg') center/cover;"></div>
+                    <div class="carousel-title">N° 17 - Arbre de la Liberté</div>
+                    <div class="carousel-price">2,00 €</div>
+                </div>
+
+                <div class="carousel-item" onclick="openLivretModal('N° 19 - L\'éphéméride de la Révolution', 'L\'éphéméride de la Révolution en Sarthe.', 'https://i.imgur.com/vQwfER7.jpeg')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/vQwfER7.jpeg') center/cover;"></div>
+                    <div class="carousel-title">N° 19 - Éphéméride</div>
+                    <div class="carousel-price">2,00 €</div>
+                </div>
+
+                <div class="carousel-item" onclick="openLivretModal('N° 20 - Les loges maçonniques', 'Les loges maçonniques sarthoises sous la Révolution.', 'https://i.imgur.com/gbFGGF1.png')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/gbFGGF1.png') center/cover;"></div>
+                    <div class="carousel-title">N° 20 - Loges maçonniques</div>
+                    <div class="carousel-price">2,00 €</div>
+                </div>
+
+                <div class="carousel-item" onclick="openLivretModal('N° 21 - Les déportés de Fructidor', 'Les déportés de Fructidor en Sarthe et dans les colonies : relégation et résistance.', 'https://i.imgur.com/zyXO503.png')">
+                    <div class="carousel-cover" style="background: url('https://i.imgur.com/zyXO503.png') center/cover;"></div>
+                    <div class="carousel-title">N° 21 - Déportés de Fructidor</div>
                     <div class="carousel-price">2,00 €</div>
                 </div>
             </div>
