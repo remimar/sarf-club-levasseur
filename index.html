@@ -626,3 +626,226 @@ html_code = '''<!DOCTYPE html>
 <body>
 '''
 print("Partie 1 (CSS + début HTML) créée -", len(html_code), "caractères")
+
+html_part2 = '''
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-text">
+                    <h1>SARF</h1>
+                    <p>Club René Levasseur de la Sarthe</p>
+                </div>
+            </div>
+        </div>
+        <!-- Mini décorations -->
+        <div class="mini-decor cocarde"></div>
+        <div class="mini-decor bonnet"></div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#congres">IVe Congrès</a></li>
+            <li><a href="#evenements">Derniers Événements</a></li>
+            <li><a href="#photos">Photos Souvenirs</a></li>
+            <li><a href="#adhesion">Adhérer</a></li>
+            <li><a href="#amis">Sites Amis</a></li>
+            <li><a href="#membres">Espace Membres</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="year-1789">1789</div>
+        <h2>La Société des Amis de la Révolution Française</h2>
+        <p>Club René Levasseur de la Sarthe</p>
+        <div class="hero-buttons">
+            <a href="#adhesion" class="btn">Nous rejoindre</a>
+            <a href="#evenements" class="btn btn-outline">Nos activités</a>
+        </div>
+    </section>
+
+    <!-- Section Adhésion -->
+    <section class="adhesion-section" id="adhesion">
+        <h3>Pourquoi nous rejoindre ?</h3>
+        <p>Parce que nous sommes une association indépendante, refusant toute subvention pour garantir sa liberté de parole. Pour seulement <strong>16 € par an</strong> (4 € pour les étudiants), vous soutenez une histoire citoyenne et recevez notre lettre d'information trimestrielle pour ne rien manquer de nos activités.</p>
+        
+        <p>Adhérer, c'est aider la SARF à protéger la vérité historique et à faire vivre les valeurs de la République.</p>
+        
+        <div class="tarifs">
+            <p><strong>16 € / an</strong> (4 € étudiants)</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Lettre d'information trimestrielle incluse</p>
+        </div>
+        
+        <a href="#" class="btn" style="margin-top: 1rem;">Devenir membre</a>
+    </section>
+
+    <!-- IVe CONGRÈS -->
+    <section class="congres-section" id="congres">
+        <div class="congres-content">
+            <h2>IVe CONGRÈS NATIONAL</h2>
+            <h3>des SOCIÉTÉS AMIES de la RÉVOLUTION FRANÇAISE</h3>
+            <p style="margin: 2rem 0; font-size: 1.2rem;">Organisé par le Club René Levasseur de la Sarthe</p>
+            <div class="congres-date">À venir en 2026</div>
+        </div>
+    </section>
+
+    <!-- Derniers Événements -->
+    <section class="events-section" id="evenements">
+        <h2 class="section-title">Derniers Événements</h2>
+        
+        <!-- Événement passé -->
+        <div class="event-card passed">
+            <span class="event-status">✓ Événement réussi</span>
+            <div class="event-photo-placeholder">
+                [Photo de la célébration du 4 février 2026 - À ajouter]
+            </div>
+            <h3>Célébration du 4 février 2026</h3>
+            <p class="event-placeholder-text">
+                Cette célébration a bien eu lieu et s'est très bien passée.<br>
+                [Texte descriptif complet à venir...]
+            </p>
+        </div>
+        
+        <!-- Prochain événement -->
+        <div class="event-card">
+            <span class="event-status" style="background: var(--rouge-revolution);">À venir</span>
+            <div class="event-photo-placeholder">
+                [Photo du prochain événement - À ajouter]
+            </div>
+            <h3>Prochain événement</h3>
+            <p class="event-placeholder-text">
+                [Date et description du prochain événement à compléter...]
+            </p>
+        </div>
+    </section>
+
+    <!-- Photos Souvenirs -->
+    <section class="gallery-section" id="photos">
+        <h2 class="section-title">Photos Souvenirs</h2>
+        <div class="gallery-placeholder">
+            <div class="gallery-item">[Photo 1 - À ajouter]</div>
+            <div class="gallery-item">[Photo 2 - À ajouter]</div>
+            <div class="gallery-item">[Photo 3 - À ajouter]</div>
+            <div class="gallery-item">[Photo 4 - À ajouter]</div>
+        </div>
+    </section>
+
+    <!-- Sites Amis -->
+    <section class="friends-section" id="amis">
+        <h2 class="section-title">Liens vers nos sites amis</h2>
+        <div class="friends-grid">
+            <a href="#" class="friend-card">
+                <h4>Société des études robespierristes</h4>
+                <p>Association de recherche historique</p>
+            </a>
+            <a href="#" class="friend-card">
+                <h4>Amis de Robespierre (ARBR)</h4>
+                <p>Pour le bicentenaire de la Révolution</p>
+            </a>
+            <a href="#" class="friend-card">
+                <h4>Association Camille Desmoulins</h4>
+                <p>Mémoire du révolutionnaire</p>
+            </a>
+            <a href="#" class="friend-card">
+                <h4>Association Condorcet</h4>
+                <p>Ribemont</p>
+            </a>
+            <a href="#" class="friend-card">
+                <h4>Association lorraine des amis de l'abbé Grégoire</h4>
+                <p>Défenseur des droits de l'homme</p>
+            </a>
+            <a href="#" class="friend-card">
+                <h4>AMRID</h4>
+                <p>Association Maximilien Robespierre pour l'idéal démocratique</p>
+            </a>
+            <a href="#" class="friend-card">
+                <h4>Association pour la sauvegarde de la maison de St-Just</h4>
+                <p>Préservation du patrimoine révolutionnaire</p>
+            </a>
+            <a href="#" class="friend-card">
+                <h4>Carmagnole liberté</h4>
+                <p>Association révolutionnaire</p>
+            </a>
+            <a href="#" class="friend-card">
+                <h4>Comité républicain de La Roche-de-Mûrs</h4>
+                <p>Maine-et-Loire</p>
+            </a>
+            <a href="#" class="friend-card">
+                <h4>Les amis de Gracchus Babeuf</h4>
+                <p>Mémoire du révolutionnaire</p>
+            </a>
+            <a href="#" class="friend-card">
+                <h4>Les joyeux Jacobins</h4>
+                <p>Saintes</p>
+            </a>
+            <a href="#" class="friend-card">
+                <h4>Le peuple souverain s'avance</h4>
+                <p>Paris</p>
+            </a>
+            <a href="#" class="friend-card">
+                <h4>L'Improbable</h4>
+                <p>Lyon</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Espace Membres -->
+    <section class="member-login" id="membres">
+        <h3>Espace Membres</h3>
+        <p>Accès réservé aux membres de l'association</p>
+        <form class="login-form" onsubmit="return checkCode(event)">
+            <input type="password" id="memberCode" placeholder="Entrez le code d'accès" required>
+            <button type="submit">Accéder</button>
+        </form>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+            Trombinoscope du bureau • Historique depuis 2011 • Documents internes
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">SARF - Club René Levasseur de la Sarthe</div>
+            <p>Association loi 1901 - Indépendante et libre de parole depuis 2011</p>
+            <p>Contact : [email à compléter]</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SARF - Club René Levasseur de la Sarthe. Tous droits réservés.</p>
+                <p>Liberté, Égalité, Fraternité</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Vérification du code d'accès (code simple : "SARF2026")
+        function checkCode(event) {
+            event.preventDefault();
+            const code = document.getElementById('memberCode').value;
+            if (code === 'SARF2026') {
+                // Redirection vers la page membre
+                window.location.href = 'espace-membre.html';
+            } else {
+                alert('Code incorrect. Veuillez réessayer.');
+            }
+        }
+
+        // Smooth scroll pour les ancres
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+'''
+print("Partie 2 (HTML corps + JS) créée -", len(html_part2), "caractères")
