@@ -1,4 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARF - Club René Levasseur de la Sarthe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rouge-revolution: #8B2635;
+            --rouge-fonce: #5C1A23;
+            --or-ancien: #D4AF37;
+            --papier-age: #F5F1E8;
+            --encre-noire: #2C241B;
+            --bleu-nuit: #1B3A5F;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Libre Baskerville', serif;
+            background-color: var(--papier-age);
+            background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+            color: var(--encre-noire);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--rouge-revolution) 0%, var(--rouge-fonce) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: relative;
+            border-bottom: 4px solid var(--or-ancien);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-text h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .logo-text p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Mini décorations révolutionnaires */
+        .mini-decor {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            opacity: 0.4;
+        }
+
+        .mini-decor.cocarde {
+            top: 15px;
+            right: 120px;
+            background: radial-gradient(circle, #E1000F 33%, #FFFFFF 33%, #FFFFFF 66%, #000091 66%);
+            border-radius: 50%;
+        }
+
+        .mini-decor.bonnet {
+            bottom: 15px;
+            right: 80px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 18px solid #E1000F;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--rouge-fonce);
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
 html_code = '''<!DOCTYPE html>
 <html lang="fr">
 <head>
