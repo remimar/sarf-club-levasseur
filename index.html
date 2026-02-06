@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SARF - Club René Levasseur de la Sarthe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --rouge-revolution: #8B2635;
@@ -53,15 +53,20 @@
             gap: 1rem;
         }
 
+        .logo-section img {
+            height: 60px;
+            width: auto;
+        }
+
         .logo-text h1 {
             font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 0.2rem;
         }
 
         .logo-text p {
-            font-size: 1rem;
+            font-size: 0.9rem;
             opacity: 0.9;
         }
 
@@ -88,135 +93,6 @@
             border-left: 10px solid transparent;
             border-right: 10px solid transparent;
             border-bottom: 18px solid #E1000F;
-        }
-
-        /* Navigation */
-        nav {
-            background: var(--rouge-fonce);
-            padding: 0.8rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        nav ul {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        nav a {
-            color: white;
-html_code = '''<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SARF - Club René Levasseur de la Sarthe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --rouge-revolution: #8B2635;
-            --rouge-fonce: #5C1A23;
-            --or-ancien: #D4AF37;
-            --papier-age: #F5F1E8;
-            --encre-noire: #2C241B;
-            --bleu-nuit: #1B3A5F;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Libre Baskerville', serif;
-            background-image: url('https://img.freepik.com/photos-premium/fond-texture-papier-kraft-brun_38679-893.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            color: var(--encre-noire);
-            line-height: 1.6;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(245, 241, 232, 0.85);
-            z-index: -1;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--rouge-revolution) 0%, var(--rouge-fonce) 100%);
-            color: white;
-            padding: 1rem 0;
-            position: relative;
-            border-bottom: 4px solid var(--or-ancien);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-text h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.2rem;
-        }
-
-        .logo-text p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* Mini décorations révolutionnaires */
-        .mini-decor {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            opacity: 0.3;
-        }
-
-        .mini-decor.cocarde {
-            top: 10px;
-            right: 100px;
-            background: radial-gradient(circle, #E1000F 33%, #FFFFFF 33%, #FFFFFF 66%, #000091 66%);
-            border-radius: 50%;
-        }
-
-        .mini-decor.bonnet {
-            bottom: 10px;
-            right: 60px;
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-bottom: 25px solid #E1000F;
-            opacity: 0.3;
         }
 
         /* Navigation */
@@ -270,26 +146,13 @@ html_code = '''<!DOCTYPE html>
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(139, 38, 53, 0.8), rgba(92, 26, 35, 0.9)), url('https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200');
+            background: linear-gradient(rgba(139, 38, 53, 0.85), rgba(92, 26, 35, 0.9)), url('https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1200');
             background-size: cover;
             background-position: center;
             color: white;
             padding: 6rem 2rem;
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%23D4AF37" stroke-width="0.5" opacity="0.1"/></svg>');
-            background-size: 100px;
-            opacity: 0.3;
         }
 
         .year-1789 {
@@ -300,19 +163,6 @@ html_code = '''<!DOCTYPE html>
             text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
             margin-bottom: 1rem;
             letter-spacing: 10px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .year-1789::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--or-ancien), transparent);
         }
 
         .hero h2 {
@@ -323,9 +173,8 @@ html_code = '''<!DOCTYPE html>
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
             opacity: 0.95;
         }
 
@@ -363,6 +212,27 @@ html_code = '''<!DOCTYPE html>
         .btn-outline:hover {
             background: var(--or-ancien);
             color: var(--rouge-fonce);
+        }
+
+        /* Section Présentation */
+        .presentation-section {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .presentation-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--rouge-revolution);
+            margin-bottom: 2rem;
+        }
+
+        .presentation-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
         }
 
         /* Section Adhésion */
@@ -417,7 +287,94 @@ html_code = '''<!DOCTYPE html>
             font-size: 1.3rem;
         }
 
-        /* IVe CONGRÈS - Style visuel */
+        /* Espace René Levasseur */
+        .levasseur-section {
+            background: linear-gradient(135deg, var(--bleu-nuit) 0%, #0f2744 100%);
+            color: white;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .levasseur-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .levasseur-portrait {
+            text-align: center;
+        }
+
+        .levasseur-portrait img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 8px;
+            border: 4px solid var(--or-ancien);
+            margin-bottom: 1rem;
+        }
+
+        .levasseur-portrait h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--or-ancien);
+            margin-bottom: 0.5rem;
+        }
+
+        .levasseur-portrait p {
+            opacity: 0.8;
+        }
+
+        .levasseur-bio h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--or-ancien);
+            margin-bottom: 1rem;
+        }
+
+        .levasseur-bio .quote {
+            font-style: italic;
+            color: var(--rouge-revolution);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .levasseur-bio p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .timeline {
+            margin-top: 2rem;
+            padding-left: 2rem;
+            border-left: 3px solid var(--or-ancien);
+        }
+
+        .timeline-item {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.4rem;
+            top: 0.5rem;
+            width: 15px;
+            height: 15px;
+            background: var(--rouge-revolution);
+            border-radius: 50%;
+            border: 3px solid var(--or-ancien);
+        }
+
+        .timeline-item h4 {
+            color: var(--or-ancien);
+            font-family: 'Cinzel', serif;
+            margin-bottom: 0.5rem;
+        }
+
+        /* IVe CONGRÈS */
         .congres-section {
             background: linear-gradient(135deg, var(--rouge-revolution) 0%, var(--rouge-fonce) 100%);
             color: white;
@@ -562,404 +519,3 @@ html_code = '''<!DOCTYPE html>
         /* Photos souvenirs */
         .gallery-section {
             background: var(--rouge-fonce);
-            color: white;
-            padding: 4rem 2rem;
-        }
-
-        .gallery-section .section-title {
-            color: white;
-        }
-
-        .gallery-section .section-title::after {
-            background: var(--or-ancien);
-        }
-
-        .gallery-placeholder {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .gallery-item {
-            aspect-ratio: 4/3;
-            background: rgba(255,255,255,0.1);
-            border: 2px dashed var(--or-ancien);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--or-ancien);
-            font-style: italic;
-            border-radius: 4px;
-        }
-
-        /* Liens sites amis */
-        .friends-section {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .friends-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .friend-card {
-            background: white;
-            border: 2px solid var(--or-ancien);
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: all 0.3s;
-            text-decoration: none;
-            color: var(--encre-noire);
-            display: block;
-        }
-
-        .friend-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            border-color: var(--rouge-revolution);
-        }
-
-        .friend-card h4 {
-            font-family: 'Cinzel', serif;
-            color: var(--rouge-revolution);
-            margin-bottom: 0.5rem;
-        }
-
-        .friend-card p {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        /* Espace Membre */
-        .member-login {
-            background: linear-gradient(135deg, var(--bleu-nuit) 0%, #0f2744 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .member-login h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .login-form {
-            max-width: 400px;
-            margin: 0 auto;
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .login-form input {
-            padding: 0.8rem 1rem;
-            border: 2px solid var(--or-ancien);
-            border-radius: 4px;
-            font-family: inherit;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .login-form button {
-            padding: 0.8rem 2rem;
-            background: var(--or-ancien);
-            color: var(--rouge-fonce);
-            border: none;
-            border-radius: 4px;
-            font-family: 'Cinzel', serif;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .login-form button:hover {
-            background: white;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--encre-noire);
-            color: white;
-            padding: 3rem 2rem 1rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            color: var(--or-ancien);
-            margin-bottom: 1rem;
-        }
-
-        footer p {
-            opacity: 0.8;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-bottom {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            font-size: 0.9rem;
-            opacity: 0.6;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .year-1789 {
-                font-size: 4rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-            
-            nav ul {
-                gap: 1rem;
-            }
-            
-            .congres-content h2 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
-</head>
-<body>
-'''
-print("Partie 1 (CSS + début HTML) créée -", len(html_code), "caractères")
-
-html_part2 = '''
-    <!-- Header -->
-    <header>
-        <div class="header-content">
-            <div class="logo-section">
-                <div class="logo-text">
-                    <h1>SARF</h1>
-                    <p>Club René Levasseur de la Sarthe</p>
-                </div>
-            </div>
-        </div>
-        <!-- Mini décorations -->
-        <div class="mini-decor cocarde"></div>
-        <div class="mini-decor bonnet"></div>
-    </header>
-
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#congres">IVe Congrès</a></li>
-            <li><a href="#evenements">Derniers Événements</a></li>
-            <li><a href="#photos">Photos Souvenirs</a></li>
-            <li><a href="#adhesion">Adhérer</a></li>
-            <li><a href="#amis">Sites Amis</a></li>
-            <li><a href="#membres">Espace Membres</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="accueil">
-        <div class="year-1789">1789</div>
-        <h2>La Société des Amis de la Révolution Française</h2>
-        <p>Club René Levasseur de la Sarthe</p>
-        <div class="hero-buttons">
-            <a href="#adhesion" class="btn">Nous rejoindre</a>
-            <a href="#evenements" class="btn btn-outline">Nos activités</a>
-        </div>
-    </section>
-
-    <!-- Section Adhésion -->
-    <section class="adhesion-section" id="adhesion">
-        <h3>Pourquoi nous rejoindre ?</h3>
-        <p>Parce que nous sommes une association indépendante, refusant toute subvention pour garantir sa liberté de parole. Pour seulement <strong>16 € par an</strong> (4 € pour les étudiants), vous soutenez une histoire citoyenne et recevez notre lettre d'information trimestrielle pour ne rien manquer de nos activités.</p>
-        
-        <p>Adhérer, c'est aider la SARF à protéger la vérité historique et à faire vivre les valeurs de la République.</p>
-        
-        <div class="tarifs">
-            <p><strong>16 € / an</strong> (4 € étudiants)</p>
-            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Lettre d'information trimestrielle incluse</p>
-        </div>
-        
-        <a href="#" class="btn" style="margin-top: 1rem;">Devenir membre</a>
-    </section>
-
-    <!-- IVe CONGRÈS -->
-    <section class="congres-section" id="congres">
-        <div class="congres-content">
-            <h2>IVe CONGRÈS NATIONAL</h2>
-            <h3>des SOCIÉTÉS AMIES de la RÉVOLUTION FRANÇAISE</h3>
-            <p style="margin: 2rem 0; font-size: 1.2rem;">Organisé par le Club René Levasseur de la Sarthe</p>
-            <div class="congres-date">À venir en 2026</div>
-        </div>
-    </section>
-
-    <!-- Derniers Événements -->
-    <section class="events-section" id="evenements">
-        <h2 class="section-title">Derniers Événements</h2>
-        
-        <!-- Événement passé -->
-        <div class="event-card passed">
-            <span class="event-status">✓ Événement réussi</span>
-            <div class="event-photo-placeholder">
-                [Photo de la célébration du 4 février 2026 - À ajouter]
-            </div>
-            <h3>Célébration du 4 février 2026</h3>
-            <p class="event-placeholder-text">
-                Cette célébration a bien eu lieu et s'est très bien passée.<br>
-                [Texte descriptif complet à venir...]
-            </p>
-        </div>
-        
-        <!-- Prochain événement -->
-        <div class="event-card">
-            <span class="event-status" style="background: var(--rouge-revolution);">À venir</span>
-            <div class="event-photo-placeholder">
-                [Photo du prochain événement - À ajouter]
-            </div>
-            <h3>Prochain événement</h3>
-            <p class="event-placeholder-text">
-                [Date et description du prochain événement à compléter...]
-            </p>
-        </div>
-    </section>
-
-    <!-- Photos Souvenirs -->
-    <section class="gallery-section" id="photos">
-        <h2 class="section-title">Photos Souvenirs</h2>
-        <div class="gallery-placeholder">
-            <div class="gallery-item">[Photo 1 - À ajouter]</div>
-            <div class="gallery-item">[Photo 2 - À ajouter]</div>
-            <div class="gallery-item">[Photo 3 - À ajouter]</div>
-            <div class="gallery-item">[Photo 4 - À ajouter]</div>
-        </div>
-    </section>
-
-    <!-- Sites Amis -->
-    <section class="friends-section" id="amis">
-        <h2 class="section-title">Liens vers nos sites amis</h2>
-        <div class="friends-grid">
-            <a href="#" class="friend-card">
-                <h4>Société des études robespierristes</h4>
-                <p>Association de recherche historique</p>
-            </a>
-            <a href="#" class="friend-card">
-                <h4>Amis de Robespierre (ARBR)</h4>
-                <p>Pour le bicentenaire de la Révolution</p>
-            </a>
-            <a href="#" class="friend-card">
-                <h4>Association Camille Desmoulins</h4>
-                <p>Mémoire du révolutionnaire</p>
-            </a>
-            <a href="#" class="friend-card">
-                <h4>Association Condorcet</h4>
-                <p>Ribemont</p>
-            </a>
-            <a href="#" class="friend-card">
-                <h4>Association lorraine des amis de l'abbé Grégoire</h4>
-                <p>Défenseur des droits de l'homme</p>
-            </a>
-            <a href="#" class="friend-card">
-                <h4>AMRID</h4>
-                <p>Association Maximilien Robespierre pour l'idéal démocratique</p>
-            </a>
-            <a href="#" class="friend-card">
-                <h4>Association pour la sauvegarde de la maison de St-Just</h4>
-                <p>Préservation du patrimoine révolutionnaire</p>
-            </a>
-            <a href="#" class="friend-card">
-                <h4>Carmagnole liberté</h4>
-                <p>Association révolutionnaire</p>
-            </a>
-            <a href="#" class="friend-card">
-                <h4>Comité républicain de La Roche-de-Mûrs</h4>
-                <p>Maine-et-Loire</p>
-            </a>
-            <a href="#" class="friend-card">
-                <h4>Les amis de Gracchus Babeuf</h4>
-                <p>Mémoire du révolutionnaire</p>
-            </a>
-            <a href="#" class="friend-card">
-                <h4>Les joyeux Jacobins</h4>
-                <p>Saintes</p>
-            </a>
-            <a href="#" class="friend-card">
-                <h4>Le peuple souverain s'avance</h4>
-                <p>Paris</p>
-            </a>
-            <a href="#" class="friend-card">
-                <h4>L'Improbable</h4>
-                <p>Lyon</p>
-            </a>
-        </div>
-    </section>
-
-    <!-- Espace Membres -->
-    <section class="member-login" id="membres">
-        <h3>Espace Membres</h3>
-        <p>Accès réservé aux membres de l'association</p>
-        <form class="login-form" onsubmit="return checkCode(event)">
-            <input type="password" id="memberCode" placeholder="Entrez le code d'accès" required>
-            <button type="submit">Accéder</button>
-        </form>
-        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
-            Trombinoscope du bureau • Historique depuis 2011 • Documents internes
-        </p>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">SARF - Club René Levasseur de la Sarthe</div>
-            <p>Association loi 1901 - Indépendante et libre de parole depuis 2011</p>
-            <p>Contact : [email à compléter]</p>
-            <div class="footer-bottom">
-                <p>&copy; 2026 SARF - Club René Levasseur de la Sarthe. Tous droits réservés.</p>
-                <p>Liberté, Égalité, Fraternité</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Vérification du code d'accès (code simple : "SARF2026")
-        function checkCode(event) {
-            event.preventDefault();
-            const code = document.getElementById('memberCode').value;
-            if (code === 'SARF2026') {
-                // Redirection vers la page membre
-                window.location.href = 'espace-membre.html';
-            } else {
-                alert('Code incorrect. Veuillez réessayer.');
-            }
-        }
-
-        // Smooth scroll pour les ancres
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
-'''
-print("Partie 2 (HTML corps + JS) créée -", len(html_part2), "caractères")
