@@ -1,6 +1,4 @@
-
-# Création de la page espace membre
-espace_membre_html = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -25,167 +23,171 @@ espace_membre_html = '''<!DOCTYPE html>
 
         body {
             font-family: 'Libre Baskerville', serif;
-            background-image: url('https://img.freepik.com/photos-premium/fond-texture-papier-kraft-brun_38679-893.jpg');
-            background-size: cover;
-            background-attachment: fixed;
+            background-color: var(--papier-age);
+            background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
             color: var(--encre-noire);
             line-height: 1.6;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(245, 241, 232, 0.9);
-            z-index: -1;
-        }
-
-        /* Header */
         header {
             background: linear-gradient(135deg, var(--rouge-revolution) 0%, var(--rouge-fonce) 100%);
             color: white;
-            padding: 1.5rem;
+            padding: 2rem;
             text-align: center;
             border-bottom: 4px solid var(--or-ancien);
         }
 
         header h1 {
             font-family: 'Cinzel', serif;
-            font-size: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
 
         header p {
             opacity: 0.9;
-            margin-top: 0.5rem;
+            font-size: 1.2rem;
         }
 
         .back-link {
             display: inline-block;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             color: var(--or-ancien);
             text-decoration: none;
             font-family: 'Cinzel', serif;
+            font-weight: 600;
+            transition: all 0.3s;
         }
 
         .back-link:hover {
+            color: white;
             text-decoration: underline;
         }
 
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 3rem 2rem;
         }
 
-        /* Section title */
         .section-title {
             font-family: 'Cinzel', serif;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--rouge-revolution);
-            margin: 3rem 0 2rem;
+            margin: 4rem 0 3rem;
             text-align: center;
             position: relative;
+            text-transform: uppercase;
+            letter-spacing: 4px;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 80px;
-            height: 3px;
-            background: var(--or-ancien);
-            margin: 1rem auto;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--or-ancien), transparent);
+            margin: 1.5rem auto;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
         }
 
         /* Trombinoscope */
         .trombinoscope {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 5rem;
         }
 
         .member-card {
             background: white;
-            border: 3px double var(--or-ancien);
-            border-radius: 8px;
-            padding: 1.5rem;
+            border: 4px double var(--or-ancien);
+            border-radius: 12px;
+            padding: 2rem;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
         }
 
         .member-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .member-card.president {
             border-color: var(--rouge-revolution);
             background: linear-gradient(135deg, white 0%, #fff5f5 100%);
+            grid-column: 1 / -1;
+            max-width: 400px;
+            margin: 0 auto;
         }
 
         .member-photo {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ddd 0%, #eee 100%);
-            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #e8e4d9 0%, #d4d0c5 100%);
+            margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #666;
+            color: #888;
             font-style: italic;
-            border: 3px solid var(--or-ancien);
+            border: 4px solid var(--or-ancien);
             overflow: hidden;
+            font-size: 1.1rem;
         }
 
         .member-card.president .member-photo {
             border-color: var(--rouge-revolution);
-            width: 180px;
-            height: 180px;
+            width: 220px;
+            height: 220px;
         }
 
         .member-card h3 {
             font-family: 'Cinzel', serif;
             color: var(--rouge-revolution);
             margin-bottom: 0.5rem;
+            font-size: 1.5rem;
         }
 
         .member-card .role {
             color: var(--or-ancien);
             font-weight: bold;
             font-family: 'Cinzel', serif;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
         .member-card p {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: #666;
+            line-height: 1.6;
         }
 
         /* Historique */
         .historique {
             background: white;
-            border: 2px solid var(--or-ancien);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 4rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 3px solid var(--or-ancien);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .historique h3 {
             font-family: 'Cinzel', serif;
             color: var(--rouge-revolution);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
             text-align: center;
+            font-size: 1.8rem;
         }
 
         .timeline {
             position: relative;
-            padding-left: 2rem;
+            padding-left: 3rem;
         }
 
         .timeline::before {
@@ -194,102 +196,161 @@ espace_membre_html = '''<!DOCTYPE html>
             left: 0;
             top: 0;
             bottom: 0;
-            width: 3px;
-            background: var(--or-ancien);
+            width: 4px;
+            background: linear-gradient(180deg, var(--or-ancien), var(--rouge-revolution), var(--or-ancien));
+            border-radius: 2px;
         }
 
         .timeline-item {
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             position: relative;
+            padding: 1.5rem;
+            background: var(--papier-age);
+            border-radius: 8px;
+            border-left: 4px solid var(--or-ancien);
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -2.4rem;
-            top: 0.5rem;
-            width: 15px;
-            height: 15px;
+            left: -3.4rem;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
             background: var(--rouge-revolution);
             border-radius: 50%;
-            border: 3px solid var(--or-ancien);
+            border: 4px solid var(--or-ancien);
         }
 
         .timeline-item h4 {
             font-family: 'Cinzel', serif;
             color: var(--rouge-revolution);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .timeline-item p {
+            color: #555;
+            line-height: 1.8;
         }
 
         /* Sites amis détaillés */
         .sites-amis {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
         }
 
         .site-card {
             background: white;
-            border: 2px solid var(--or-ancien);
-            border-radius: 8px;
-            padding: 1.5rem;
+            border: 3px solid var(--or-ancien);
+            border-radius: 12px;
+            padding: 2rem;
             transition: all 0.3s;
         }
 
         .site-card:hover {
             border-color: var(--rouge-revolution);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
         }
 
         .site-card h4 {
             font-family: 'Cinzel', serif;
             color: var(--rouge-revolution);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
         }
 
         .site-card a {
             color: var(--bleu-nuit);
             text-decoration: none;
             word-break: break-all;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.8rem;
         }
 
         .site-card a:hover {
             text-decoration: underline;
+            color: var(--rouge-revolution);
         }
 
-        /* Section additionnelle */
+        .site-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Sections additionnelles */
         .section-additionnelle {
             background: linear-gradient(135deg, var(--bleu-nuit) 0%, #0f2744 100%);
             color: white;
-            padding: 3rem;
-            border-radius: 8px;
+            padding: 4rem;
+            border-radius: 12px;
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
+            border: 3px solid var(--or-ancien);
         }
 
         .section-additionnelle h3 {
             font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             color: var(--or-ancien);
         }
 
         .section-additionnelle p {
-            opacity: 0.9;
+            opacity: 0.95;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .section-additionnelle:nth-child(even) {
+            background: linear-gradient(135deg, var(--rouge-revolution) 0%, var(--rouge-fonce) 100%);
         }
 
         /* Footer */
         footer {
             background: var(--encre-noire);
             color: white;
-            padding: 2rem;
+            padding: 3rem 2rem;
             text-align: center;
+            border-top: 4px solid var(--or-ancien);
         }
 
         footer p {
-            opacity: 0.8;
-            font-size: 0.9rem;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        footer p:last-child {
+            margin-top: 1rem;
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .trombinoscope {
+                grid-template-columns: 1fr;
+            }
+            
+            .member-card.president {
+                grid-column: 1;
+            }
+            
+            .timeline {
+                padding-left: 2rem;
+            }
+            
+            .timeline-item::before {
+                left: -2.4rem;
+            }
         }
     </style>
 </head>
@@ -298,173 +359,4 @@ espace_membre_html = '''<!DOCTYPE html>
         <h1>Espace Membres</h1>
         <p>SARF - Club René Levasseur de la Sarthe</p>
         <a href="index.html" class="back-link">← Retour au site public</a>
-    </header>
-
-    <div class="container">
-        <!-- Trombinoscope du Bureau -->
-        <h2 class="section-title">Trombinoscope du Bureau</h2>
-        <div class="trombinoscope">
-            <div class="member-card president">
-                <div class="member-photo">[Photo Président]</div>
-                <h3>[Nom du Président]</h3>
-                <div class="role">Président</div>
-                <p>[Courte biographie ou présentation]</p>
-            </div>
-            <div class="member-card">
-                <div class="member-photo">[Photo]</div>
-                <h3>[Nom]</h3>
-                <div class="role">Vice-Président</div>
-                <p>[Présentation]</p>
-            </div>
-            <div class="member-card">
-                <div class="member-photo">[Photo]</div>
-                <h3>[Nom]</h3>
-                <div class="role">Secrétaire</div>
-                <p>[Présentation]</p>
-            </div>
-            <div class="member-card">
-                <div class="member-photo">[Photo]</div>
-                <h3>[Nom]</h3>
-                <div class="role">Trésorier</div>
-                <p>[Présentation]</p>
-            </div>
-            <div class="member-card">
-                <div class="member-photo">[Photo]</div>
-                <h3>[Nom]</h3>
-                <div class="role">Membre du bureau</div>
-                <p>[Présentation]</p>
-            </div>
-            <div class="member-card">
-                <div class="member-photo">[Photo]</div>
-                <h3>[Nom]</h3>
-                <div class="role">Membre du bureau</div>
-                <p>[Présentation]</p>
-            </div>
-        </div>
-
-        <!-- Historique -->
-        <h2 class="section-title">Historique de l'Association</h2>
-        <div class="historique">
-            <h3>Depuis 2011</h3>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>2011 - Création</h4>
-                    <p>Fondation du Club René Levasseur de la Sarthe. [Texte à compléter avec les circonstances de la création]</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>2012-2015 - Premières années</h4>
-                    <p>[Événements marquants des premières années à compléter]</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>2016-2020 - Développement</h4>
-                    <p>[Évolution de l'association, nouveaux membres, activités à compléter]</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>2021-2025 - Actualité récente</h4>
-                    <p>[Derniers événements, congrès, publications à compléter]</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>2026 - Aujourd'hui</h4>
-                    <p>L'association continue son action de mémoire et de citoyenneté. [À compléter]</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sites Amis avec liens -->
-        <h2 class="section-title">Nos Sites Amis</h2>
-        <div class="sites-amis">
-            <div class="site-card">
-                <h4>Société des études robespierristes</h4>
-                <p><a href="https://www.etudes-robespierristes.fr" target="_blank">www.etudes-robespierristes.fr</a></p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Association de recherche historique dédiée à l'étude de Robespierre et de la Révolution française.</p>
-            </div>
-            <div class="site-card">
-                <h4>Amis de Robespierre (ARBR)</h4>
-                <p><a href="#" target="_blank">[Lien à compléter]</a></p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Pour le bicentenaire de la Révolution française.</p>
-            </div>
-            <div class="site-card">
-                <h4>Association Camille Desmoulins</h4>
-                <p><a href="#" target="_blank">[Lien à compléter]</a></p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Mémoire du révolutionnaire Camille Desmoulins.</p>
-            </div>
-            <div class="site-card">
-                <h4>Association Condorcet</h4>
-                <p>Ribemont</p>
-                <p><a href="#" target="_blank">[Lien à compléter]</a></p>
-            </div>
-            <div class="site-card">
-                <h4>Association lorraine des amis de l'abbé Grégoire</h4>
-                <p><a href="#" target="_blank">[Lien à compléter]</a></p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Défenseur des droits de l'homme et de l'abolition de l'esclavage.</p>
-            </div>
-            <div class="site-card">
-                <h4>AMRID</h4>
-                <p>Association Maximilien Robespierre pour l'idéal démocratique</p>
-                <p><a href="#" target="_blank">[Lien à compléter]</a></p>
-            </div>
-            <div class="site-card">
-                <h4>Association pour la sauvegarde de la maison de St-Just</h4>
-                <p><a href="#" target="_blank">[Lien à compléter]</a></p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Préservation du patrimoine révolutionnaire.</p>
-            </div>
-            <div class="site-card">
-                <h4>Carmagnole liberté</h4>
-                <p><a href="#" target="_blank">[Lien à compléter]</a></p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Association révolutionnaire.</p>
-            </div>
-            <div class="site-card">
-                <h4>Comité républicain de La Roche-de-Mûrs</h4>
-                <p>Maine-et-Loire</p>
-                <p><a href="#" target="_blank">[Lien à compléter]</a></p>
-            </div>
-            <div class="site-card">
-                <h4>Les amis de Gracchus Babeuf</h4>
-                <p><a href="#" target="_blank">[Lien à compléter]</a></p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Mémoire du révolutionnaire Gracchus Babeuf.</p>
-            </div>
-            <div class="site-card">
-                <h4>Les joyeux Jacobins</h4>
-                <p>Saintes</p>
-                <p><a href="#" target="_blank">[Lien à compléter]</a></p>
-            </div>
-            <div class="site-card">
-                <h4>Le peuple souverain s'avance</h4>
-                <p>Paris</p>
-                <p><a href="#" target="_blank">[Lien à compléter]</a></p>
-            </div>
-            <div class="site-card">
-                <h4>L'Improbable</h4>
-                <p>Lyon</p>
-                <p><a href="#" target="_blank">[Lien à compléter]</a></p>
-            </div>
-        </div>
-
-        <!-- Section additionnelle pour futures rubriques -->
-        <div class="section-additionnelle">
-            <h3>Espace Documents</h3>
-            <p>Cette section pourra accueillir : les comptes-rendus de réunions, les statuts de l'association, les bulletins internes, et tout autre document réservé aux membres.</p>
-            <p style="margin-top: 1rem; font-style: italic;">[Contenu à développer selon vos besoins]</p>
-        </div>
-
-        <div class="section-additionnelle" style="background: linear-gradient(135deg, var(--rouge-revolution) 0%, var(--rouge-fonce) 100%);">
-            <h3>Calendrier des Réunions</h3>
-            <p>Prochaines dates de réunions du bureau et de l'assemblée générale.</p>
-            <p style="margin-top: 1rem; font-style: italic;">[Calendrier à compléter]</p>
-        </div>
-    </div>
-
-    <footer>
-        <p>Espace réservé aux membres de la SARF - Club René Levasseur de la Sarthe</p>
-        <p style="margin-top: 0.5rem;">© 2026 - Tous droits réservés</p>
-    </footer>
-</body>
-</html>'''
-
-print("Page espace membre créée -", len(espace_membre_html), "caractères")
-print("\n" + "="*60)
-print("RÉCAPITULATIF DES FICHIERS CRÉÉS")
-print("="*60)
-print(f"1. index.html (site public) : {len(html_code) + len(html_part2)} caractères")
-print(f"2. espace-membre.html (page privée) : {len(espace_membre_html)} caractères")
-print(f"\nTotal : {len(html_code) + len(html_part2) + len(espace_membre_html)} caractères")
+   
