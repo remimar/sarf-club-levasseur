@@ -8,194 +8,180 @@
     <style>
         :root {
             --rouge-royal: #630d16;
+            --or-ombré: #d4af37;
+            --bois-sombre: #2c1e14;
             --or-vieux: #a67c52;
-            --cadre-bois: #3d2b1f;
-            --papier: #e8dcc4;
         }
 
-        /* ✅ FOND PARCHEMIN AVEC TACHES */
+        /* ✅ TEXTURE VIEUX PAPIER FROISSÉ ET TACHÉ */
         body {
             font-family: 'Libre Baskerville', serif;
-            background-color: var(--papier);
+            background-color: #e8dcc4;
             background-image: 
-                radial-gradient(circle at 10% 10%, rgba(139, 69, 19, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 80% 70%, rgba(139, 69, 19, 0.05) 0%, transparent 30%),
-                url('https://www.transparenttextures.com/patterns/parchment.png');
+                url('https://www.transparenttextures.com/patterns/handmade-paper.png'),
+                radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%),
+                url('https://www.transparenttextures.com/patterns/p6.png'); /* Effet taches et grain */
             background-attachment: fixed;
             color: #2c241b;
             margin: 0; padding: 0;
         }
 
-        /* ✅ CADRE STYLE "TABLEAU DE MUSÉE" */
-        .cadre-museum {
-            border: 15px solid var(--cadre-bois);
-            border-image: linear-gradient(45deg, #2c1e14, #5a402d, #2c1e14) 1;
-            outline: 2px solid var(--or-vieux);
-            outline-offset: -10px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 50px rgba(0,0,0,0.8);
-            background: var(--rouge-royal);
-            color: white;
-            padding: 40px;
-            position: relative;
+        /* ✅ HEADER ET TITRE 1789 DORÉ OMBRÉ */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://i.imgur.com/IadHy6Z.jpeg') center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: white; border-bottom: 5px solid var(--or-vieux);
         }
 
-        header {
-            background: #1a1a1a;
-            color: #d4af37;
-            padding: 20px 0;
-            border-bottom: 2px solid var(--or-vieux);
-            text-align: center;
+        .titre-1789 {
             font-family: 'Cinzel', serif;
+            font-size: 8rem;
+            color: #d4af37;
+            margin: 0;
+            line-height: 1;
+            /* ✅ EFFET DORÉ OMBRÉ PROFONDEUR */
+            text-shadow: 
+                3px 3px 0px #856620, 
+                6px 6px 15px rgba(0,0,0,0.8),
+                0px 0px 30px rgba(212, 175, 55, 0.4);
+            font-weight: 700;
         }
 
-        .hero-title {
+        .soustitre {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            margin-top: -10px;
+        }
+
+        section { max-width: 1100px; margin: auto; padding: 40px 20px; }
+
+        /* ✅ CADRE STYLE TABLEAU (CONGRÈS) */
+        .cadre-tableau {
+            border: 12px solid var(--bois-sombre);
+            outline: 2px solid var(--or-vieux);
+            outline-offset: -8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            background: var(--rouge-royal);
+            color: #f1e4d1;
+            padding: 40px;
             text-align: center;
-            padding: 60px 20px;
+            margin-bottom: 40px;
         }
 
-        .hero-title h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; margin: 0; color: var(--rouge-royal); }
-        .hero-title p { font-family: 'Dancing Script', serif; font-size: 2rem; margin: 0; }
-
-        section { max-width: 1000px; margin: auto; padding: 40px 20px; }
-
-        /* ✅ AGENDA & CONGRÈS */
-        .congres-box { text-align: center; margin-bottom: 50px; }
-        .congres-box h2 { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--or-vieux); margin-bottom: 10px; }
-
-        .ag-details {
-            background: rgba(255,255,255,0.3);
-            border: 1px solid var(--or-vieux);
-            padding: 20px;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        /* ✅ CARROUSEL LIVRETS */
-        .carousel-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; }
+        /* ✅ CARROUSEL ET LIVRETS AVEC CADRES BOIS */
+        .carousel-container { display: flex; overflow-x: auto; gap: 25px; padding: 20px 0; }
         .livret-card {
             flex: 0 0 180px;
             background: #fff;
             padding: 10px;
-            border: 8px solid var(--cadre-bois);
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+            border: 6px solid #3d2b1f; /* Cadre bois individuel */
+            box-shadow: 5px 10px 20px rgba(0,0,0,0.3);
             text-align: center;
-            transition: transform 0.3s;
         }
-        .livret-card:hover { transform: translateY(-10px) rotate(2deg); }
-        .livret-card img { width: 100%; height: 240px; object-fit: cover; border: 1px solid #ddd; }
+        .livret-card img { width: 100%; height: 240px; object-fit: cover; }
+        .livret-card p { font-size: 0.85rem; font-weight: bold; color: #333; margin-top: 10px; }
 
-        /* ✅ FORMULAIRE SECRET */
-        .secret-zone {
-            text-align: center;
-            padding: 50px;
+        /* ZONE SECRET */
+        .secret-form {
+            text-align: center; padding: 60px;
             background: rgba(0,0,0,0.05);
-            border-top: 2px solid var(--or-vieux);
+            border-top: 1px solid var(--or-vieux);
         }
         input[type="password"] {
-            padding: 10px;
-            border: 2px solid var(--or-vieux);
-            background: var(--papier);
-            font-family: 'Cinzel', serif;
-            text-align: center;
+            padding: 12px; border: 2px solid var(--or-vieux);
+            background: rgba(255,255,255,0.7);
+            font-family: 'Cinzel', serif; text-align: center;
         }
 
-        #page-membre { display: none; padding: 40px; background: white; border: 10px double var(--or-vieux); margin: 20px; }
+        #page-membre { display: none; padding: 40px; border: 15px double var(--or-vieux); background: white; margin: 20px; }
 
-        footer { background: #1a1a1a; color: white; padding: 40px; text-align: center; font-size: 0.9rem; }
+        footer { background: #1a1a1a; color: #d4af37; padding: 30px; text-align: center; font-family: 'Cinzel'; }
     </style>
 </head>
 <body>
 
-<header>
-    <div style="letter-spacing: 4px;">S.A.R.F SARTHE</div>
-</header>
-
-<div class="hero-title">
-    <h1>1789</h1>
-    <p>Club René Levasseur de la Sarthe</p>
-</div>
-
-<section id="agenda">
-    <div class="congres-box">
-        <div class="cadre-museum">
-            <p style="font-family: 'Cinzel'; letter-spacing: 2px; color: var(--or-vieux);">Événement Exceptionnel</p>
-            <h2 style="color: white; font-size: 2.5rem; border: none;">CONGRÈS NATIONAL</h2>
-            <p>des Sociétés Amies de la Révolution Française</p>
-            <hr style="width: 50%; border: 0; border-top: 1px solid var(--or-vieux); margin: 20px auto;">
-            <p style="font-family: 'Cinzel'; font-size: 1.4rem;">LE MANS • SEPTEMBRE 2026</p>
-        </div>
+    <div class="hero">
+        <h1 class="titre-1789">1789</h1>
+        <p class="soustitre">Club René Levasseur de la Sarthe</p>
     </div>
 
-    <div class="ag-details">
-        <h3 style="font-family: 'Cinzel'; color: var(--rouge-royal);">ASSEMBLÉE GÉNÉRALE</h3>
-        <p><strong>Vendredi 27 Mars 2026 à 20h</strong></p>
-        <p>Maison de quartier Pierre Perret, rue Averroès, Le Mans</p>
+    <section>
+        <div class="cadre-tableau">
+            <h2 style="font-family: 'Cinzel'; color: var(--or-ombré); margin: 0; border: none;">CONGRÈS NATIONAL</h2>
+            <p style="font-size: 1.2rem; letter-spacing: 1px;">des SOCIÉTÉS AMIES de la RÉVOLUTION FRANÇAISE</p>
+            <hr style="width: 40%; border: 0.5px solid var(--or-vieux); margin: 20px auto;">
+            <p style="font-family: 'Cinzel'; font-size: 1.5rem; color: #fff;">AU MANS • SEPTEMBRE 2026</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.4); padding: 20px; border-left: 5px solid var(--rouge-royal); text-align: center;">
+            <h3 style="font-family: 'Cinzel'; color: var(--rouge-royal);">ASSEMBLÉE GÉNÉRALE</h3>
+            <p><strong>Vendredi 27 Mars 2026 à 20h</strong></p>
+            <p>Maison de quartier Pierre Perret, rue Averroès, Le Mans</p>
+        </div>
+    </section>
+
+    <section id="librairie">
+        <h2 style="font-family: 'Cinzel'; color: var(--rouge-royal); text-align: center;">La Librairie</h2>
+        <div class="carousel-container">
+            <div class="livret-card">
+                <img src="https://i.imgur.com/omWvORB.jpeg" alt="L5">
+                <p>N°05 - Le Cinéma</p>
+            </div>
+            <div class="livret-card">
+                <img src="https://i.imgur.com/bEc5s5H.jpeg" alt="L6">
+                <p>N°06 - Doléances</p>
+            </div>
+            <div class="livret-card">
+                <img src="https://i.imgur.com/IU7nNqL.jpeg" alt="L7">
+                <p>N°07 - République</p>
+            </div>
+            <div class="livret-card">
+                <img src="https://i.imgur.com/lRdriwi.jpeg" alt="L8">
+                <p>N°08 - Gracchus Babeuf</p>
+            </div>
+            <div class="livret-card">
+                <img src="https://i.imgur.com/0TDyQjo.jpeg" alt="L9">
+                <p>N°09 - Études</p>
+            </div>
+            <div class="livret-card">
+                <img src="https://i.imgur.com/ZHFP5f8.jpeg" alt="L10">
+                <p>N°10 - La Sarthe</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="secret-form">
+        <p style="font-family: 'Cinzel';">Entrez le code secret</p>
+        <input type="password" id="pass">
+        <br><br>
+        <button onclick="checkPass()" style="background: var(--bois-sombre); color: white; padding: 10px 30px; border: none; cursor: pointer; font-family: 'Cinzel';">ACCÉDER</button>
     </div>
-</section>
 
-<section id="librairie">
-    <h2 style="font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal);">La Librairie</h2>
-    <div class="carousel-container">
-        <div class="livret-card">
-            <img src="https://i.imgur.com/omWvORB.jpeg" alt="L5">
-            <p><strong>N°05</strong><br>Le Cinéma</p>
-        </div>
-        <div class="livret-card">
-            <img src="https://i.imgur.com/bEc5s5H.jpeg" alt="L6">
-            <p><strong>N°06</strong><br>Doléances</p>
-        </div>
-        <div class="livret-card">
-            <img src="https://i.imgur.com/IU7nNqL.jpeg" alt="L7">
-            <p><strong>N°07</strong><br>République</p>
-        </div>
-        <div class="livret-card">
-            <img src="https://i.imgur.com/lRdriwi.jpeg" alt="L8">
-            <p><strong>N°08</strong><br>Babeuf</p>
-        </div>
-        <div class="livret-card">
-            <img src="https://i.imgur.com/0TDyQjo.jpeg" alt="L9">
-            <p><strong>N°09</strong><br>Études</p>
-        </div>
-        <div class="livret-card">
-            <img src="https://i.imgur.com/ZHFP5f8.jpeg" alt="L10">
-            <p><strong>N°10</strong><br>Sarthe</p>
-        </div>
+    <div id="page-membre">
+        <h2 style="font-family: 'Dancing Script'; font-size: 3rem; color: var(--rouge-royal);">Espace Privé</h2>
+        <p>Bienvenue dans les archives du Club.</p>
+        <p>Trombinoscope et Historique disponibles prochainement.</p>
     </div>
-</section>
 
-<div class="secret-zone">
-    <p style="font-family: 'Cinzel';">Entrez le code secret</p>
-    <input type="password" id="pass">
-    <br><br>
-    <button onclick="checkPass()" style="background: var(--cadre-bois); color: white; border: none; padding: 10px 30px; cursor: pointer; font-family: 'Cinzel';">Ouvrir les archives</button>
-</div>
+    <footer>
+        <p>SARF SARTHE - Club René Levasseur</p>
+        <p>Fidèle à 1789</p>
+    </footer>
 
-<div id="page-membre">
-    <h2 style="font-family: 'Dancing Script'; font-size: 2.5rem;">Espace Adhérents</h2>
-    <p>Bienvenue dans les archives privées du Club René Levasseur.</p>
-    <ul>
-        <li>Trombinoscope des membres</li>
-        <li>Compte-rendus depuis 2011</li>
-        <li>Documents de recherche exclusifs</li>
-    </ul>
-</div>
-
-<footer>
-    <p><strong>SARF - Club René Levasseur de la Sarthe</strong></p>
-    <p>Fidèle aux principes de 1789. Association Loi 1901.</p>
-</footer>
-
-<script>
-    function checkPass() {
-        const p = document.getElementById('pass').value;
-        if(p === "26051747") {
-            document.getElementById('page-membre').style.display = 'block';
-            document.getElementById('page-membre').scrollIntoView();
-        } else {
-            alert("Accès refusé.");
+    <script>
+        function checkPass() {
+            const p = document.getElementById('pass').value;
+            if(p === "26051747") {
+                document.getElementById('page-membre').style.display = 'block';
+                document.getElementById('page-membre').scrollIntoView();
+            } else {
+                alert("Code secret incorrect.");
+            }
         }
-    }
-</script>
-
+    </script>
 </body>
 </html>
