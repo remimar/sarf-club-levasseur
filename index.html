@@ -7,215 +7,195 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --rouge: #8B2635;
-            --rouge-noir: #4A1018;
-            --or: #C5A059;
-            --encre: #2C241B;
+            --rouge-royal: #630d16;
+            --or-vieux: #a67c52;
+            --cadre-bois: #3d2b1f;
+            --papier: #e8dcc4;
         }
 
-        /* ✅ FOND PARCHEMIN ANTIQUE */
+        /* ✅ FOND PARCHEMIN AVEC TACHES */
         body {
             font-family: 'Libre Baskerville', serif;
-            background-color: #e8dcc4;
+            background-color: var(--papier);
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(0,0,0,0.02) 0%, transparent 50%),
+                radial-gradient(circle at 10% 10%, rgba(139, 69, 19, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(139, 69, 19, 0.05) 0%, transparent 30%),
                 url('https://www.transparenttextures.com/patterns/parchment.png');
             background-attachment: fixed;
-            color: var(--encre);
-            margin: 0; padding: 0; scroll-behavior: smooth;
+            color: #2c241b;
+            margin: 0; padding: 0;
+        }
+
+        /* ✅ CADRE STYLE "TABLEAU DE MUSÉE" */
+        .cadre-museum {
+            border: 15px solid var(--cadre-bois);
+            border-image: linear-gradient(45deg, #2c1e14, #5a402d, #2c1e14) 1;
+            outline: 2px solid var(--or-vieux);
+            outline-offset: -10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 50px rgba(0,0,0,0.8);
+            background: var(--rouge-royal);
+            color: white;
+            padding: 40px;
+            position: relative;
         }
 
         header {
-            background: linear-gradient(to bottom, var(--rouge-noir), var(--rouge));
-            color: white; padding: 15px 0; border-bottom: 3px solid var(--or);
-            position: fixed; width: 100%; top: 0; z-index: 1000;
+            background: #1a1a1a;
+            color: #d4af37;
+            padding: 20px 0;
+            border-bottom: 2px solid var(--or-vieux);
+            text-align: center;
+            font-family: 'Cinzel', serif;
         }
 
-        .hero {
-            height: 45vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.imgur.com/IadHy6Z.jpeg') center/cover;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; margin-top: 50px;
+        .hero-title {
+            text-align: center;
+            padding: 60px 20px;
         }
 
-        .year-1789 { font-family: 'Cinzel', serif; font-size: 5rem; color: var(--or); margin: 0; }
-        
-        section { padding: 3rem 2rem; max-width: 1100px; margin: auto; }
-        h2 { font-family: 'Cinzel', serif; color: var(--rouge); text-align: center; border-bottom: 2px solid var(--or); padding-bottom: 10px; margin-top: 2rem; }
+        .hero-title h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; margin: 0; color: var(--rouge-royal); }
+        .hero-title p { font-family: 'Dancing Script', serif; font-size: 2rem; margin: 0; }
 
-        /* ✅ BLOC CONGRÈS EXCEPTIONNEL */
-        .congres-premium {
-            background: rgba(74, 16, 24, 0.9);
-            color: #fff; padding: 3rem; border: 8px double var(--or);
-            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin: 2rem 0;
+        section { max-width: 1000px; margin: auto; padding: 40px 20px; }
+
+        /* ✅ AGENDA & CONGRÈS */
+        .congres-box { text-align: center; margin-bottom: 50px; }
+        .congres-box h2 { font-family: 'Cinzel', serif; font-size: 2rem; color: var(--or-vieux); margin-bottom: 10px; }
+
+        .ag-details {
+            background: rgba(255,255,255,0.3);
+            border: 1px solid var(--or-vieux);
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
         }
-        .congres-premium h3 { font-family: 'Cinzel', serif; font-size: 2.2rem; color: var(--or); margin: 0; }
 
-        /* ✅ ASSEMBLÉE GÉNÉRALE */
-        .ag-box {
-            background: rgba(255, 255, 255, 0.4); border: 2px dashed var(--rouge);
-            padding: 2rem; margin: 2rem 0; text-align: center;
+        /* ✅ CARROUSEL LIVRETS */
+        .carousel-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; }
+        .livret-card {
+            flex: 0 0 180px;
+            background: #fff;
+            padding: 10px;
+            border: 8px solid var(--cadre-bois);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
+            transition: transform 0.3s;
         }
-        .date-ag { font-family: 'Cinzel', serif; color: var(--rouge); font-size: 1.5rem; font-weight: bold; }
+        .livret-card:hover { transform: translateY(-10px) rotate(2deg); }
+        .livret-card img { width: 100%; height: 240px; object-fit: cover; border: 1px solid #ddd; }
 
-        /* SOUVENIR 4 FÉVRIER */
-        .souvenir-box { background: rgba(255,255,255,0.4); border: 1px solid var(--or); padding: 1.5rem; display: flex; gap: 20px; align-items: center; }
-        .photo-cadre { width: 250px; height: 180px; background: #ccc; border: 4px solid white; flex-shrink: 0; display:flex; align-items:center; justify-content:center; font-style:italic;}
+        /* ✅ FORMULAIRE SECRET */
+        .secret-zone {
+            text-align: center;
+            padding: 50px;
+            background: rgba(0,0,0,0.05);
+            border-top: 2px solid var(--or-vieux);
+        }
+        input[type="password"] {
+            padding: 10px;
+            border: 2px solid var(--or-vieux);
+            background: var(--papier);
+            font-family: 'Cinzel', serif;
+            text-align: center;
+        }
 
-        /* LIBRAIRIE & CARROUSEL */
-        .librairie-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .item-vente { background: white; border: 1px solid var(--or); padding: 15px; text-align: center; }
-        .carousel-container { overflow-x: auto; display: flex; gap: 15px; padding: 20px 0; scroll-snap-type: x mandatory; }
-        .livret-card { min-width: 160px; background: white; padding: 8px; border: 1px solid #ccc; text-align: center; flex-shrink: 0; scroll-snap-align: start; }
-        .livret-card img { width: 100%; height: 210px; object-fit: cover; }
-        .livret-card p { font-size: 0.85rem; margin-top: 10px; font-weight: bold; }
+        #page-membre { display: none; padding: 40px; background: white; border: 10px double var(--or-vieux); margin: 20px; }
 
-        /* SITES AMIS */
-        .sites-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 10px; }
-        .site-card { background: rgba(255,255,255,0.3); padding: 12px; border-left: 3px solid var(--or); font-size: 0.9rem; }
-
-        /* CONNEXION */
-        #login { text-align:center; padding: 4rem 0; }
-        #page-membre { display: none; background: rgba(255,255,255,0.9); padding: 3rem; border: 4px double var(--or); margin-top: 2rem; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-
-        footer { background: var(--rouge-noir); color: white; padding: 2rem; text-align: center; }
+        footer { background: #1a1a1a; color: white; padding: 40px; text-align: center; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div style="display: flex; justify-content: space-around; align-items: center; max-width: 1200px; margin: auto;">
-            <div style="font-family: 'Cinzel'; font-weight: bold; color: var(--or);">SARF SARTHE</div>
-            <nav>
-                <a href="#agenda" style="color:white; text-decoration:none; margin:0 15px; font-size: 0.85rem;">AGENDA</a>
-                <a href="#librairie" style="color:white; text-decoration:none; margin:0 15px; font-size: 0.85rem;">LIBRAIRIE</a>
-                <button onclick="document.getElementById('login').scrollIntoView()" style="background:var(--or); border:none; color:white; padding:5px 12px; cursor:pointer; font-family:'Cinzel';">ACCÈS MEMBRE</button>
-            </nav>
-        </div>
-    </header>
+<header>
+    <div style="letter-spacing: 4px;">S.A.R.F SARTHE</div>
+</header>
 
-    <div class="hero">
-        <div class="year-1789">1789</div>
-        <h2 style="color: white; border:none; margin:0; letter-spacing: 2px;">SOCIÉTÉ DES AMIS DE LA RÉVOLUTION FRANÇAISE</h2>
-        <p style="font-family: 'Dancing Script'; font-size: 2.2rem; color: white;">"Club René Levasseur de la Sarthe"</p>
-    </div>
+<div class="hero-title">
+    <h1>1789</h1>
+    <p>Club René Levasseur de la Sarthe</p>
+</div>
 
-    <section id="agenda">
-        <div class="congres-premium">
-            <p style="text-transform: uppercase; color: var(--or); margin-bottom: 10px; letter-spacing: 2px;">Événement Exceptionnel</p>
-            <h3>CONGRÈS NATIONAL</h3>
-            <p>des SOCIÉTÉS AMIES de la RÉVOLUTION FRANÇAISE</p>
-            <div style="font-family: 'Cinzel'; font-size: 1.5rem; margin-top: 15px; color: var(--or);">au MANS… en SEPTEMBRE 2026</div>
-        </div>
-
-        <div class="ag-box">
-            <h2 style="border:none; margin:0; font-size: 1.5rem;">ASSEMBLÉE GÉNÉRALE</h2>
-            <p class="date-ag">VENDREDI 27 MARS 2026 • 20 h.</p>
-            <p>Maison de quartier Pierre Perret, rue Averroès, Le Mans</p>
-        </div>
-    </section>
-
-    <section>
-        <h2>Retour sur le 4 Février</h2>
-        <div class="souvenir-box">
-            <div class="photo-cadre">Photo en attente</div>
-            <div>
-                <h3 style="color: var(--rouge); margin-top: 0; font-family: 'Cinzel';">Une Commémoration Réussie</h3>
-                <p>La cérémonie au Cimetière de l'Ouest a été un moment fort pour notre club. L'hommage à René Levasseur a rassemblé de nombreux citoyens autour des valeurs de liberté et d'égalité.</p>
-                <p><i>Un succès mémoriel qui renforce notre engagement citoyen.</i></p>
-            </div>
-        </div>
-    </section>
-
-    <section id="librairie">
-        <h2>La Librairie du Club</h2>
-        <div class="librairie-grid">
-            <div class="item-vente">
-                <h3>Mémoires de René Levasseur</h3>
-                <p>Volumes 1 & 2</p>
-                <span class="prix">20€ l'unité</span>
-            </div>
-            <div class="item-vente">
-                <h3>Ouvrages SARF</h3>
-                <p>5 Livres thématiques</p>
-                <span class="prix">Contactez le bureau</span>
-            </div>
-        </div>
-
-        <h3 style="margin-top:3rem; text-align:center;">Nos Livrets de Conférences (2€ l'unité)</h3>
-        <div class="carousel-container">
-            <div class="livret-card"><img src="https://i.imgur.com/omWvORB.jpeg" alt="L5"><p>N°05 - Le Cinéma et la Révolution</p></div>
-            <div class="livret-card"><img src="https://i.imgur.com/bEc5s5H.jpeg" alt="L6"><p>N°06 - Les cahiers de Doléances</p></div>
-            <div class="livret-card"><img src="https://i.imgur.com/IU7nNqL.jpeg" alt="L7"><p>N°07 - Naissance de la République</p></div>
-            <div class="livret-card"><img src="https://i.imgur.com/lRdriwi.jpeg" alt="L8"><p>N°08 - Gracchus Babeuf</p></div>
-            <div class="livret-card"><img src="https://i.imgur.com/0TDyQjo.jpeg" alt="L9"><p>N°09 - Études et Documents</p></div>
-            <div class="livret-card"><img src="https://i.imgur.com/ZHFP5f8.jpeg" alt="L10"><p>N°10 - La Sarthe Révolutionnaire</p></div>
-            <script>
-                for(let i=11; i<=37; i++) {
-                    document.write(`<div class="livret-card" style="opacity:0.5;"><img src="https://via.placeholder.com/160x210?text=SARF+${i}" alt="L${i}"><p>Livret N°${i}</p></div>`);
-                }
-            </script>
-        </div>
-    </section>
-
-    <section id="amis">
-        <h2>Sites Amis</h2>
-        <div class="sites-list">
-            <div class="site-card"><strong>Soc. des études robespierristes</strong> - <a href="https://www.etudesrobespierristes.com/" target="_blank">Lien</a></div>
-            <div class="site-card"><strong>ARBR - Amis de Robespierre</strong> - <a href="http://www.amis-robespierre.org/" target="_blank">Lien</a></div>
-            <div class="site-card"><strong>Association Camille Desmoulins</strong> - <a href="https://www.etudesrobespierristes.com/2018/05/14/association-camille-desmoulins/" target="_blank">Lien</a></div>
-            <div class="site-card"><strong>Maison de Saint-Just</strong> - <a href="https://associationsaint-just.jimdoweb.com/" target="_blank">Lien</a></div>
-            <div class="site-card"><strong>AMRID</strong> - 363 rue du Marais, 80310 Picquigny</div>
-            <div class="site-card">Association Condorcet (Ribemont)</div>
-            <div class="site-card">Association lorraine des amis de l’abbé Grégoire</div>
-            <div class="site-card">Les amis de Gracchus Babeuf</div>
-            <div class="site-card">Carmagnole Liberté</div>
-            <div class="site-card">Comité républicain de La Roche-de-Mûrs</div>
-            <div class="site-card">Les joyeux Jacobins (Saintes)</div>
-            <div class="site-card">Le peuple souverain s’avance (Paris)</div>
-            <div class="site-card">L’Improbable (Lyon)</div>
-        </div>
-    </section>
-
-    <section id="login">
-        <p style="font-family: 'Cinzel';">Entrez le code secret</p>
-        <input type="password" id="pass" style="padding:10px; border:1px solid var(--or); text-align:center; width: 200px; background: rgba(255,255,255,0.7);">
-        <br><br>
-        <button onclick="checkPass()" style="padding:10px 30px; background:var(--rouge); color:white; border:none; cursor:pointer; font-family: 'Cinzel';">VALIDER</button>
-    </section>
-
-    <div id="page-membre" class="section">
-        <h2 style="font-family: 'Dancing Script'; font-size: 3rem; border:none;">Espace Membre Privé</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-            <div>
-                <h3>Trombinoscope</h3>
-                <p>Bureau et Adhérents du Club.</p>
-            </div>
-            <div>
-                <h3>Archives SARF</h3>
-                <p>Historique complet et photos depuis 2011.</p>
-                <h3>Sites Amis Détaillés</h3>
-                <p>Informations complémentaires sur nos partenaires.</p>
-            </div>
+<section id="agenda">
+    <div class="congres-box">
+        <div class="cadre-museum">
+            <p style="font-family: 'Cinzel'; letter-spacing: 2px; color: var(--or-vieux);">Événement Exceptionnel</p>
+            <h2 style="color: white; font-size: 2.5rem; border: none;">CONGRÈS NATIONAL</h2>
+            <p>des Sociétés Amies de la Révolution Française</p>
+            <hr style="width: 50%; border: 0; border-top: 1px solid var(--or-vieux); margin: 20px auto;">
+            <p style="font-family: 'Cinzel'; font-size: 1.4rem;">LE MANS • SEPTEMBRE 2026</p>
         </div>
     </div>
 
-    <footer>
-        <p><strong>SARF - Club René Levasseur de la Sarthe</strong></p>
-        <p>Association Loi 1901 - Fidèle à 1789</p>
-    </footer>
+    <div class="ag-details">
+        <h3 style="font-family: 'Cinzel'; color: var(--rouge-royal);">ASSEMBLÉE GÉNÉRALE</h3>
+        <p><strong>Vendredi 27 Mars 2026 à 20h</strong></p>
+        <p>Maison de quartier Pierre Perret, rue Averroès, Le Mans</p>
+    </div>
+</section>
 
-    <script>
-        function checkPass() {
-            const p = document.getElementById('pass').value;
-            // Code secret : 26051747
-            if(p === "26051747") {
-                document.getElementById('page-membre').style.display = 'block';
-                document.getElementById('page-membre').scrollIntoView();
-            } else {
-                alert("Code incorrect.");
-            }
+<section id="librairie">
+    <h2 style="font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal);">La Librairie</h2>
+    <div class="carousel-container">
+        <div class="livret-card">
+            <img src="https://i.imgur.com/omWvORB.jpeg" alt="L5">
+            <p><strong>N°05</strong><br>Le Cinéma</p>
+        </div>
+        <div class="livret-card">
+            <img src="https://i.imgur.com/bEc5s5H.jpeg" alt="L6">
+            <p><strong>N°06</strong><br>Doléances</p>
+        </div>
+        <div class="livret-card">
+            <img src="https://i.imgur.com/IU7nNqL.jpeg" alt="L7">
+            <p><strong>N°07</strong><br>République</p>
+        </div>
+        <div class="livret-card">
+            <img src="https://i.imgur.com/lRdriwi.jpeg" alt="L8">
+            <p><strong>N°08</strong><br>Babeuf</p>
+        </div>
+        <div class="livret-card">
+            <img src="https://i.imgur.com/0TDyQjo.jpeg" alt="L9">
+            <p><strong>N°09</strong><br>Études</p>
+        </div>
+        <div class="livret-card">
+            <img src="https://i.imgur.com/ZHFP5f8.jpeg" alt="L10">
+            <p><strong>N°10</strong><br>Sarthe</p>
+        </div>
+    </div>
+</section>
+
+<div class="secret-zone">
+    <p style="font-family: 'Cinzel';">Entrez le code secret</p>
+    <input type="password" id="pass">
+    <br><br>
+    <button onclick="checkPass()" style="background: var(--cadre-bois); color: white; border: none; padding: 10px 30px; cursor: pointer; font-family: 'Cinzel';">Ouvrir les archives</button>
+</div>
+
+<div id="page-membre">
+    <h2 style="font-family: 'Dancing Script'; font-size: 2.5rem;">Espace Adhérents</h2>
+    <p>Bienvenue dans les archives privées du Club René Levasseur.</p>
+    <ul>
+        <li>Trombinoscope des membres</li>
+        <li>Compte-rendus depuis 2011</li>
+        <li>Documents de recherche exclusifs</li>
+    </ul>
+</div>
+
+<footer>
+    <p><strong>SARF - Club René Levasseur de la Sarthe</strong></p>
+    <p>Fidèle aux principes de 1789. Association Loi 1901.</p>
+</footer>
+
+<script>
+    function checkPass() {
+        const p = document.getElementById('pass').value;
+        if(p === "26051747") {
+            document.getElementById('page-membre').style.display = 'block';
+            document.getElementById('page-membre').scrollIntoView();
+        } else {
+            alert("Accès refusé.");
         }
-    </script>
+    }
+</script>
+
 </body>
 </html>
