@@ -13,20 +13,19 @@
             --or-vieux: #a67c52;
         }
 
-        /* ✅ TEXTURE VIEUX PAPIER FROISSÉ ET TACHÉ */
+        /* TEXTURE VIEUX PAPIER */
         body {
             font-family: 'Libre Baskerville', serif;
             background-color: #e8dcc4;
             background-image: 
                 url('https://www.transparenttextures.com/patterns/handmade-paper.png'),
-                radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%),
-                url('https://www.transparenttextures.com/patterns/p6.png'); /* Effet taches et grain */
+                url('https://www.transparenttextures.com/patterns/p6.png');
             background-attachment: fixed;
             color: #2c241b;
             margin: 0; padding: 0;
         }
 
-        /* ✅ HEADER ET TITRE 1789 DORÉ OMBRÉ */
+        /* BANDEAU ACCUEIL */
         .hero {
             height: 60vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
@@ -36,151 +35,160 @@
         }
 
         .titre-1789 {
-            font-family: 'Cinzel', serif;
-            font-size: 8rem;
-            color: #d4af37;
-            margin: 0;
-            line-height: 1;
-            /* ✅ EFFET DORÉ OMBRÉ PROFONDEUR */
-            text-shadow: 
-                3px 3px 0px #856620, 
-                6px 6px 15px rgba(0,0,0,0.8),
-                0px 0px 30px rgba(212, 175, 55, 0.4);
+            font-family: 'Cinzel', serif; font-size: 8rem; color: #d4af37; margin: 0;
+            text-shadow: 3px 3px 0px #856620, 6px 6px 15px rgba(0,0,0,0.8);
             font-weight: 700;
         }
 
-        .soustitre {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            color: white;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-            margin-top: -10px;
-        }
+        /* NAVIGATION */
+        nav { background: var(--bois-sombre); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--or-vieux); }
+        nav a { color: var(--or-ombré); text-decoration: none; margin: 0 15px; font-family: 'Cinzel'; font-size: 0.9rem; cursor: pointer; }
+        nav a:hover { color: white; }
 
         section { max-width: 1100px; margin: auto; padding: 40px 20px; }
 
-        /* ✅ CADRE STYLE TABLEAU (CONGRÈS) */
         .cadre-tableau {
-            border: 12px solid var(--bois-sombre);
-            outline: 2px solid var(--or-vieux);
-            outline-offset: -8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            background: var(--rouge-royal);
-            color: #f1e4d1;
-            padding: 40px;
-            text-align: center;
-            margin-bottom: 40px;
+            border: 12px solid var(--bois-sombre); outline: 2px solid var(--or-vieux); outline-offset: -8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); background: var(--rouge-royal);
+            color: #f1e4d1; padding: 40px; text-align: center; margin-bottom: 40px;
         }
 
-        /* ✅ CARROUSEL ET LIVRETS AVEC CADRES BOIS */
-        .carousel-container { display: flex; overflow-x: auto; gap: 25px; padding: 20px 0; }
+        /* CARROUSELS */
+        .carousel-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; scroll-behavior: smooth; }
         .livret-card {
-            flex: 0 0 180px;
-            background: #fff;
-            padding: 10px;
-            border: 6px solid #3d2b1f; /* Cadre bois individuel */
-            box-shadow: 5px 10px 20px rgba(0,0,0,0.3);
-            text-align: center;
+            flex: 0 0 160px; background: #fff; padding: 10px; border: 5px solid #3d2b1f;
+            box-shadow: 5px 10px 20px rgba(0,0,0,0.2); text-align: center;
         }
-        .livret-card img { width: 100%; height: 240px; object-fit: cover; }
-        .livret-card p { font-size: 0.85rem; font-weight: bold; color: #333; margin-top: 10px; }
+        .livret-card img { width: 100%; height: 210px; object-fit: cover; }
+        
+        .livre-card {
+            flex: 0 0 200px; background: #fff; padding: 10px; border: 8px solid var(--rouge-royal);
+            box-shadow: 5px 10px 20px rgba(0,0,0,0.3); text-align: center;
+        }
+        .livre-card img { width: 100%; height: 280px; object-fit: cover; }
 
-        /* ZONE SECRET */
-        .secret-form {
-            text-align: center; padding: 60px;
-            background: rgba(0,0,0,0.05);
-            border-top: 1px solid var(--or-vieux);
+        /* PAGES EXTERNES SIMULÉES */
+        .page-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #e8dcc4 url('https://www.transparenttextures.com/patterns/handmade-paper.png');
+            z-index: 2000; overflow-y: auto; padding: 50px 20px;
         }
-        input[type="password"] {
-            padding: 12px; border: 2px solid var(--or-vieux);
-            background: rgba(255,255,255,0.7);
-            font-family: 'Cinzel', serif; text-align: center;
-        }
+        .close-btn { position: fixed; top: 20px; right: 20px; padding: 10px 20px; background: var(--rouge-royal); color: white; border: none; cursor: pointer; font-family: 'Cinzel'; }
 
-        #page-membre { display: none; padding: 40px; border: 15px double var(--or-vieux); background: white; margin: 20px; }
+        .secret-form { text-align: center; padding: 60px; background: rgba(0,0,0,0.05); border-top: 1px solid var(--or-vieux); }
+        input[type="password"] { padding: 12px; border: 2px solid var(--or-vieux); background: white; text-align: center; }
 
         footer { background: #1a1a1a; color: #d4af37; padding: 30px; text-align: center; font-family: 'Cinzel'; }
     </style>
 </head>
 <body>
 
+    <nav>
+        <a onclick="showPage('page-rejoindre')">POURQUOI NOUS REJOINDRE ?</a>
+        <a onclick="showPage('page-levasseur')">QUI EST RENÉ LEVASSEUR ?</a>
+        <a href="#librairie">LIBRAIRIE</a>
+        <a href="#login">ACCÈS MEMBRE</a>
+    </nav>
+
     <div class="hero">
         <h1 class="titre-1789">1789</h1>
-        <p class="soustitre">Club René Levasseur de la Sarthe</p>
+        <p style="font-family: 'Dancing Script'; font-size: 3rem; color: white;">Club René Levasseur de la Sarthe</p>
     </div>
 
     <section>
         <div class="cadre-tableau">
-            <h2 style="font-family: 'Cinzel'; color: var(--or-ombré); margin: 0; border: none;">CONGRÈS NATIONAL</h2>
-            <p style="font-size: 1.2rem; letter-spacing: 1px;">des SOCIÉTÉS AMIES de la RÉVOLUTION FRANÇAISE</p>
+            <h2 style="font-family: 'Cinzel'; color: var(--or-ombré); margin: 0;">CONGRÈS NATIONAL</h2>
+            <p>des SOCIÉTÉS AMIES de la RÉVOLUTION FRANÇAISE</p>
             <hr style="width: 40%; border: 0.5px solid var(--or-vieux); margin: 20px auto;">
-            <p style="font-family: 'Cinzel'; font-size: 1.5rem; color: #fff;">AU MANS • SEPTEMBRE 2026</p>
+            <p style="font-family: 'Cinzel'; font-size: 1.5rem;">AU MANS • SEPTEMBRE 2026</p>
         </div>
 
         <div style="background: rgba(255,255,255,0.4); padding: 20px; border-left: 5px solid var(--rouge-royal); text-align: center;">
             <h3 style="font-family: 'Cinzel'; color: var(--rouge-royal);">ASSEMBLÉE GÉNÉRALE</h3>
-            <p><strong>Vendredi 27 Mars 2026 à 20h</strong></p>
-            <p>Maison de quartier Pierre Perret, rue Averroès, Le Mans</p>
+            <p><strong>Vendredi 27 Mars 2026 à 20h</strong><br>Maison de quartier Pierre Perret, rue Averroès, Le Mans</p>
         </div>
     </section>
 
     <section id="librairie">
-        <h2 style="font-family: 'Cinzel'; color: var(--rouge-royal); text-align: center;">La Librairie</h2>
+        <h2 style="font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal);">La Librairie</h2>
+        
+        <h3 style="font-family: 'Cinzel'; border-bottom: 1px solid var(--or-vieux);">Les 37 Livrets de Conférences (2 €)</h3>
         <div class="carousel-container">
-            <div class="livret-card">
-                <img src="https://i.imgur.com/omWvORB.jpeg" alt="L5">
-                <p>N°05 - Le Cinéma</p>
-            </div>
-            <div class="livret-card">
-                <img src="https://i.imgur.com/bEc5s5H.jpeg" alt="L6">
-                <p>N°06 - Doléances</p>
-            </div>
-            <div class="livret-card">
-                <img src="https://i.imgur.com/IU7nNqL.jpeg" alt="L7">
-                <p>N°07 - République</p>
-            </div>
-            <div class="livret-card">
-                <img src="https://i.imgur.com/lRdriwi.jpeg" alt="L8">
-                <p>N°08 - Gracchus Babeuf</p>
-            </div>
-            <div class="livret-card">
-                <img src="https://i.imgur.com/0TDyQjo.jpeg" alt="L9">
-                <p>N°09 - Études</p>
-            </div>
-            <div class="livret-card">
-                <img src="https://i.imgur.com/ZHFP5f8.jpeg" alt="L10">
-                <p>N°10 - La Sarthe</p>
-            </div>
+            <div class="livret-card"><img src="https://i.imgur.com/omWvORB.jpeg" alt="L5"><p>N°05 - Le Cinéma</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/bEc5s5H.jpeg" alt="L6"><p>N°06 - Doléances</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/IU7nNqL.jpeg" alt="L7"><p>N°07 - République</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/lRdriwi.jpeg" alt="L8"><p>N°08 - Babeuf</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/0TDyQjo.jpeg" alt="L9"><p>N°09 - Études</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/ZHFP5f8.jpeg" alt="L10"><p>N°10 - La Sarthe</p></div>
+            <script>
+                for(let i=11; i<=37; i++) {
+                    document.write(`<div class="livret-card" style="opacity:0.5;"><img src="https://via.placeholder.com/160x210?text=Livret+${i}" alt="L${i}"><p>Livret N°${i}</p></div>`);
+                }
+            </script>
+        </div>
+
+        <h3 style="font-family: 'Cinzel'; border-bottom: 1px solid var(--or-vieux); margin-top: 40px;">Nos Livres</h3>
+        <div class="carousel-container">
+            <div class="livre-card"><img src="https://via.placeholder.com/200x280?text=Mémoires+Vol+1" alt="B1"><p>Mémoires de Levasseur T1</p></div>
+            <div class="livre-card"><img src="https://via.placeholder.com/200x280?text=Mémoires+Vol+2" alt="B2"><p>Mémoires de Levasseur T2</p></div>
+            <div class="livre-card"><img src="https://via.placeholder.com/200x280?text=Livre+3" alt="B3"><p>Ouvrage SARF</p></div>
+            <div class="livre-card"><img src="https://via.placeholder.com/200x280?text=Livre+4" alt="B4"><p>Ouvrage SARF</p></div>
+            <div class="livre-card"><img src="https://via.placeholder.com/200x280?text=Livre+5" alt="B5"><p>Ouvrage SARF</p></div>
+            <div class="livre-card"><img src="https://via.placeholder.com/200x280?text=Livre+6" alt="B6"><p>Ouvrage SARF</p></div>
         </div>
     </section>
 
-    <div class="secret-form">
+    <div id="login" class="secret-form">
         <p style="font-family: 'Cinzel';">Entrez le code secret</p>
         <input type="password" id="pass">
         <br><br>
-        <button onclick="checkPass()" style="background: var(--bois-sombre); color: white; padding: 10px 30px; border: none; cursor: pointer; font-family: 'Cinzel';">ACCÉDER</button>
+        <button onclick="checkPass()" style="background: var(--bois-sombre); color: white; padding: 10px 30px; border: none; cursor: pointer;">ACCÉDER AUX ARCHIVES</button>
     </div>
 
-    <div id="page-membre">
-        <h2 style="font-family: 'Dancing Script'; font-size: 3rem; color: var(--rouge-royal);">Espace Privé</h2>
-        <p>Bienvenue dans les archives du Club.</p>
-        <p>Trombinoscope et Historique disponibles prochainement.</p>
+    <div id="page-rejoindre" class="page-overlay">
+        <button class="close-btn" onclick="hidePage('page-rejoindre')">RETOUR</button>
+        <section>
+            <h2 style="font-family: 'Cinzel'; color: var(--rouge-royal);">Pourquoi nous rejoindre ?</h2>
+            <div style="background: white; padding: 30px; border: 2px solid var(--or-vieux);">
+                <p>Rejoindre le Club René Levasseur, c'est participer à la sauvegarde de la mémoire républicaine de notre département et approfondir vos connaissances sur la période charnière de la Révolution Française.</p>
+                <ul style="line-height: 2;">
+                    <li>Accès prioritaire à nos conférences mensuelles.</li>
+                    <li>Réception de nos livrets de recherche.</li>
+                    <li>Participation aux commémorations et sorties historiques.</li>
+                    <li>Échanges avec des historiens et passionnés.</li>
+                </ul>
+                <div style="text-align: center; margin-top: 30px; padding: 20px; background: var(--rouge-royal); color: white;">
+                    <h3 style="margin: 0;">TARIF ADHÉSION : 16 € / AN</h3>
+                    <p>Fidélité aux idéaux de 1789</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="page-levasseur" class="page-overlay">
+        <button class="close-btn" onclick="hidePage('page-levasseur')">RETOUR</button>
+        <section>
+            <h2 style="font-family: 'Cinzel'; color: var(--rouge-royal);">Qui est René Levasseur ?</h2>
+            <div style="background: white; padding: 30px; border: 2px solid var(--or-vieux);">
+                <p><strong>René Levasseur (1747-1834)</strong> était un médecin manceau et un homme politique majeur de la Révolution française.</p>
+                <p>Député de la Sarthe à la <strong>Convention nationale</strong>, il siégea sur les bancs de la Montagne. Il est resté célèbre pour son intégrité et son rôle crucial dans le décret du 16 pluviôse an II, qui proclama la <strong>première abolition de l'esclavage</strong> dans les colonies françaises.</p>
+                <p>Il était ce qu'on appelle un "conventionnel", un bâtisseur de la République qui, malgré l'exil, resta fidèle à ses convictions jusqu'à son dernier souffle au Mans.</p>
+            </div>
+        </section>
     </div>
 
     <footer>
-        <p>SARF SARTHE - Club René Levasseur</p>
-        <p>Fidèle à 1789</p>
+        <p>SARF SARTHE - Club René Levasseur | Fidèle à 1789</p>
     </footer>
 
     <script>
+        function showPage(id) { document.getElementById(id).style.display = 'block'; }
+        function hidePage(id) { document.getElementById(id).style.display = 'none'; }
+        
         function checkPass() {
             const p = document.getElementById('pass').value;
-            if(p === "26051747") {
-                document.getElementById('page-membre').style.display = 'block';
-                document.getElementById('page-membre').scrollIntoView();
-            } else {
-                alert("Code secret incorrect.");
-            }
+            if(p === "26051747") { alert("Bienvenue dans les archives !"); } 
+            else { alert("Code incorrect."); }
         }
     </script>
 </body>
