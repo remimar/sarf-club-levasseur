@@ -47,7 +47,6 @@
 
         section { max-width: 1100px; margin: auto; padding: 40px 20px; }
 
-        /* BLOCS CONTENU */
         .cadre-tableau {
             border: 12px solid var(--bois-sombre); outline: 2px solid var(--or-vieux); outline-offset: -8px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6); background: var(--rouge-royal);
@@ -64,9 +63,15 @@
 
         /* CARROUSELS */
         .carousel-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; }
-        .livret-card { flex: 0 0 160px; background: #fff; padding: 10px; border: 5px solid #3d2b1f; text-align: center; }
+        
+        /* Style des livrets (Cadre bois) */
+        .livret-card { flex: 0 0 160px; background: #fff; padding: 10px; border: 5px solid #3d2b1f; text-align: center; box-shadow: 3px 3px 10px rgba(0,0,0,0.2); }
         .livret-card img { width: 100%; height: 210px; object-fit: cover; }
         
+        /* Style des LIVRES (Cadre doré large) */
+        .livre-card { flex: 0 0 200px; background: #fff; padding: 12px; border: 8px solid var(--or-vieux); text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .livre-card img { width: 100%; height: 280px; object-fit: cover; }
+
         /* OVERLAYS (PAGES) */
         .page-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -74,8 +79,6 @@
             z-index: 2000; overflow-y: auto; padding: 60px 20px;
         }
         .close-btn { position: fixed; top: 20px; right: 20px; padding: 10px 20px; background: var(--rouge-royal); color: white; border: none; cursor: pointer; font-family: 'Cinzel'; z-index: 2001; }
-
-        /* STYLE DES PAGES INTERNES */
         .page-content { background: white; padding: 40px; border: 2px solid var(--or-vieux); max-width: 900px; margin: auto; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .portrait-levasseur { width: 250px; float: left; margin: 0 30px 20px 0; border: 10px solid var(--bois-sombre); border-radius: 50% 50% 0 0; }
 
@@ -116,8 +119,9 @@
     </section>
 
     <section id="librairie">
-        <h2 style="font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal);">La Librairie</h2>
-        <h3 style="font-family: 'Cinzel'; border-bottom: 1px solid var(--or-vieux);">Les 37 Livrets de Conférences (2 €)</h3>
+        <h2 style="font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal); font-size: 2.5rem;">La Librairie</h2>
+        
+        <h3 style="font-family: 'Cinzel'; border-bottom: 2px solid var(--or-vieux); padding-bottom: 10px;">Les 37 Livrets de Conférences (2 €)</h3>
         <div class="carousel-container">
             <div class="livret-card"><img src="https://i.imgur.com/omWvORB.jpeg" alt="L5"><p>N°05 - Le Cinéma</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/bEc5s5H.jpeg" alt="L6"><p>N°06 - Doléances</p></div>
@@ -125,7 +129,17 @@
             <div class="livret-card"><img src="https://i.imgur.com/lRdriwi.jpeg" alt="L8"><p>N°08 - Babeuf</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/0TDyQjo.jpeg" alt="L9"><p>N°09 - Études</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/ZHFP5f8.jpeg" alt="L10"><p>N°10 - La Sarthe</p></div>
-            <script>for(let i=11; i<=37; i++) { document.write(`<div class="livret-card" style="opacity:0.5;"><img src="https://via.placeholder.com/160x210?text=Livret+${i}" alt="L${i}"><p>Livret N°${i}</p></div>`); }</script>
+            <script>for(let i=11; i<=37; i++) { document.write(`<div class="livret-card" style="opacity:0.4;"><img src="https://via.placeholder.com/160x210?text=Livret+${i}" alt="L${i}"><p>Livret N°${i}</p></div>`); }</script>
+        </div>
+
+        <h3 style="font-family: 'Cinzel'; border-bottom: 2px solid var(--or-vieux); padding-bottom: 10px; margin-top: 50px;">Nos Livres de Collection</h3>
+        <div class="carousel-container">
+            <div class="livre-card"><img src="https://via.placeholder.com/200x280?text=Mémoires+T1" alt="B1"><p>Mémoires de Levasseur T1</p></div>
+            <div class="livre-card"><img src="https://via.placeholder.com/200x280?text=Mémoires+T2" alt="B2"><p>Mémoires de Levasseur T2</p></div>
+            <div class="livre-card"><img src="https://via.placeholder.com/200x280?text=Livre+3" alt="B3"><p>Ouvrage de Recherche</p></div>
+            <div class="livre-card" style="opacity:0.5;"><img src="https://via.placeholder.com/200x280?text=Livre+4" alt="B4"><p>Emplacement Livre 4</p></div>
+            <div class="livre-card" style="opacity:0.5;"><img src="https://via.placeholder.com/200x280?text=Livre+5" alt="B5"><p>Emplacement Livre 5</p></div>
+            <div class="livre-card" style="opacity:0.5;"><img src="https://via.placeholder.com/200x280?text=Livre+6" alt="B6"><p>Emplacement Livre 6</p></div>
         </div>
     </section>
 
@@ -136,11 +150,11 @@
             <hr>
             <div style="margin-top: 30px;">
                 <h3 style="color: var(--rouge-royal);">4 Février 2026 : Commémoration de l'Abolition de l'Esclavage</h3>
-                <p>En ce 4 février 2026, le Club René Levasseur s'est réuni au Mans pour commémorer le décret historique du 16 pluviôse an II.</p>
-                <div style="background: #eee; width: 100%; height: 400px; display: flex; align-items: center; justify-content: center; border: 2px dashed #ccc; margin: 20px 0;">
-                    <p style="color: #666; font-style: italic;">[ Emplacement pour votre photo de la commémoration ]</p>
+                <p>Le Club s'est réuni au Mans pour honorer la mémoire de René Levasseur et le décret du 16 pluviôse an II.</p>
+                <div style="background: #eee; width: 100%; height: 350px; display: flex; align-items: center; justify-content: center; border: 2px dashed #ccc; margin: 20px 0;">
+                    <p style="color: #666;">[ Emplacement Photo Commémoration ]</p>
                 </div>
-                <p>Devant la stèle de René Levasseur au Cimetière de l'Ouest, nous avons rappelé son rôle déterminant en tant que conventionnel manceau dans cette première grande avancée des Droits de l'Homme. Une cérémonie sobre et citoyenne qui a rassemblé membres et élus locaux.</p>
+                <p>Un moment fort pour rappeler l'engagement manceau en faveur de la Liberté Universelle.</p>
             </div>
         </div>
     </div>
@@ -149,17 +163,10 @@
         <button class="close-btn" onclick="hidePage('page-rejoindre')">RETOUR</button>
         <div class="page-content">
             <h2 style="font-family: 'Cinzel'; color: var(--rouge-royal); text-align: center;">Pourquoi nous rejoindre ?</h2>
-            <p>Devenir membre de la SARF Sarthe, c'est soutenir une recherche historique indépendante et faire vivre les valeurs républicaines de 1789.</p>
             <div style="background: #fdf6e3; padding: 25px; border: 1px solid var(--or-vieux); margin: 30px 0;">
                 <h3 style="margin-top:0;">Tarif Adhésion : 16 € par an</h3>
-                <p><strong>Modes de règlement acceptés :</strong></p>
-                <ul>
-                    <li><strong>Par chèque :</strong> à envoyer par voie postale (nous contacter pour l'adresse).</li>
-                    <li><strong>Par virement :</strong> RIB transmis sur simple demande.</li>
-                    <li><strong>En ligne :</strong> via notre page partenaire <strong>HelloAsso</strong>.</li>
-                </ul>
+                <p><strong>Modes de règlement :</strong> Chèque, Virement ou HelloAsso.</p>
             </div>
-            <p style="text-align: center; font-style: italic;">"La République ne s'arrête pas à l'histoire, elle se vit."</p>
         </div>
     </div>
 
@@ -168,9 +175,8 @@
         <div class="page-content">
             <h2 style="font-family: 'Cinzel'; color: var(--rouge-royal); text-align: center;">Qui est René Levasseur ?</h2>
             <img src="https://i.imgur.com/w7oSesb.png" class="portrait-levasseur" alt="Portrait René Levasseur">
-            <p><strong>René Levasseur (1747-1834)</strong> était un médecin manceau devenu l'une des figures les plus intègres de la Révolution française.</p>
-            <p>Élu député de la Sarthe à la <strong>Convention nationale</strong>, il fut un "conventionnel" montagnard. Son nom est éternellement lié à l'abolition de l'esclavage : il fut l'un des ardents défenseurs du décret qui libéra les opprimés dans les colonies en 1794.</p>
-            <p>Au-delà de son mandat, il resta un homme de terrain, médecin des pauvres, dont les mémoires constituent aujourd'hui une source inestimable pour comprendre les enjeux de la naissance de notre République.</p>
+            <p><strong>René Levasseur (1747-1834)</strong> était un médecin manceau devenu l'un des figures les plus intègres de la Convention nationale.</p>
+            <p>Défenseur acharné de la République et de l'abolition de l'esclavage.</p>
             <div style="clear: both;"></div>
         </div>
     </div>
