@@ -22,54 +22,113 @@
             margin: 0; padding: 0;
         }
 
+        /* Navigation */
         nav { background: var(--bois-sombre); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--or-vieux); }
-        nav a { color: var(--or-ombré); text-decoration: none; margin: 0 12px; font-family: 'Cinzel'; font-size: 0.9rem; cursor: pointer; }
+        nav a { color: var(--or-ombré); text-decoration: none; margin: 0 15px; font-family: 'Cinzel'; font-size: 0.85rem; cursor: pointer; transition: 0.3s; }
+        nav a:hover { color: white; text-shadow: 0 0 5px var(--or-ombré); }
 
+        /* Hero */
         .hero {
-            height: 35vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.imgur.com/IadHy6Z.jpeg') center/cover;
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.imgur.com/IadHy6Z.jpeg') center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; color: white; border-bottom: 5px solid var(--or-vieux);
         }
+        .titre-sarf {
+            font-family: 'Cinzel', serif; font-size: 7rem; color: #d4af37; margin: 0;
+            text-shadow: 3px 3px 0px #856620, 6px 6px 15px rgba(0,0,0,0.8);
+            font-weight: 700; letter-spacing: 12px;
+        }
 
-        section { max-width: 1200px; margin: auto; padding: 40px 20px; }
+        section { max-width: 1100px; margin: auto; padding: 50px 20px; }
 
-        .carousel-container { display: flex; overflow-x: auto; gap: 15px; padding: 20px 0; scroll-behavior: smooth; }
-        
-        /* Style Livrets */
-        .livret-card { flex: 0 0 160px; background: #fff; padding: 8px; border: 3px solid var(--bois-sombre); text-align: center; box-shadow: 3px 3px 8px rgba(0,0,0,0.2); }
-        .livret-card img { width: 100%; height: 220px; object-fit: cover; }
-        .livret-card p { font-size: 0.75rem; margin: 8px 0; font-weight: bold; height: 40px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        /* Cadres et Sections */
+        .cadre-tableau {
+            border: 12px solid var(--bois-sombre); outline: 2px solid var(--or-vieux); outline-offset: -8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); background: var(--rouge-royal);
+            color: #f1e4d1; padding: 40px; text-align: center; margin-bottom: 50px;
+        }
 
-        /* Style Livres */
-        .livre-card { flex: 0 0 220px; background: #fff; padding: 12px; border: 6px solid var(--or-vieux); text-align: center; box-shadow: 5px 5px 15px rgba(0,0,0,0.3); }
-        .livre-card img { width: 100%; height: 300px; object-fit: cover; }
-        .livre-card h4 { margin: 10px 0 5px 0; font-family: 'Cinzel'; font-size: 0.9rem; color: var(--rouge-royal); }
+        .ag-container {
+            display: flex; align-items: center; gap: 30px;
+            background: rgba(255,255,255,0.4); border-left: 8px solid var(--rouge-royal);
+            padding: 30px; margin: 40px 0;
+        }
+        .ag-photo { width: 180px; height: 180px; border: 4px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        .payment-box { background: #fdf6e3; padding: 25px; border: 2px solid var(--or-vieux); margin-top: 40px; }
+        /* Librairie Carrousels */
+        .carousel-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 5px; scroll-behavior: smooth; }
+        .carousel-container::-webkit-scrollbar { height: 8px; }
+        .carousel-container::-webkit-scrollbar-thumb { background: var(--or-vieux); border-radius: 10px; }
 
-        footer { background: #1a1a1a; color: #d4af37; padding: 20px; text-align: center; font-family: 'Cinzel'; border-top: 3px solid var(--or-vieux); }
+        .livret-card { flex: 0 0 170px; background: #fff; padding: 10px; border: 4px solid var(--bois-sombre); text-align: center; box-shadow: 3px 3px 10px rgba(0,0,0,0.2); transition: 0.3s; }
+        .livret-card:hover { transform: translateY(-5px); border-color: var(--or-ombré); }
+        .livret-card img { width: 100%; height: 240px; object-fit: cover; border-bottom: 1px solid #eee; margin-bottom: 8px; }
+        .livret-card p { font-size: 0.8rem; margin: 5px 0; line-height: 1.3; font-weight: bold; color: #333; height: 45px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+
+        .livre-card { flex: 0 0 230px; background: #fff; padding: 12px; border: 8px solid var(--or-vieux); text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .livre-card img { width: 100%; height: 320px; object-fit: cover; }
+        .livre-card h4 { font-family: 'Cinzel'; margin: 10px 0; color: var(--rouge-royal); font-size: 0.9rem; }
+
+        /* Infos Paiement */
+        .payment-info { background: #fdf6e3; padding: 30px; border: 2px solid var(--or-vieux); margin-top: 40px; border-radius: 3px; box-shadow: inset 0 0 15px rgba(0,0,0,0.05); }
+
+        /* Accès membre */
+        .login-section { text-align: center; padding: 60px; background: rgba(0,0,0,0.03); border-top: 2px solid var(--or-vieux); }
+        .login-section input { padding: 12px; border: 2px solid var(--or-vieux); width: 200px; font-family: 'Cinzel'; margin-right: 10px; }
+        .login-section button { padding: 12px 30px; background: var(--bois-sombre); color: white; border: none; cursor: pointer; font-family: 'Cinzel'; transition: 0.3s; }
+        .login-section button:hover { background: var(--rouge-royal); }
+
+        /* Footer */
+        footer { background: #1a1a1a; color: #d4af37; padding: 40px; text-align: center; font-family: 'Cinzel'; border-top: 5px solid var(--or-vieux); }
+
+        /* Overlay Pages */
+        .page-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #e8dcc4; z-index: 2000; overflow-y: auto; padding: 60px 0; }
+        .page-content { background: white; padding: 40px; border: 2px solid var(--or-vieux); max-width: 800px; margin: auto; box-shadow: 0 0 50px rgba(0,0,0,0.2); }
+        .close-btn { position: fixed; top: 20px; right: 20px; padding: 12px 25px; background: var(--rouge-royal); color: white; border: none; cursor: pointer; font-family: 'Cinzel'; z-index: 2100; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#livrets">LES 37 LIVRETS</a>
-        <a href="#livres">LIVRES & HORS-SÉRIE</a>
-        <a href="#contact">CONTACT</a>
+        <a onclick="showPage('page-actualites')">ACTUALITÉS & SOUVENIRS</a>
+        <a onclick="showPage('page-rejoindre')">POURQUOI NOUS REJOINDRE ?</a>
+        <a onclick="showPage('page-levasseur')">QUI EST RENÉ LEVASSEUR ?</a>
+        <a href="#librairie">LIBRAIRIE</a>
+        <a href="#login">ACCÈS MEMBRE</a>
     </nav>
 
     <div class="hero">
-        <h1 style="font-family:'Cinzel'; font-size: 4rem; color:#d4af37; margin:0;">SARF SARTHE</h1>
-        <p style="font-family:'Dancing Script'; font-size: 1.8rem;">Librairie du Club René Levasseur</p>
+        <h1 class="titre-sarf">SARF</h1>
+        <p style="font-family: 'Dancing Script'; font-size: 3rem; color: white; margin-top: -20px;">Club René Levasseur de la Sarthe</p>
     </div>
 
-    <section id="livrets">
-        <h2 style="font-family: 'Cinzel'; color: var(--rouge-royal); border-bottom: 2px solid var(--or-vieux);">Les 37 Livrets de Recherche</h2>
+    <section>
+        <div class="cadre-tableau">
+            <h2 style="font-family: 'Cinzel'; color: var(--or-ombré); margin: 0; letter-spacing: 3px;">CONGRÈS NATIONAL 2026</h2>
+            <p>des SOCIÉTÉS AMIES de la RÉVOLUTION FRANÇAISE</p>
+            <hr style="width: 20%; border: 0.5px solid var(--or-vieux); margin: 20px auto;">
+            <p style="font-family: 'Cinzel'; font-size: 1.8rem;">AU MANS • SEPTEMBRE 2026</p>
+        </div>
+
+        <div class="ag-container">
+            <div style="flex:1; text-align:center;">
+                <h3 style="font-family: 'Cinzel'; color: var(--rouge-royal); font-size: 1.5rem;">ASSEMBLÉE GÉNÉRALE</h3>
+                <p style="font-size: 1.2rem;"><strong>Vendredi 27 Mars 2026 à 20h</strong></p>
+                <p>Maison de quartier Pierre Perret, Le Mans</p>
+            </div>
+            <img src="https://i.imgur.com/b9jreZN.png" class="ag-photo" alt="Logo SARF">
+        </div>
+    </section>
+
+    <section id="librairie">
+        <h2 style="font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal); font-size: 3rem; margin-bottom: 10px;">La Librairie</h2>
+        <p style="text-align: center; font-style: italic; margin-bottom: 40px;">Découvrez nos travaux de recherche et ouvrages historiques</p>
+        
+        <h3 style="font-family: 'Cinzel'; border-bottom: 2px solid var(--or-vieux); padding-bottom: 10px; color: var(--bois-sombre);">Les Livrets de Recherche (2€ à 4€)</h3>
         <div class="carousel-container">
-            <div class="livret-card"><img src="https://i.imgur.com/f3Ht4CD.jpeg"><p>N°1 - Histoire Vivante</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/f3Ht4CD.jpeg"><p>N°1 - Histoire vivante</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/6xdEdhT.jpeg"><p>N°2 - Guerres de l'Ouest</p></div>
-            <div class="livret-card"><img src="https://i.imgur.com/4FRRCYr.jpeg"><p>N°3 - La Révolution Fr.</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/TdL2coI.jpeg"><p>N°4 - Juillet 1789</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/omWvORB.jpeg"><p>N°5 - Le Cinéma</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/bEc5s5H.jpeg"><p>N°6 - Doléances</p></div>
@@ -78,7 +137,7 @@
             <div class="livret-card"><img src="https://i.imgur.com/0TDyQjo.jpeg"><p>N°9 - Les Femmes</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/ZHFP5f8.jpeg"><p>N°10 - Conventionnels</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/eRrP2GY.jpeg"><p>N°11 - Bataille du Mans</p></div>
-            <div class="livret-card"><img src="https://i.imgur.com/nS8Kl8O.jpeg"><p>N°12 - Ossements Jacobins</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/J7kXA5T.jpg"><p>N°12 - Jacobins (Le Mans)</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/Ph93KRp.jpeg"><p>N°13 - Esclavage</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/3SmDYVw.jpeg"><p>N°14 - Icono. Esclavage</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/L4ZVyNf.jpeg"><p>N°15 - Clergé</p></div>
@@ -95,7 +154,7 @@
             <div class="livret-card"><img src="https://i.imgur.com/xI0YZh0.jpeg"><p>N°26 - Déchrist. (4€)</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/R73EM3q.jpeg"><p>N°27 - Vendée (4€)</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/2FwVCH9.jpeg"><p>N°28 - Danton</p></div>
-            <div class="livret-card"><img src="https://i.imgur.com/7JJYnj6.jpeg"><p>N°29 - Garde Nationale</p></div>
+            <div class="livret-card"><img src="https://i.imgur.com/7JJYnj6.jpeg"><p>N°29 - Garde Nat.</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/862e5Gn.jpeg"><p>N°30 - 2e Révolution</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/cJ0Es30.jpeg"><p>N°31 - Actrices</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/YNbADV7.jpeg"><p>N°32 - Raphaël Élizé</p></div>
@@ -105,58 +164,70 @@
             <div class="livret-card"><img src="https://i.imgur.com/zltOojJ.jpeg"><p>N°36 - Rigomer Bazin</p></div>
             <div class="livret-card"><img src="https://i.imgur.com/zdWK0RQ.jpeg"><p>N°37 - Laïcité</p></div>
         </div>
-    </section>
 
-    <section id="livres">
-        <h2 style="font-family: 'Cinzel'; color: var(--rouge-royal); border-bottom: 2px solid var(--or-vieux);">Livres & Ouvrages de Collection</h2>
+        <h3 style="font-family: 'Cinzel'; border-bottom: 2px solid var(--or-vieux); padding-bottom: 10px; margin-top: 60px; color: var(--bois-sombre);">Livres & Ouvrages de Collection</h3>
         <div class="carousel-container">
-            <div class="livre-card">
-                <img src="https://i.imgur.com/SIGJoQQ.jpeg">
-                <h4>Mémoires Levasseur I-II</h4>
-                <p><b>15 €</b></p>
-            </div>
-            <div class="livre-card">
-                <img src="https://i.imgur.com/2xlUTPY.jpeg">
-                <h4>Mémoires Levasseur III-IV</h4>
-                <p><b>15 €</b></p>
-            </div>
-            <div class="livre-card">
-                <img src="https://i.imgur.com/mZ4yibA.jpeg">
-                <h4>Registre des Jacobins</h4>
-                <p><b>16 €</b></p>
-            </div>
-            <div class="livre-card">
-                <img src="https://i.imgur.com/ao7mOex.jpeg">
-                <h4>Album René Levasseur</h4>
-                <p><b>12 €</b></p>
-            </div>
-            <div class="livre-card">
-                <img src="https://i.imgur.com/bHsZ84b.jpeg">
-                <h4>Bicentenaire 1789-1989</h4>
-                <p><b>12 €</b></p>
-            </div>
-            <div class="livre-card">
-                <img src="https://i.imgur.com/aW5ptfD.jpeg">
-                <h4>La Révolution en Sarthe</h4>
-                <p><b>4 €</b></p>
-            </div>
-            <div class="livre-card">
-                <img src="https://i.imgur.com/SLXVemE.jpeg">
-                <h4>Biographie Levasseur</h4>
-                <p><b>4 €</b></p>
-            </div>
+            <div class="livre-card"><img src="https://i.imgur.com/SIGJoQQ.jpeg"><h4>Mémoires Levasseur I-II</h4><p><b>15 €</b></p></div>
+            <div class="livre-card"><img src="https://i.imgur.com/2xlUTPY.jpeg"><h4>Mémoires Levasseur III-IV</h4><p><b>15 €</b></p></div>
+            <div class="livre-card"><img src="https://i.imgur.com/mZ4yibA.jpeg"><h4>Registre des Jacobins</h4><p><b>16 €</b></p></div>
+            <div class="livre-card"><img src="https://i.imgur.com/ao7mOex.jpeg"><h4>Album René Levasseur</h4><p><b>12 €</b></p></div>
+            <div class="livre-card"><img src="https://i.imgur.com/bHsZ84b.jpeg"><h4>Bicentenaire 1789-1989</h4><p><b>12 €</b></p></div>
+            <div class="livre-card"><img src="https://i.imgur.com/aW5ptfD.jpeg"><h4>La Révolution en Sarthe</h4><p><b>4 €</b></p></div>
+            <div class="livre-card"><img src="https://i.imgur.com/SLXVemE.jpeg"><h4>Biographie Levasseur</h4><p><b>4 €</b></p></div>
+        </div>
+
+        <div class="payment-info">
+            <h3 style="font-family:'Cinzel'; color:var(--rouge-royal); margin-top:0;">Modalités de Commande</h3>
+            <p>S'adresser à <strong>Daniel Jouteux</strong> : 📞 06 22 20 12 83 | ✉️ sarf.72@sfr.fr</p>
+            <p>Paiement : <strong>Chèque</strong> (SARF 72) ou <strong>Virement</strong> (FR76 1380 7007 4801 0198 6929 764)</p>
         </div>
     </section>
 
-    <section id="contact">
-        <div class="payment-box">
-            <h3 style="font-family:'Cinzel'; color:var(--rouge-royal); margin-top:0;">Informations de Commande</h3>
-            <p><strong>Daniel Jouteux</strong> : 06 22 20 12 83 | sarf.72@sfr.fr</p>
-            <p>Paiement par chèque (SARF 72) ou virement (FR76 1380 7007 4801 0198 6929 764)</p>
+    <div id="login" class="login-section">
+        <h3 style="font-family: 'Cinzel'; margin-bottom: 20px;">ESPACE MEMBRE</h3>
+        <input type="password" id="pass" placeholder="Code d'accès">
+        <button onclick="checkPass()">VALIDER</button>
+    </div>
+
+    <div id="page-actualites" class="page-overlay">
+        <button class="close-btn" onclick="hidePage('page-actualites')">FERMER</button>
+        <div class="page-content">
+            <h2 style="font-family:'Cinzel'; color:var(--rouge-royal);">Actualités & Souvenirs</h2>
+            <p>Retrouvez ici les derniers comptes-rendus et photos des événements de la SARF.</p>
         </div>
-    </section>
+    </div>
 
-    <footer><p>SARF SARTHE - Club René Levasseur de la Sarthe</p></footer>
+    <div id="page-rejoindre" class="page-overlay">
+        <button class="close-btn" onclick="hidePage('page-rejoindre')">FERMER</button>
+        <div class="page-content">
+            <h2 style="font-family:'Cinzel'; color:var(--rouge-royal);">Pourquoi nous rejoindre ?</h2>
+            <p>Pour faire vivre la mémoire de la Révolution Française en Sarthe et participer à nos recherches.</p>
+        </div>
+    </div>
 
+    <div id="page-levasseur" class="page-overlay">
+        <button class="close-btn" onclick="hidePage('page-levasseur')">FERMER</button>
+        <div class="page-content">
+            <h2 style="font-family:'Cinzel'; color:var(--rouge-royal);">Qui est René Levasseur ?</h2>
+            <p>René Levasseur (1747-1834), député de la Sarthe à la Convention, figure emblématique de la Révolution au Mans.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p style="margin:0; font-size:1.2rem;">SARF SARTHE - Club René Levasseur</p>
+        <p style="font-size:0.8rem; margin-top:10px; opacity:0.8;">Fidèle aux principes de 1789 • Le Mans, France</p>
+    </footer>
+
+    <script>
+        function showPage(id) { document.getElementById(id).style.display = 'block'; document.body.style.overflow = 'hidden'; }
+        function hidePage(id) { document.getElementById(id).style.display = 'none'; document.body.style.overflow = 'auto'; }
+        function checkPass() { 
+            if(document.getElementById('pass').value === "26051747") { 
+                alert("Accès autorisé. Bienvenue !"); 
+            } else { 
+                alert("Code incorrect."); 
+            } 
+        }
+    </script>
 </body>
 </html>
