@@ -2,23 +2,178 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Détails Livret N°1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARF - Société des Amis de la Révolution Française</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Libre Baskerville', serif; background: #e8dcc4; padding: 40px; }
-        .detail-container { max-width: 800px; margin: auto; background: white; padding: 20px; border: 5px solid #2c1e14; display: flex; gap: 20px; }
-        img { width: 300px; }
-        .rouge { color: #630d16; font-weight: bold; }
+        :root {
+            --rouge-royal: #630d16;
+            --or-ombré: #d4af37;
+            --bois-sombre: #2c1e14;
+            --or-vieux: #a67c52;
+            --papier: #e8dcc4;
+            --jaune-titre: #ffcc00;
+        }
+
+        body {
+            font-family: 'Libre Baskerville', serif;
+            background-color: var(--papier);
+            background-image: url('https://www.transparenttextures.com/patterns/handmade-paper.png');
+            background-attachment: fixed;
+            color: #2c241b; margin: 0; padding: 0; scroll-behavior: smooth;
+        }
+
+        /* --- Navigation --- */
+        nav { background: var(--bois-sombre); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--or-vieux); }
+        nav a { color: var(--or-ombré); text-decoration: none; margin: 0 12px; font-family: 'Cinzel'; font-size: 0.8rem; transition: 0.3s; }
+        nav a:hover { color: white; text-shadow: 0 0 8px var(--or-ombré); }
+
+        .hero {
+            height: 45vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.imgur.com/IadHy6Z.jpeg') center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: white; border-bottom: 5px solid var(--or-vieux); padding: 20px;
+        }
+        .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(1.5rem, 4vw, 3rem); color: var(--jaune-titre); margin: 0; text-shadow: 3px 3px 0px black; }
+
+        /* --- Sections --- */
+        section { max-width: 1200px; margin: auto; padding: 40px 20px; }
+        h2 { font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal); border-bottom: 2px solid var(--or-vieux); padding-bottom: 10px; }
+
+        /* --- Moments à venir --- */
+        .ag-container { background: white; border: 2px solid var(--or-vieux); padding: 25px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; box-shadow: 5px 5px 15px rgba(0,0,0,0.1); }
+        .img-ag { width: 120px; height: auto; }
+
+        /* --- Carrousels --- */
+        .carousel-container { display: flex; overflow-x: auto; gap: 15px; padding: 20px 0; }
+        .card { 
+            flex: 0 0 180px; background: white; padding: 10px; border: 3px solid var(--bois-sombre); 
+            text-align: center; cursor: pointer; transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--or-ombré); }
+        .card img { width: 100%; height: 240px; object-fit: contain; background: #fdfdfd; }
+        .card p.titre { font-size: 0.7rem; font-weight: bold; margin: 10px 0; height: 40px; overflow: hidden; }
+        .card p.info { color: var(--rouge-royal); font-size: 0.8rem; font-weight: bold; }
+        .btn-plus { font-size: 0.6rem; color: var(--or-vieux); text-transform: uppercase; font-weight: bold; display: block; margin-top: 5px; }
+
+        /* --- SYSTÈME DE LA PAGE DÉTAILS (MODALE) --- */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: var(--papier); margin: 5% auto; padding: 30px; border: 5px solid var(--bois-sombre);
+            width: 80%; max-width: 800px; position: relative; display: flex; gap: 30px; flex-wrap: wrap;
+        }
+        .close { position: absolute; right: 15px; top: 5px; font-size: 40px; cursor: pointer; color: var(--rouge-royal); }
+        .modal-img { width: 300px; border: 2px solid var(--bois-sombre); box-shadow: 10px 10px 0px var(--or-vieux); }
+        .modal-text { flex: 1; min-width: 300px; }
+        .modal-text h3 { font-family: 'Cinzel'; color: var(--rouge-royal); font-size: 1.8rem; margin-top: 0; }
+
+        footer { background: #1a1a1a; color: var(--or-ombré); padding: 40px; text-align: center; }
     </style>
 </head>
 <body>
-    <div class="detail-container">
-        <img src="https://i.imgur.com/f3Ht4CD.jpeg">
-        <div>
-            <h1>Livret N°1 - Une histoire toujours vivante</h1>
-            <p class="rouge">Prix : 2 € | Pages : 32</p>
-            <p><strong>Explication :</strong> Ici vous écrivez votre texte de quelques lignes qui présente le contenu du livret...</p>
-            <button onclick="window.close()">Fermer cette page</button>
+
+    <nav>
+        <a href="#qui-sommes-nous">QUI SOMMES-NOUS</a>
+        <a href="#moments">MOMENTS À VENIR</a>
+        <a href="#livrets">LES LIVRETS</a>
+        <a href="#ouvrages">OUVRAGES</a>
+    </nav>
+
+    <div class="hero">
+        <h1>SOCIÉTÉ DES AMIS DE LA RÉVOLUTION FRANÇAISE</h1>
+        <p>Club René Levasseur de la Sarthe</p>
+    </div>
+
+    <section id="moments">
+        <h2>Moments à venir</h2>
+        <div class="ag-container">
+            <img src="https://i.imgur.com/9HTvq89.png" class="img-ag" alt="Logo SARF">
+            <div style="flex:1;">
+                <h3>ASSEMBLÉE GÉNÉRALE</h3>
+                <p><strong>VENDREDI 27 MARS 2026 • 20 h</strong></p>
+                <p>Maison de quartier Pierre Perret, rue Averroès, Le Mans</p>
+                <p style="font-size: 0.9rem; font-style: italic;">Ordre du jour : Rapports d'activité, financier et élection au CA.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="livrets">
+        <h2>Les Livrets de Recherche</h2>
+        <div class="carousel-container">
+            <div class="card" onclick="ouvrirDetails('N°1 - Une histoire toujours vivante', 'https://i.imgur.com/f3Ht4CD.jpeg', '2 €', '32 p.', 'Ce premier livret pose les bases de notre réflexion sur l\'héritage de la Révolution dans le monde contemporain.')">
+                <img src="https://i.imgur.com/f3Ht4CD.jpeg">
+                <p class="titre">N°1 - Une histoire toujours vivante</p>
+                <p class="info">2 € | 32 p.</p>
+                <span class="btn-plus">En savoir plus</span>
+            </div>
+
+            <div class="card" onclick="ouvrirDetails('N°2 - Les guerres civiles dans l\'Ouest', 'https://i.imgur.com/6xdEdhT.jpeg', '2 €', '32 p.', 'Une analyse détaillée des tensions et des conflits qui ont marqué notre région pendant la période révolutionnaire.')">
+                <img src="https://i.imgur.com/6xdEdhT.jpeg">
+                <p class="titre">N°2 - Guerres dans l'Ouest</p>
+                <p class="info">2 € | 32 p.</p>
+                <span class="btn-plus">En savoir plus</span>
+            </div>
+
+            </div>
+    </section>
+
+    <section id="ouvrages">
+        <h2>Ouvrages & Hors-Séries</h2>
+        <div class="carousel-container">
+            <div class="card" onclick="ouvrirDetails('L\'An 1 de la Liberté', 'https://i.imgur.com/aW5ptfD.jpeg', '6 €', '112 p.', 'Un hors-série exceptionnel revenant sur les moments fondateurs de 1789.')">
+                <img src="https://i.imgur.com/aW5ptfD.jpeg">
+                <p class="titre">HS N°1 - L'An 1 de la Liberté</p>
+                <p class="info">6 € | 112 p.</p>
+                <span class="btn-plus">En savoir plus</span>
+            </div>
+            </div>
+    </section>
+
+    <div id="monLivret" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fermerDetails()">&times;</span>
+            <img id="modalImg" class="modal-img" src="">
+            <div class="modal-text">
+                <h3 id="modalTitre"></h3>
+                <p id="modalPrix" style="font-weight: bold; color: var(--rouge-royal);"></p>
+                <p id="modalPages" style="font-style: italic;"></p>
+                <hr>
+                <p id="modalDesc"></p>
+                <button onclick="fermerDetails()" style="margin-top:20px; padding:10px; background:var(--bois-sombre); color:white; border:none; cursor:pointer; font-family:'Cinzel';">Retour à la librairie</button>
+            </div>
         </div>
     </div>
+
+    <footer>
+        <p>© 2026 - Société des Amis de la Révolution Française</p>
+    </footer>
+
+    <script>
+        // Fonction pour remplir et ouvrir la page de détails
+        function ouvrirDetails(titre, img, prix, pages, desc) {
+            document.getElementById('modalTitre').innerText = titre;
+            document.getElementById('modalImg').src = img;
+            document.getElementById('modalPrix').innerText = "Prix : " + prix;
+            document.getElementById('modalPages').innerText = "Nombre de pages : " + pages;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('monLivret').style.display = "block";
+        }
+
+        // Fonction pour fermer la page de détails
+        function fermerDetails() {
+            document.getElementById('monLivret').style.display = "none";
+        }
+
+        // Fermer si on clique en dehors de la boîte
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('monLivret')) {
+                fermerDetails();
+            }
+        }
+    </script>
+
 </body>
 </html>
