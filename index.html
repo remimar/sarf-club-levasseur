@@ -23,54 +23,57 @@
             color: #2c241b; margin: 0; padding: 0; scroll-behavior: smooth;
         }
 
-        /* --- Navigation --- */
+        /* Navigation */
         nav { background: var(--bois-sombre); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--or-vieux); }
         nav a { color: var(--or-ombré); text-decoration: none; margin: 0 12px; font-family: 'Cinzel'; font-size: 0.8rem; transition: 0.3s; }
         nav a:hover { color: white; text-shadow: 0 0 8px var(--or-ombré); }
 
         .hero {
-            height: 45vh;
+            height: 40vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.imgur.com/IadHy6Z.jpeg') center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; color: white; border-bottom: 5px solid var(--or-vieux); padding: 20px;
         }
         .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(1.5rem, 4vw, 3rem); color: var(--jaune-titre); margin: 0; text-shadow: 3px 3px 0px black; }
 
-        /* --- Sections --- */
         section { max-width: 1200px; margin: auto; padding: 40px 20px; }
         h2 { font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal); border-bottom: 2px solid var(--or-vieux); padding-bottom: 10px; }
 
-        /* --- Moments à venir --- */
-        .ag-container { background: white; border: 2px solid var(--or-vieux); padding: 25px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; box-shadow: 5px 5px 15px rgba(0,0,0,0.1); }
-        .img-ag { width: 120px; height: auto; }
+        /* Qui sommes nous */
+        .qui-sommes-nous-container { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; justify-content: center; background: rgba(255,255,255,0.3); padding: 20px; border-radius: 10px; }
+        .ecusson { width: 120px; height: auto; }
 
-        /* --- Carrousels --- */
-        .carousel-container { display: flex; overflow-x: auto; gap: 15px; padding: 20px 0; }
+        /* Moments à venir */
+        .ag-card { background: white; border: 2px solid var(--or-vieux); padding: 20px; display: flex; align-items: center; gap: 20px; box-shadow: 5px 5px 15px rgba(0,0,0,0.1); margin-bottom: 20px; }
+
+        /* Carrousels */
+        .carousel-container { display: flex; overflow-x: auto; gap: 15px; padding: 20px 0; scroll-behavior: smooth; }
         .card { 
             flex: 0 0 180px; background: white; padding: 10px; border: 3px solid var(--bois-sombre); 
-            text-align: center; cursor: pointer; transition: 0.3s;
+            text-align: center; cursor: pointer; transition: 0.3s; position: relative;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--or-ombré); }
-        .card img { width: 100%; height: 240px; object-fit: contain; background: #fdfdfd; }
-        .card p.titre { font-size: 0.7rem; font-weight: bold; margin: 10px 0; height: 40px; overflow: hidden; }
-        .card p.info { color: var(--rouge-royal); font-size: 0.8rem; font-weight: bold; }
-        .btn-plus { font-size: 0.6rem; color: var(--or-vieux); text-transform: uppercase; font-weight: bold; display: block; margin-top: 5px; }
+        .card:hover { transform: translateY(-5px); border-color: var(--or-ombré); background: #fffdf5; }
+        .card img { width: 100%; height: 220px; object-fit: contain; background: #fdfdfd; }
+        .card p.titre { font-size: 0.7rem; font-weight: bold; margin: 10px 0; height: 35px; overflow: hidden; }
+        .card p.info { color: var(--rouge-royal); font-size: 0.75rem; font-weight: bold; border-top: 1px solid #eee; padding-top: 5px; }
 
-        /* --- SYSTÈME DE LA PAGE DÉTAILS (MODALE) --- */
+        /* SYSTÈME DE LA PAGE DÉTAILS (Fenêtre qui s'ouvre) */
         .modal {
             display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+            background-color: rgba(0,0,0,0.85); backdrop-filter: blur(5px);
         }
         .modal-content {
-            background-color: var(--papier); margin: 5% auto; padding: 30px; border: 5px solid var(--bois-sombre);
-            width: 80%; max-width: 800px; position: relative; display: flex; gap: 30px; flex-wrap: wrap;
+            background-color: var(--papier); margin: 5% auto; padding: 30px; border: 6px double var(--bois-sombre);
+            width: 85%; max-width: 850px; position: relative; display: flex; gap: 30px; flex-wrap: wrap; animation: fadeIn 0.3s;
         }
-        .close { position: absolute; right: 15px; top: 5px; font-size: 40px; cursor: pointer; color: var(--rouge-royal); }
-        .modal-img { width: 300px; border: 2px solid var(--bois-sombre); box-shadow: 10px 10px 0px var(--or-vieux); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        .close { position: absolute; right: 15px; top: 5px; font-size: 40px; cursor: pointer; color: var(--rouge-royal); font-weight: bold; }
+        .modal-img { width: 320px; border: 2px solid var(--bois-sombre); box-shadow: 10px 10px 0px var(--or-vieux); }
         .modal-text { flex: 1; min-width: 300px; }
-        .modal-text h3 { font-family: 'Cinzel'; color: var(--rouge-royal); font-size: 1.8rem; margin-top: 0; }
+        .modal-text h3 { font-family: 'Cinzel'; color: var(--rouge-royal); font-size: 1.8rem; margin-top: 0; border-bottom: 2px solid var(--or-vieux); padding-bottom: 10px; }
 
-        footer { background: #1a1a1a; color: var(--or-ombré); padding: 40px; text-align: center; }
+        .congres-box { background: var(--rouge-royal); color: white; padding: 40px; text-align: center; border: 10px double var(--or-ombré); margin: 40px 0; }
+        footer { background: var(--bois-sombre); color: var(--or-ombré); padding: 40px; text-align: center; border-top: 4px solid var(--or-vieux); }
     </style>
 </head>
 <body>
@@ -84,95 +87,115 @@
 
     <div class="hero">
         <h1>SOCIÉTÉ DES AMIS DE LA RÉVOLUTION FRANÇAISE</h1>
-        <p>Club René Levasseur de la Sarthe</p>
+        <p>Club René Levasseur de la Sarthe (SARF)</p>
     </div>
+
+    <section id="qui-sommes-nous">
+        <div class="qui-sommes-nous-container">
+            <img src="https://i.imgur.com/tMgfsyp.png" class="ecusson" alt="Écusson">
+            <div style="flex:1;">
+                <h2>Qui sommes-nous ?</h2>
+                <p>Cette association a pour but l'étude et la recherche sur la <strong>Révolution française</strong>, ainsi que la promotion auprès du public, dans la continuité du bicentenaire, de cette période historique, notamment ses valeurs démocratiques et républicaines.</p>
+                <p style="font-weight: bold; color: var(--rouge-royal);">Cotisation 2026 : 16 €</p>
+            </div>
+        </div>
+    </section>
 
     <section id="moments">
         <h2>Moments à venir</h2>
-        <div class="ag-container">
-            <img src="https://i.imgur.com/9HTvq89.png" class="img-ag" alt="Logo SARF">
-            <div style="flex:1;">
+        <div class="ag-card">
+            <img src="https://i.imgur.com/9HTvq89.png" style="width:100px;">
+            <div>
                 <h3>ASSEMBLÉE GÉNÉRALE</h3>
                 <p><strong>VENDREDI 27 MARS 2026 • 20 h</strong></p>
                 <p>Maison de quartier Pierre Perret, rue Averroès, Le Mans</p>
-                <p style="font-size: 0.9rem; font-style: italic;">Ordre du jour : Rapports d'activité, financier et élection au CA.</p>
+                <p style="font-size: 0.85rem; background: #f4f4f4; padding: 10px;">• Rapports d’activité et financier (P. 2 & 3) <br>• Candidatures 2026 au Conseil d’administration (P. 4)</p>
+            </div>
+        </div>
+        <div class="ag-card">
+            <img src="https://i.imgur.com/dVJtIEf.jpeg" style="width:100px; height:100px; object-fit: cover;">
+            <div>
+                <h3>PLUMES ET PINCEAUX - 20e édition</h3>
+                <p>Parc Monod, Le Mans. Nous serons présents pour présenter nos travaux et échanger avec le public.</p>
             </div>
         </div>
     </section>
 
     <section id="livrets">
         <h2>Les Livrets de Recherche</h2>
+        <p style="text-align: center; font-style: italic;">Cliquez sur un livret pour lire le résumé</p>
         <div class="carousel-container">
-            <div class="card" onclick="ouvrirDetails('N°1 - Une histoire toujours vivante', 'https://i.imgur.com/f3Ht4CD.jpeg', '2 €', '32 p.', 'Ce premier livret pose les bases de notre réflexion sur l\'héritage de la Révolution dans le monde contemporain.')">
-                <img src="https://i.imgur.com/f3Ht4CD.jpeg">
-                <p class="titre">N°1 - Une histoire toujours vivante</p>
-                <p class="info">2 € | 32 p.</p>
-                <span class="btn-plus">En savoir plus</span>
-            </div>
-
-            <div class="card" onclick="ouvrirDetails('N°2 - Les guerres civiles dans l\'Ouest', 'https://i.imgur.com/6xdEdhT.jpeg', '2 €', '32 p.', 'Une analyse détaillée des tensions et des conflits qui ont marqué notre région pendant la période révolutionnaire.')">
-                <img src="https://i.imgur.com/6xdEdhT.jpeg">
-                <p class="titre">N°2 - Guerres dans l'Ouest</p>
-                <p class="info">2 € | 32 p.</p>
-                <span class="btn-plus">En savoir plus</span>
-            </div>
-
+            <div class="card" onclick="ouvrir('N°1 - Une histoire toujours vivante', 'https://i.imgur.com/f3Ht4CD.jpeg', '2 €', '32 p.', 'Résumé du livret 1 : Présentation de l\'importance de la mémoire révolutionnaire...')"><img src="https://i.imgur.com/f3Ht4CD.jpeg"><p class="titre">N°1 - Une histoire vivante</p><p class="info">2 € | 32 p.</p></div>
+            <div class="card" onclick="ouvrir('N°2 - Les guerres civiles dans l\'Ouest', 'https://i.imgur.com/6xdEdhT.jpeg', '2 €', '32 p.', 'Résumé du livret 2 : Analyse des conflits vendéens et chouans...')"><img src="https://i.imgur.com/6xdEdhT.jpeg"><p class="titre">N°2 - Guerres de l'Ouest</p><p class="info">2 € | 32 p.</p></div>
+            <div class="card" onclick="ouvrir('N°4 - Juillet 1789', 'https://i.imgur.com/TdL2coI.jpeg', '2 €', '28 p.', 'Résumé du livret 4 : Les événements parisiens et leur impact en province...')"><img src="https://i.imgur.com/TdL2coI.jpeg"><p class="titre">N°4 - Juillet 1789</p><p class="info">2 € | 28 p.</p></div>
+            <div class="card" onclick="ouvrir('N°5 - La Révolution au Cinéma', 'https://i.imgur.com/eRrP2GY.jpeg', '2 €', '48 p.', 'Résumé du livret 5 : Étude des films majeurs sur la période...')"><img src="https://i.imgur.com/eRrP2GY.jpeg"><p class="titre">N°5 - Le Cinéma</p><p class="info">2 € | 48 p.</p></div>
+            <div class="card" onclick="ouvrir('N°6 - St-Michel de Chavaigne', 'https://i.imgur.com/Ph93KRp.jpeg', '2 €', '28 p.', 'Résumé du livret 6 : Les cahiers de doléances locaux...')"><img src="https://i.imgur.com/Ph93KRp.jpeg"><p class="titre">N°6 - Doléances</p><p class="info">2 € | 28 p.</p></div>
+            <div class="card" onclick="ouvrir('N°7 - Fondation de la République', 'https://i.imgur.com/3SmDYVw.jpeg', '2 €', '40 p.', 'Résumé du livret 7 : L\'an 1792 et la fin de la monarchie...')"><img src="https://i.imgur.com/3SmDYVw.jpeg"><p class="titre">N°7 - République</p><p class="info">2 € | 40 p.</p></div>
+            <div class="card" onclick="ouvrir('N°8 - Égaux & Utopie', 'https://i.imgur.com/L4ZVyNf.jpeg', '2 €', '52 p.', 'Résumé du livret 8 : Mouvements égalitaires et pré-socialisme...')"><img src="https://i.imgur.com/L4ZVyNf.jpeg"><p class="titre">N°8 - Égaux</p><p class="info">2 € | 52 p.</p></div>
+            <div class="card" onclick="ouvrir('N°9 - Femmes en Révolution', 'https://i.imgur.com/sn3leE7.jpeg', '2 €', '36 p.', 'Résumé du livret 9 : Rôle des citoyennes et clubs de femmes...')"><img src="https://i.imgur.com/sn3leE7.jpeg"><p class="titre">N°9 - Femmes</p><p class="info">2 € | 36 p.</p></div>
+            <div class="card" onclick="ouvrir('N°10 - Levasseur : Épiderme', 'https://i.imgur.com/Hha4V4v.jpeg', '2 €', '32 p.', 'Résumé du livret 10 : Étude sur le chirurgien et conventionnel sarthois...')"><img src="https://i.imgur.com/Hha4V4v.jpeg"><p class="titre">N°10 - Levasseur</p><p class="info">2 € | 32 p.</p></div>
+            <div class="card" onclick="ouvrir('N°11 - 1793 Le Mans / Ossements', 'https://i.imgur.com/uwbeGlU.jpeg', '2 €', '44 p.', 'Résumé du livret 11 : Découvertes archéologiques Place des Jacobins...')"><img src="https://i.imgur.com/uwbeGlU.jpeg"><p class="titre">N°11 - 1793 Le Mans</p><p class="info">2 € | 44 p.</p></div>
+            <div class="card" onclick="ouvrir('N°12 - Levasseur Maine-et-Loire', 'https://i.imgur.com/J7kXA5T.jpeg', '2 €', '32 p.', 'Résumé du livret 12 : Ses missions dans le département voisin...')"><img src="https://i.imgur.com/J7kXA5T.jpeg"><p class="titre">N°12 - Maine-et-Loire</p><p class="info">2 € | 32 p.</p></div>
+            <div class="card" onclick="ouvrir('N°13 - Abolition de l\'esclavage', 'https://i.imgur.com/pxQVuRQ.jpeg', '2 €', '40 p.', 'Résumé du livret 13 : Le décret de Pluviôse An II...')"><img src="https://i.imgur.com/pxQVuRQ.jpeg"><p class="titre">N°13 - Esclavage</p><p class="info">2 € | 40 p.</p></div>
+            <div class="card" onclick="ouvrir('N°19 - Robespierre', 'https://i.imgur.com/giNICLk.jpeg', '4 €', '56 p.', 'Résumé du livret 19 : Portrait politique de l\'Incorruptible...')"><img src="https://i.imgur.com/giNICLk.jpeg"><p class="titre">N°19 - Robespierre</p><p class="info">4 € | 56 p.</p></div>
+            <div class="card" onclick="ouvrir('N°21 - Marat l\'Ami du Peuple', 'https://i.imgur.com/xI0YZh0.jpeg', '4 €', '52 p.', 'Résumé du livret 21 : Le journaliste et le tribun...')"><img src="https://i.imgur.com/xI0YZh0.jpeg"><p class="titre">N°21 - Marat</p><p class="info">4 € | 52 p.</p></div>
+            <div class="card" onclick="ouvrir('N°26 - Déchristianisation', 'https://i.imgur.com/cJ0Es30.jpeg', '4 €', '60 p.', 'Résumé du livret 26 : Les cultes de la Raison et de l\'Être Suprême...')"><img src="https://i.imgur.com/cJ0Es30.jpeg"><p class="titre">N°26 - Religion</p><p class="info">4 € | 60 p.</p></div>
+            <div class="card" onclick="ouvrir('N°37 - Église / État / École', 'https://i.imgur.com/mdQJfZP.jpeg', '2 €', '56 p.', 'Résumé du livret 37 : Les racines de la laïcité française...')"><img src="https://i.imgur.com/mdQJfZP.jpeg"><p class="titre">N°37 - Laïcité</p><p class="info">2 € | 56 p.</p></div>
             </div>
     </section>
 
     <section id="ouvrages">
-        <h2>Ouvrages & Hors-Séries</h2>
+        <h2>Ouvrages de Référence & Hors-Séries</h2>
         <div class="carousel-container">
-            <div class="card" onclick="ouvrirDetails('L\'An 1 de la Liberté', 'https://i.imgur.com/aW5ptfD.jpeg', '6 €', '112 p.', 'Un hors-série exceptionnel revenant sur les moments fondateurs de 1789.')">
-                <img src="https://i.imgur.com/aW5ptfD.jpeg">
-                <p class="titre">HS N°1 - L'An 1 de la Liberté</p>
-                <p class="info">6 € | 112 p.</p>
-                <span class="btn-plus">En savoir plus</span>
-            </div>
-            </div>
+            <div class="card" onclick="ouvrir('Registre des délibérations - Le Mans', 'https://i.imgur.com/2xlUTPY.jpeg', '16 €', '480 p.', 'Un document historique majeur de 1790 à 1792...')"><img src="https://i.imgur.com/2xlUTPY.jpeg"><p class="titre">Registre 1790-92</p><p class="info">16 € | 480 p.</p></div>
+            <div class="card" onclick="ouvrir('Mémoires de René Levasseur - T1/2', 'https://i.imgur.com/mZ4yibA.jpeg', '15 €', '520 p.', 'Les souvenirs du conventionnel sarthois...')"><img src="https://i.imgur.com/mZ4yibA.jpeg"><p class="titre">Levasseur T1-2</p><p class="info">15 € | 520 p.</p></div>
+            <div class="card" onclick="ouvrir('Mémoires de René Levasseur - T3/4', 'https://i.imgur.com/SIGJoQQ.jpeg', '15 €', '500 p.', 'Suite et fin des mémoires politiques...')"><img src="https://i.imgur.com/SIGJoQQ.jpeg"><p class="titre">Levasseur T3-4</p><p class="info">15 € | 500 p.</p></div>
+            <div class="card" onclick="ouvrir('HS 1 - L\'An 1 de la Liberté', 'https://i.imgur.com/aW5ptfD.jpeg', '6 €', '112 p.', 'Hors série spécial sur 1789...')"><img src="https://i.imgur.com/aW5ptfD.jpeg"><p class="titre">HS N°1</p><p class="info">6 € | 112 p.</p></div>
+            <div class="card" onclick="ouvrir('HS 2 - La Révolution en Chansons', 'https://i.imgur.com/bHsZ84b.jpeg', '2 €', '64 p.', 'Textes et partitions de l\'époque...')"><img src="https://i.imgur.com/bHsZ84b.jpeg"><p class="titre">HS N°2</p><p class="info">2 € | 64 p.</p></div>
+            <div class="card" onclick="ouvrir('HS 3 - Bataille d\'Hondschoote', 'https://i.imgur.com/ao7mOex.jpeg', '2 €', '44 p.', 'Récit de la victoire républicaine...')"><img src="https://i.imgur.com/ao7mOex.jpeg"><p class="titre">HS N°3</p><p class="info">2 € | 44 p.</p></div>
+            <div class="card" onclick="ouvrir('HS 4 - À propos de René Levasseur', 'https://i.imgur.com/SLXVemE.jpeg', '2 €', '40 p.', 'Études variées sur le personnage...')"><img src="https://i.imgur.com/SLXVemE.jpeg"><p class="titre">HS N°4</p><p class="info">2 € | 40 p.</p></div>
+        </div>
     </section>
 
-    <div id="monLivret" class="modal">
+    <div class="congres-box">
+        <h2>IVe CONGRÈS NATIONAL 2026</h2>
+        <p>DES SOCIÉTÉS AMIES DE LA RÉVOLUTION FRANÇAISE</p>
+        <p style="font-size: 2rem; font-family: 'Cinzel';">LE MANS • SEPTEMBRE 2026</p>
+    </div>
+
+    <div id="monLivre" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="fermerDetails()">&times;</span>
-            <img id="modalImg" class="modal-img" src="">
+            <span class="close" onclick="fermer()">&times;</span>
+            <img id="mImg" class="modal-img" src="">
             <div class="modal-text">
-                <h3 id="modalTitre"></h3>
-                <p id="modalPrix" style="font-weight: bold; color: var(--rouge-royal);"></p>
-                <p id="modalPages" style="font-style: italic;"></p>
+                <h3 id="mTitre"></h3>
+                <p id="mPrix" style="font-weight: bold; color: var(--rouge-royal); font-size: 1.2rem;"></p>
+                <p id="mPages" style="font-style: italic; color: #666;"></p>
                 <hr>
-                <p id="modalDesc"></p>
-                <button onclick="fermerDetails()" style="margin-top:20px; padding:10px; background:var(--bois-sombre); color:white; border:none; cursor:pointer; font-family:'Cinzel';">Retour à la librairie</button>
+                <p id="mDesc" style="line-height: 1.6;"></p>
+                <button onclick="fermer()" style="margin-top:20px; padding:10px 20px; background:var(--bois-sombre); color:white; border:none; cursor:pointer; font-family:'Cinzel';">Fermer</button>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>© 2026 - Société des Amis de la Révolution Française</p>
+        <p>SOCIÉTÉ DES AMIS DE LA RÉVOLUTION FRANÇAISE - LE MANS</p>
+        <p>© 2026 - Club René Levasseur de la Sarthe</p>
     </footer>
 
     <script>
-        // Fonction pour remplir et ouvrir la page de détails
-        function ouvrirDetails(titre, img, prix, pages, desc) {
-            document.getElementById('modalTitre').innerText = titre;
-            document.getElementById('modalImg').src = img;
-            document.getElementById('modalPrix').innerText = "Prix : " + prix;
-            document.getElementById('modalPages').innerText = "Nombre de pages : " + pages;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('monLivret').style.display = "block";
+        function ouvrir(titre, img, prix, pages, desc) {
+            document.getElementById('mTitre').innerText = titre;
+            document.getElementById('mImg').src = img;
+            document.getElementById('mPrix').innerText = "Prix : " + prix;
+            document.getElementById('mPages').innerText = "Nombre de pages : " + pages;
+            document.getElementById('mDesc').innerText = desc;
+            document.getElementById('monLivre').style.display = "block";
         }
-
-        // Fonction pour fermer la page de détails
-        function fermerDetails() {
-            document.getElementById('monLivret').style.display = "none";
+        function fermer() {
+            document.getElementById('monLivre').style.display = "none";
         }
-
-        // Fermer si on clique en dehors de la boîte
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('monLivret')) {
-                fermerDetails();
-            }
-        }
+        window.onclick = function(e) { if (e.target == document.getElementById('monLivre')) fermer(); }
     </script>
 
 </body>
