@@ -23,89 +23,66 @@
             color: #2c241b; margin: 0; padding: 0; scroll-behavior: smooth;
         }
 
-        /* --- Navigation --- */
         nav { background: var(--bois-sombre); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--or-vieux); }
-        nav a { color: var(--or-ombré); text-decoration: none; margin: 0 12px; font-family: 'Cinzel'; font-size: 0.8rem; transition: 0.3s; white-space: nowrap; }
+        nav a { color: var(--or-ombré); text-decoration: none; margin: 0 12px; font-family: 'Cinzel'; font-size: 0.8rem; transition: 0.3s; }
         nav a:hover { color: white; text-shadow: 0 0 8px var(--or-ombré); }
 
-        /* --- Hero Section --- */
         .hero {
-            height: 60vh;
+            height: 55vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.imgur.com/IadHy6Z.jpeg') center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center; color: white; border-bottom: 5px solid var(--or-vieux); padding: 20px;
         }
         
         .hero h1 { 
-            font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 5vw, 3.5rem); color: var(--jaune-titre); margin: 0; line-height: 1.1;
+            font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 5vw, 3.5rem); color: var(--jaune-titre); margin: 0;
             text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8);
-            letter-spacing: 2px; max-width: 1000px;
         }
         
-        .hero p { font-family: 'Dancing Script'; font-size: clamp(1.5rem, 4vw, 2.5rem); margin-top: 15px; text-shadow: 2px 2px 4px black; color: #fff; }
+        .hero p { font-family: 'Dancing Script'; font-size: 2.2rem; margin-top: 15px; text-shadow: 2px 2px 4px black; }
 
-        /* --- Sections --- */
-        section { max-width: 1200px; margin: auto; padding: 60px 20px; }
-        h2 { font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal); font-size: 2.2rem; margin-bottom: 40px; border-bottom: 2px solid var(--or-vieux); padding-bottom: 15px; }
+        section { max-width: 1200px; margin: auto; padding: 50px 20px; }
+        h2 { font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal); font-size: 2.2rem; margin-bottom: 30px; border-bottom: 2px solid var(--or-vieux); padding-bottom: 10px; }
 
-        /* --- Carrousel de Cartes --- */
-        .carousel-wrapper { position: relative; }
-        .carousel-container { 
-            display: flex; overflow-x: auto; gap: 20px; padding: 20px 5px; 
-            scroll-snap-type: x mandatory; scrollbar-width: thin; 
-        }
-        .carousel-container::-webkit-scrollbar { height: 10px; }
-        .carousel-container::-webkit-scrollbar-thumb { background: var(--or-vieux); border-radius: 10px; }
-
+        /* Effet Loupe et Carrousel */
+        .carousel-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; scroll-behavior: smooth; }
         .card { 
-            flex: 0 0 200px; background: #fffdf9; padding: 12px; 
-            border: 1px solid #d1c4a8; border-bottom: 4px solid var(--bois-sombre);
-            text-align: center; box-shadow: 5px 5px 15px rgba(0,0,0,0.1); 
-            transition: transform 0.3s, border-color 0.3s; text-decoration: none; color: inherit;
-            scroll-snap-align: start;
+            flex: 0 0 220px; background: white; padding: 10px; border: 4px solid var(--bois-sombre); 
+            text-align: center; transition: 0.3s; text-decoration: none; color: inherit;
+            overflow: hidden; /* Pour l'effet loupe */
         }
-        .card:hover { transform: translateY(-10px); border-color: var(--rouge-royal); box-shadow: 5px 15px 25px rgba(0,0,0,0.2); }
-        .card img { width: 100%; height: 280px; object-fit: cover; margin-bottom: 12px; border: 1px solid #eee; }
-        .card p.titre { font-size: 0.75rem; font-weight: bold; height: 50px; display: flex; align-items: center; justify-content: center; text-transform: uppercase; line-height: 1.3; margin: 0; }
-        .card p.info { font-size: 0.9rem; color: var(--rouge-royal); font-weight: bold; margin-top: 10px; border-top: 1px solid #e8dcc4; padding-top: 8px; }
-
-        /* --- Blocs Spéciaux --- */
-        .block-info { background: rgba(255,255,255,0.8); padding: 40px; border-left: 8px solid var(--rouge-royal); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .congres-box { background: var(--rouge-royal); color: white; padding: 50px 20px; text-align: center; border: 10px double var(--or-ombré); margin: 40px 0; }
-
-        .paiement-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .methode { background: white; padding: 25px; border: 1px solid var(--or-vieux); border-top: 4px solid var(--or-vieux); }
-        .methode h3 { font-family: 'Cinzel'; color: var(--rouge-royal); margin-top: 0; }
-
-        /* --- Espace Membre --- */
-        #login { transition: 0.5s; }
-        .input-citoyen { 
-            padding: 15px; width: 250px; border: 2px solid var(--or-vieux); 
-            background: #fdfdfd; font-size: 1.1rem; text-align: center; outline: none;
+        .card:hover { transform: translateY(-5px); border-color: var(--or-ombré); }
+        
+        .img-container { width: 100%; height: 300px; overflow: hidden; margin-bottom: 10px; border: 1px solid #ddd; }
+        .card img { 
+            width: 100%; height: 100%; object-fit: contain; /* Garde l'image entière */
+            transition: transform 0.5s ease; 
+            background: #f9f9f9;
         }
-        .btn-citoyen { 
-            padding: 15px 30px; background: var(--or-vieux); border: none; 
-            font-family: 'Cinzel'; font-weight: bold; cursor: pointer; transition: 0.3s;
-        }
-        .btn-citoyen:hover { background: var(--or-ombré); color: white; }
+        .card:hover img { transform: scale(1.2); } /* Effet Loupe */
 
-        footer { background: #1a1a1a; color: var(--or-ombré); padding: 60px 20px; text-align: center; border-top: 5px solid var(--or-vieux); font-size: 0.9rem; }
+        .block-info { background: rgba(255,255,255,0.7); padding: 30px; border-left: 6px solid var(--rouge-royal); box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 40px; }
+        
+        /* Rubrique Moments à venir */
+        .evenement-card { background: var(--or-vieux); color: white; padding: 25px; border-radius: 5px; display: flex; align-items: center; gap: 20px; margin-bottom: 20px; }
+        .date-badge { background: var(--rouge-royal); padding: 15px; border-radius: 5px; font-family: 'Cinzel'; text-align: center; min-width: 80px; }
 
-        @media (max-width: 768px) {
-            nav { display: flex; overflow-x: auto; white-space: nowrap; }
-            .hero { height: 40vh; }
-        }
+        .congres-box { background: var(--rouge-royal); color: white; padding: 40px; text-align: center; border: 10px double var(--or-ombré); margin: 40px 0; }
+        .paiement-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .methode { background: white; padding: 20px; border: 1px solid var(--or-vieux); box-shadow: 3px 3px 0px var(--or-vieux); }
+
+        footer { background: #1a1a1a; color: var(--or-ombré); padding: 50px 20px; text-align: center; border-top: 5px solid var(--or-vieux); }
     </style>
 </head>
 <body>
 
     <nav>
         <a href="#qui-sommes-nous">QUI SOMMES-NOUS</a>
+        <a href="#moments">MOMENTS À VENIR</a>
         <a href="#congres">CONGRÈS 2026</a>
         <a href="#livrets">LES LIVRETS</a>
         <a href="#ouvrages">OUVRAGES</a>
         <a href="#paiement">COMMANDER</a>
-        <a href="#login">ESPACE MEMBRE</a>
     </nav>
 
     <div class="hero">
@@ -116,51 +93,67 @@
     <section id="qui-sommes-nous">
         <div class="block-info">
             <h2>Qui sommes-nous ?</h2>
-            <p>La <strong>SARF</strong> est une société savante sarthoise dédiée à l'étude de la période révolutionnaire. Notre club porte le nom de <strong>René Levasseur</strong> (1747-1834), médecin manceau et député de la Sarthe à la Convention Nationale.</p>
-            <p>Nous œuvrons pour la transmission de la mémoire républicaine à travers la recherche historique et la publication de travaux originaux.</p>
-            <p style="text-align: center; font-weight: bold; font-size: 1.4rem; color: var(--rouge-royal); background: #fff; padding: 20px; border: 2px dashed var(--or-ombré); margin-top: 30px;">
-                Adhésion annuelle : 16 €
-            </p>
+            <p>Cette association a pour but l'étude et la recherche sur la <strong>Révolution française</strong>, ainsi que la promotion auprès du public, dans la continuité du bicentenaire, de cette période historique, notamment ses valeurs démocratiques et républicaines.</p>
+            <p style="text-align: center; font-weight: bold; font-size: 1.3rem; color: var(--rouge-royal); background: #fff; padding: 15px; border: 2px dashed var(--or-ombré);">Cotisation annuelle d'adhésion : 16 €</p>
+        </div>
+    </section>
+
+    <section id="moments">
+        <h2>Moments à venir</h2>
+        <div class="evenement-card">
+            <div class="date-badge">
+                <span style="font-size: 1.5rem; display: block;">20e</span>
+                <span style="font-size: 0.8rem;">Édition</span>
+            </div>
+            <div>
+                <h3 style="margin: 0; font-family: 'Cinzel';">PLUMES ET PINCEAUX</h3>
+                <p style="margin: 5px 0;">Nous serons présents au <strong>Parc Monod, Le Mans</strong> pour cette grande rencontre culturelle.</p>
+            </div>
         </div>
     </section>
 
     <section id="congres">
         <div class="congres-box">
-            <h2 style="color: var(--or-ombré); border: none; margin: 0; text-shadow: 2px 2px 0px black;">CONGRÈS NATIONAL 2026</h2>
-            <p style="font-size: clamp(1.5rem, 4vw, 2.2rem); font-family: 'Cinzel'; margin: 15px 0;">LE MANS • SEPTEMBRE 2026</p>
-            <p style="font-style: italic;">Plus d'informations à venir prochainement.</p>
+            <h2 style="color: var(--or-ombré); border: none; margin: 0; text-shadow: 2px 2px 0px black;">IVe CONGRÈS NATIONAL 2026</h2>
+            <p style="font-size: 1.2rem; font-family: 'Cinzel'; margin-top: 10px;">DES SOCIÉTÉS AMIES DE LA RÉVOLUTION FRANÇAISE</p>
+            <p style="font-size: 2.2rem; font-family: 'Cinzel'; margin: 15px 0;">LE MANS • SEPTEMBRE 2026</p>
         </div>
     </section>
 
     <section id="livrets">
         <h2>Les Livrets de Recherche</h2>
         <div class="carousel-container">
-            <div class="card"><img src="https://i.imgur.com/f3Ht4CD.jpeg"><p class="titre">N°1 - Une histoire vivante</p><p class="info">2 € | 32 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/6xdEdhT.jpeg"><p class="titre">N°2 - Guerres de l'Ouest</p><p class="info">2 € | 32 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/TdL2coI.jpeg"><p class="titre">N°4 - Juillet 1789</p><p class="info">2 € | 28 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/eRrP2GY.jpeg"><p class="titre">N°5 - Révolution au Cinéma</p><p class="info">2 € | 48 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/Ph93KRp.jpeg"><p class="titre">N°6 - St-Michel de Chavaigne</p><p class="info">2 € | 28 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/3SmDYVw.jpeg"><p class="titre">N°7 - Fondation République</p><p class="info">2 € | 40 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/L4ZVyNf.jpeg"><p class="titre">N°8 - Égaux & Utopie</p><p class="info">2 € | 52 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/sn3leE7.jpeg"><p class="titre">N°9 - Femmes en Révolution</p><p class="info">2 € | 48 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/Hha4V4v.jpeg"><p class="titre">N°10 - Épiderme & Race</p><p class="info">2 € | 40 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/uwbeGlU.jpeg"><p class="titre">N°11 - 1793 Ossements</p><p class="info">2 € | 40 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/J7kXA5T.jpeg"><p class="titre">N°12 - Levasseur en Anjou</p><p class="info">2 € | 40 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/pxQVuRQ.jpeg"><p class="titre">N°13 - Abolition Esclavage</p><p class="info">2 € | 36 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/giNICLk.jpeg"><p class="titre">N°19 - Robespierre</p><p class="info">4 € | 56 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/xI0YZh0.jpeg"><p class="titre">N°21 - Marat l'Ami du Peuple</p><p class="info">4 € | 52 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/cJ0Es30.jpeg"><p class="titre">N°26 - Déchristianisation</p><p class="info">4 € | 60 p.</p></div>
-            <div class="card"><img src="https://i.imgur.com/mdQJfZP.jpeg"><p class="titre">N°37 - Église / État / École</p><p class="info">2 € | 56 p.</p></div>
-        </div>
+            <a href="https://i.imgur.com/f3Ht4CD.jpeg" target="_blank" class="card">
+                <div class="img-container"><img src="https://i.imgur.com/f3Ht4CD.jpeg" alt="Livret 1"></div>
+                <p class="titre">N°1 - Une histoire toujours vivante</p>
+                <p class="info">2 € | 32 p.</p>
+            </a>
+            <a href="https://i.imgur.com/6xdEdhT.jpeg" target="_blank" class="card">
+                <div class="img-container"><img src="https://i.imgur.com/6xdEdhT.jpeg" alt="Livret 2"></div>
+                <p class="titre">N°2 - Les guerres civiles dans l'Ouest</p>
+                <p class="info">2 € | 32 p.</p>
+            </a>
+            </div>
     </section>
 
     <section id="ouvrages">
         <h2>Ouvrages de Référence</h2>
         <div class="carousel-container">
-            <div class="card" style="flex:0 0 280px;"><img src="https://i.imgur.com/2xlUTPY.jpeg"><p class="titre">Délibérations du Mans 1790-92</p><p class="info">16 € | 480 p.</p></div>
-            <div class="card" style="flex:0 0 280px;"><img src="https://i.imgur.com/mZ4yibA.jpeg"><p class="titre">Mémoires de Levasseur (1-2)</p><p class="info">15 € | 520 p.</p></div>
-            <div class="card" style="flex:0 0 280px;"><img src="https://i.imgur.com/SIGJoQQ.jpeg"><p class="titre">Mémoires de Levasseur (3-4)</p><p class="info">15 € | 500 p.</p></div>
-            <div class="card" style="flex:0 0 280px;"><img src="https://i.imgur.com/aW5ptfD.jpeg"><p class="titre">HS N°1 - L'An 1 de la Liberté</p><p class="info">6 € | 112 p.</p></div>
+            <a href="https://i.imgur.com/2xlUTPY.jpeg" target="_blank" class="card" style="flex:0 0 280px;">
+                <div class="img-container"><img src="https://i.imgur.com/2xlUTPY.jpeg" alt="Registre"></div>
+                <p class="titre">Registre délibérations Mans 1790-1792</p>
+                <p class="info">16 € | 480 p.</p>
+            </a>
+            <a href="https://i.imgur.com/mZ4yibA.jpeg" target="_blank" class="card" style="flex:0 0 280px;">
+                <div class="img-container"><img src="https://i.imgur.com/mZ4yibA.jpeg" alt="Mémoires 1"></div>
+                <p class="titre">Mémoires de R. Levasseur - T1 et 2</p>
+                <p class="info">15 € | 520 p.</p>
+            </a>
+            <a href="https://i.imgur.com/SIGJoQQ.jpeg" target="_blank" class="card" style="flex:0 0 280px;">
+                <div class="img-container"><img src="https://i.imgur.com/SIGJoQQ.jpeg" alt="Mémoires 2"></div>
+                <p class="titre">Mémoires de R. Levasseur - T3 et 4</p>
+                <p class="info">15 € | 500 p.</p>
+            </a>
         </div>
     </section>
 
@@ -168,57 +161,20 @@
         <h2>Modalités de Commande</h2>
         <div class="paiement-grid">
             <div class="methode">
-                <h3>1. Contact</h3>
+                <h3>Contact Commande</h3>
                 <p><strong>Daniel Jouteux</strong><br>📞 06 22 20 12 83<br>📧 sarf.72@sfr.fr</p>
             </div>
             <div class="methode">
-                <h3>2. Règlement</h3>
+                <h3>Règlement</h3>
                 <p><strong>Chèque :</strong> Ordre "SARF 72"<br><strong>IBAN :</strong> FR76 1380 7007 4801 0198 6929 764</p>
             </div>
-            <div class="methode">
-                <h3>3. Réception</h3>
-                <p><strong>Retrait :</strong> 13 impasse des Étamines, 72000 Le Mans<br><strong>Envoi :</strong> Frais de port en sus (nous consulter).</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="login" style="text-align: center; background: var(--bois-sombre); color: white; padding: 80px 20px;">
-        <h2 style="color: var(--jaune-titre); border: none; text-shadow: 2px 2px 0px black;">ESPACE CITOYEN</h2>
-        <p>Entrez le code pour accéder aux archives privées :</p>
-        <div style="margin-top: 20px;">
-            <input type="password" id="pass" class="input-citoyen" placeholder="Code secret">
-            <button onclick="valider()" class="btn-citoyen">ENTRER</button>
-        </div>
-        
-        <div id="zone-secrete" style="display:none; margin-top: 40px; background: white; color: black; padding: 40px; border: 5px solid var(--or-ombré); max-width: 800px; margin-left: auto; margin-right: auto;">
-            <h3 style="font-family: 'Cinzel'; color: var(--rouge-royal);">Archives de la Société</h3>
-            <hr>
-            <p>Bienvenue, Citoyen. Vous avez maintenant accès aux documents internes :</p>
-            <ul style="list-style: none; padding: 0; line-height: 2;">
-                <li>📁 <a href="#">Comptes-rendus des Assemblées Générales</a></li>
-                <li>🖼️ <a href="#">Galerie photos des sorties culturelles</a></li>
-                <li>📜 <a href="#">Documents de recherche inédits</a></li>
-            </ul>
         </div>
     </section>
 
     <footer>
-        <p><strong>SOCIÉTÉ DES AMIS DE LA RÉVOLUTION FRANÇAISE - LE MANS</strong></p>
-        <p>© 2026 - Club René Levasseur de la Sarthe</p>
-        <p style="font-size: 0.7rem; opacity: 0.6; margin-top: 20px;">Liberté • Égalité • Fraternité</p>
+        <p>SOCIÉTÉ DES AMIS DE LA RÉVOLUTION FRANÇAISE - LE MANS</p>
+        <p>© 2026 - Club René Levasseur</p>
     </footer>
 
-    <script>
-        function valider() {
-            // Le code est la date de naissance de René Levasseur (26/05/1747)
-            if(document.getElementById('pass').value === "26051747") {
-                document.getElementById('zone-secrete').style.display = "block";
-                document.getElementById('zone-secrete').scrollIntoView();
-                alert("Accès autorisé, Citoyen !");
-            } else { 
-                alert("Code incorrect. Indice : Date de naissance de René Levasseur (JJMMAAAA)"); 
-            }
-        }
-    </script>
 </body>
 </html>
