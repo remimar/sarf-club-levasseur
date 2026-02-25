@@ -2,187 +2,23 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SARF - Société des Amis de la Révolution Française</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <title>Détails Livret N°1</title>
     <style>
-        :root {
-            --rouge-royal: #630d16;
-            --or-ombré: #d4af37;
-            --bois-sombre: #2c1e14;
-            --or-vieux: #a67c52;
-            --papier: #e8dcc4;
-            --jaune-titre: #ffcc00;
-        }
-
-        body {
-            font-family: 'Libre Baskerville', serif;
-            background-color: var(--papier);
-            background-image: url('https://www.transparenttextures.com/patterns/handmade-paper.png');
-            background-attachment: fixed;
-            color: #2c241b; margin: 0; padding: 0; scroll-behavior: smooth;
-        }
-
-        nav { background: var(--bois-sombre); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--or-vieux); }
-        nav a { color: var(--or-ombré); text-decoration: none; margin: 0 12px; font-family: 'Cinzel'; font-size: 0.8rem; transition: 0.3s; }
-        nav a:hover { color: white; text-shadow: 0 0 8px var(--or-ombré); }
-
-        .hero {
-            height: 55vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.imgur.com/IadHy6Z.jpeg') center/cover;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: white; border-bottom: 5px solid var(--or-vieux); padding: 20px;
-        }
-        
-        .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 5vw, 3.5rem); color: var(--jaune-titre); margin: 0; text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8); }
-        .hero p { font-family: 'Dancing Script'; font-size: 2.2rem; margin-top: 15px; text-shadow: 2px 2px 4px black; }
-
-        section { max-width: 1200px; margin: auto; padding: 50px 20px; }
-        h2 { font-family: 'Cinzel'; text-align: center; color: var(--rouge-royal); font-size: 2.2rem; margin-bottom: 30px; border-bottom: 2px solid var(--or-vieux); padding-bottom: 10px; }
-
-        /* Style Qui Sommes-nous avec Écusson */
-        .qui-sommes-nous-container { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; justify-content: center; }
-        .ecusson { width: 120px; height: auto; filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3)); }
-
-        /* Moments à venir */
-        .evenement-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
-        .evenement-card { background: white; border-left: 10px solid var(--rouge-royal); padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-radius: 4px; }
-        .evenement-card h3 { font-family: 'Cinzel'; color: var(--rouge-royal); margin-top: 0; }
-        .ag-details { font-size: 0.9rem; border-top: 1px solid #eee; margin-top: 10px; padding-top: 10px; }
-
-        /* Carrousel et Cartes */
-        .carousel-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; scroll-behavior: smooth; }
-        .card { 
-            flex: 0 0 190px; background: white; padding: 10px; border: 4px solid var(--bois-sombre); 
-            text-align: center; transition: 0.3s; text-decoration: none; color: inherit; position: relative;
-        }
-        .card:hover { transform: translateY(-10px); border-color: var(--or-ombré); }
-        .img-container { width: 100%; height: 260px; overflow: hidden; background: #f9f9f9; }
-        .card img { width: 100%; height: 100%; object-fit: contain; transition: 0.5s; }
-        .card:hover img { transform: scale(1.1); }
-        .card .hover-text { font-size: 0.65rem; color: var(--or-vieux); font-weight: bold; margin-top: 5px; opacity: 0.8; }
-        
-        .card p.titre { font-size: 0.72rem; font-weight: bold; height: 50px; display: flex; align-items: center; justify-content: center; text-transform: uppercase; margin: 10px 0 0; }
-        .card p.info { font-size: 0.85rem; color: var(--rouge-royal); font-weight: bold; border-top: 1px solid #eee; padding-top: 5px; }
-
-        .congres-box { background: var(--rouge-royal); color: white; padding: 40px; text-align: center; border: 10px double var(--or-ombré); margin: 40px 0; }
-
-        footer { background: #1a1a1a; color: var(--or-ombré); padding: 50px 20px; text-align: center; border-top: 5px solid var(--or-vieux); }
+        body { font-family: 'Libre Baskerville', serif; background: #e8dcc4; padding: 40px; }
+        .detail-container { max-width: 800px; margin: auto; background: white; padding: 20px; border: 5px solid #2c1e14; display: flex; gap: 20px; }
+        img { width: 300px; }
+        .rouge { color: #630d16; font-weight: bold; }
     </style>
 </head>
 <body>
-
-    <nav>
-        <a href="#qui-sommes-nous">QUI SOMMES-NOUS</a>
-        <a href="#moments">MOMENTS À VENIR</a>
-        <a href="#congres">CONGRÈS 2026</a>
-        <a href="#livrets">LES LIVRETS</a>
-        <a href="#ouvrages">OUVRAGES</a>
-    </nav>
-
-    <div class="hero">
-        <h1>SOCIÉTÉ DES AMIS DE LA RÉVOLUTION FRANÇAISE</h1>
-        <p>Club René Levasseur de la Sarthe (SARF)</p>
+    <div class="detail-container">
+        <img src="https://i.imgur.com/f3Ht4CD.jpeg">
+        <div>
+            <h1>Livret N°1 - Une histoire toujours vivante</h1>
+            <p class="rouge">Prix : 2 € | Pages : 32</p>
+            <p><strong>Explication :</strong> Ici vous écrivez votre texte de quelques lignes qui présente le contenu du livret...</p>
+            <button onclick="window.close()">Fermer cette page</button>
+        </div>
     </div>
-
-    <section id="qui-sommes-nous">
-        <div class="qui-sommes-nous-container">
-            <img src="https://i.imgur.com/tMgfsyp.png" class="ecusson" alt="Écusson SARF">
-            <div style="flex: 1; min-width: 300px;">
-                <h2>Qui sommes-nous ?</h2>
-                <p>Cette association a pour but l'étude et la recherche sur la <strong>Révolution française</strong>, ainsi que la promotion auprès du public, dans la continuité du bicentenaire, de cette période historique, notamment ses valeurs démocratiques et républicaines.</p>
-                <p style="font-weight: bold; color: var(--rouge-royal);">Cotisation 2026 d'adhésion : 16 €</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="moments">
-        <h2>Moments à venir</h2>
-        <div class="evenement-grid">
-            <div class="evenement-card">
-                <h3>📢 ASSEMBLÉE GÉNÉRALE</h3>
-                <p><strong>VENDREDI 27 MARS 2026 • 20 h</strong></p>
-                <p>Maison de quartier Pierre Perret, rue Averroès, Le Mans</p>
-                <div class="ag-details">
-                    • Rapports d’activité et financier (P. 2 & 3)<br>
-                    • Acte de candidature 2026 au Conseil d’administration (P. 4)
-                </div>
-            </div>
-            <div class="evenement-card">
-                <h3>🎨 PLUMES ET PINCEAUX</h3>
-                <p><strong>20e édition</strong></p>
-                <p>Nous serons présents au Parc Monod au Mans pour cette rencontre culturelle incontournable.</p>
-                <img src="https://i.imgur.com/dVJtIEf.jpeg" style="width:100%; height:80px; object-fit:cover; margin-top:10px; border-radius:3px;">
-            </div>
-        </div>
-    </section>
-
-    <section id="congres">
-        <div class="congres-box">
-            <h2 style="color: var(--or-ombré); border: none; margin: 0; text-shadow: 2px 2px 0px black;">IVe CONGRÈS NATIONAL 2026</h2>
-            <p style="font-size: 1.1rem; font-family: 'Cinzel'; margin-top: 10px;">DES SOCIÉTÉS AMIES DE LA RÉVOLUTION FRANÇAISE</p>
-            <p style="font-size: 2.2rem; font-family: 'Cinzel'; margin: 15px 0;">LE MANS • SEPTEMBRE 2026</p>
-        </div>
-    </section>
-
-    <section id="livrets">
-        <h2>Les Livrets de Recherche</h2>
-        <p style="text-align:center; font-style:italic;">Cliquez sur un livret pour l'ouvrir en grand</p>
-        <div class="carousel-container">
-            <a href="https://i.imgur.com/f3Ht4CD.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/f3Ht4CD.jpeg"></div><p class="titre">N°1 - Une histoire vivante</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/6xdEdhT.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/6xdEdhT.jpeg"></div><p class="titre">N°2 - Guerres de l'Ouest</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/TdL2coI.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/TdL2coI.jpeg"></div><p class="titre">N°4 - Juillet 1789</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/eRrP2GY.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/eRrP2GY.jpeg"></div><p class="titre">N°5 - La Révolution au Cinéma</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/Ph93KRp.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/Ph93KRp.jpeg"></div><p class="titre">N°6 - St-Michel de Chavaigne</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/3SmDYVw.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/3SmDYVw.jpeg"></div><p class="titre">N°7 - Fondation République</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/L4ZVyNf.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/L4ZVyNf.jpeg"></div><p class="titre">N°8 - Égaux & Utopie</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/sn3leE7.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/sn3leE7.jpeg"></div><p class="titre">N°9 - Femmes en Révolution</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/Hha4V4v.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/Hha4V4v.jpeg"></div><p class="titre">N°10 - Levasseur : Épiderme</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/uwbeGlU.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/uwbeGlU.jpeg"></div><p class="titre">N°11 - 1793 Le Mans / Ossements</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/J7kXA5T.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/J7kXA5T.jpeg"></div><p class="titre">N°12 - Levasseur Maine-et-Loire</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/pxQVuRQ.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/pxQVuRQ.jpeg"></div><p class="titre">N°13 - Abolition de l'esclavage</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/ibsQvey.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/ibsQvey.jpeg"></div><p class="titre">N°14 - L'Abolition iconographie</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/FBBmDTn.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/FBBmDTn.jpeg"></div><p class="titre">N°15 - Constitution Clergé</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/4FRRCYr.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/4FRRCYr.jpeg"></div><p class="titre">N°16 - Varennes : Agonie</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/nS8Kl8O.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/nS8Kl8O.jpeg"></div><p class="titre">N°17 - Boutrouë & Doléances</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/xyQUp7W.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/xyQUp7W.jpeg"></div><p class="titre">N°18 - Abbé Sieyès</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/giNICLk.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/giNICLk.jpeg"></div><p class="titre">N°19 - Robespierre</p><p class="info">4 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/BFmOUNf.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/BFmOUNf.jpeg"></div><p class="titre">N°20 - Révolution et Guerre</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/xI0YZh0.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/xI0YZh0.jpeg"></div><p class="titre">N°21 - Marat l'Ami du Peuple</p><p class="info">4 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/R73EM3q.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/R73EM3q.jpeg"></div><p class="titre">N°22 - Calendrier / Science</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/2FwVCH9.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/2FwVCH9.jpeg"></div><p class="titre">N°23 - Neuvillalais / Conlie</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/7JJYnj6.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/7JJYnj6.jpeg"></div><p class="titre">N°24 - Levasseur : Mission</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/862e5Gn.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/862e5Gn.jpeg"></div><p class="titre">N°25 - Fêtes Révolutionnaires</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/cJ0Es30.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/cJ0Es30.jpeg"></div><p class="titre">N°26 - Déchristianisation</p><p class="info">4 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/YNbADV7.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/YNbADV7.jpeg"></div><p class="titre">N°27 - Vendée, Chouanneries</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/PErARoO.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/PErARoO.jpeg"></div><p class="titre">N°28 - Danton & Philippeaux</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/LYwmyR9.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/LYwmyR9.jpeg"></div><p class="titre">N°29 - Garde Nationale</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/vl8WUFp.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/vl8WUFp.jpeg"></div><p class="titre">N°30 - 1792 Seconde Rév.</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/zltOojJ.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/zltOojJ.jpeg"></div><p class="titre">N°31 - Femmes Actrices</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/zdWK0RQ.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/zdWK0RQ.jpeg"></div><p class="titre">N°32 - 1794 Abolition</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/DWagFbu.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/DWagFbu.jpeg"></div><p class="titre">N°33 - Sciences en Rév.</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/Qfqm4t7.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/Qfqm4t7.jpeg"></div><p class="titre">N°34 - Les Enragés (H/F)</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/AcESaQO.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/AcESaQO.jpeg"></div><p class="titre">N°35 - Hondschoote</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/6NGmYt7.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/6NGmYt7.jpeg"></div><p class="titre">N°36 - Jacques-Rigomer Bazin</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-            <a href="https://i.imgur.com/mdQJfZP.jpeg" target="_blank" class="card"><div class="img-container"><img src="https://i.imgur.com/mdQJfZP.jpeg"></div><p class="titre">N°37 - Séparation Église/État</p><p class="info">2 €</p><span class="hover-text">En savoir plus ⇨</span></a>
-        </div>
-    </section>
-
-    <section id="ouvrages">
-        <h2>Ouvrages de Référence</h2>
-        <div class="carousel-container">
-            <a href="https://i.imgur.com/2xlUTPY.jpeg" target="_blank" class="card" style="flex:0 0 280px;"><div class="img-container"><img src="https://i.imgur.com/2xlUTPY.jpeg"></div><p class="titre">Registre délibérations Mans</p><p class="info">16 €</p><span class="hover-text">Cliquer pour voir l'ouvrage ⇨</span></a>
-            <a href="https://i.imgur.com/mZ4yibA.jpeg" target="_blank" class="card" style="flex:0 0 280px;"><div class="img-container"><img src="https://i.imgur.com/mZ4yibA.jpeg"></div><p class="titre">Mémoires de Levasseur T1-2</p><p class="info">15 €</p><span class="hover-text">Cliquer pour voir l'ouvrage ⇨</span></a>
-            <a href="https://i.imgur.com/SIGJoQQ.jpeg" target="_blank" class="card" style="flex:0 0 280px;"><div class="img-container"><img src="https://i.imgur.com/SIGJoQQ.jpeg"></div><p class="titre">Mémoires de Levasseur T3-4</p><p class="info">15 €</p><span class="hover-text">Cliquer pour voir l'ouvrage ⇨</span></a>
-            <a href="https://i.imgur.com/aW5ptfD.jpeg" target="_blank" class="card" style="flex:0 0 280px;"><div class="img-container"><img src="https://i.imgur.com/aW5ptfD.jpeg"></div><p class="titre">HS N°1 - L'An 1 de la Liberté</p><p class="info">6 €</p><span class="hover-text">Cliquer pour voir l'ouvrage ⇨</span></a>
-        </div>
-    </section>
-
-    <footer style="background: var(--bois-sombre); padding: 40px; border-top: 5px solid var(--or-vieux);">
-        <img src="https://i.imgur.com/9HTvq89.png" style="width:100px; margin-bottom:20px;">
-        <p style="color:white; margin:0;">SOCIÉTÉ DES AMIS DE LA RÉVOLUTION FRANÇAISE</p>
-        <p style="color:var(--or-ombré);">© 2026 - Club René Levasseur de la Sarthe</p>
-    </footer>
-
 </body>
 </html>
